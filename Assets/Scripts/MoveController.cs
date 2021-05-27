@@ -26,12 +26,20 @@ public class MoveController : MonoBehaviour
         }
         else
         {
-            GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 1);
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         }
 
         if (isMoving)
         {
             transform.position = Vector3.MoveTowards(transform.position, pointToMove, speed * Time.deltaTime);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.transform.GetComponent<SelectBoxController>() != null)
+        {
+            isSelected = true;
         }
     }
 

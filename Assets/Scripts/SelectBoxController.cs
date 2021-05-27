@@ -5,6 +5,7 @@ using UnityEngine;
 public class SelectBoxController : MonoBehaviour
 {
     private LineRenderer lineRenderer;
+    private PolygonCollider2D polygonCollider;
     private bool isSelecting = false;
     private Vector3 initialMousePosition;
 
@@ -12,6 +13,7 @@ public class SelectBoxController : MonoBehaviour
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        polygonCollider = GetComponent<PolygonCollider2D>();
         lineRenderer.positionCount = 4;
         lineRenderer.useWorldSpace = true;
         lineRenderer.loop = true;
@@ -27,6 +29,14 @@ public class SelectBoxController : MonoBehaviour
             lineRenderer.SetPosition(1, new Vector3(initialMousePosition.x, currentMousePosition.y, currentMousePosition.z));
             lineRenderer.SetPosition(2, currentMousePosition);
             lineRenderer.SetPosition(3, new Vector3(currentMousePosition.x, initialMousePosition.y, currentMousePosition.z));
+
+            Vector2[] colliderPath = new Vector2[4]{
+                new Vector2(initialMousePosition.x, initialMousePosition.y),
+                new Vector2(initialMousePosition.x, currentMousePosition.y),
+                new Vector2(currentMousePosition.x, currentMousePosition.y),
+                new Vector2(currentMousePosition.x, initialMousePosition.y)
+            };
+            polygonCollider.SetPath(0, colliderPath);
         }
     }
 
@@ -44,7 +54,9 @@ public class SelectBoxController : MonoBehaviour
     public void StopSelecting()
     {
         isSelecting = false;
-        Vector3 iPos = new Vector3(0, 0, -1);
-        lineRenderer.SetPositions(new Vector3[4]{iPos, iPos, iPos, iPos});
+        Vector3 iPos3 = new Vector3(0, 0, -1);
+        Vector2 iPos2 = new Vector2(0, 0);
+        lineRenderer.SetPositions(new Vector3[4]{iPos3, iPos3, iPos3, iPos3});
+        polygonCollider.SetPath(0, new Vector2[4]{iPos2, iPos2, iPos2, iPos2});
     }
 }

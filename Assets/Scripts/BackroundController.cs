@@ -17,7 +17,10 @@ public class BackroundController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonUp(0))
+        {
+            selectBoxController.StopSelecting();
+        }
     }
 
     void OnMouseOver()
@@ -35,10 +38,6 @@ public class BackroundController : MonoBehaviour
                 {
                     moveController.MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                 }
-            }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                selectBoxController.StopSelecting();
             }
         }
     }
