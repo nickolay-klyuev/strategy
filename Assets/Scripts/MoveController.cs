@@ -31,6 +31,14 @@ public class MoveController : MonoBehaviour
 
         if (isMoving)
         {
+            //rotate to point direction
+            Vector3 vectorToTarget = pointToMove - transform.position;
+            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 90;
+            //Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            //move
             transform.position = Vector3.MoveTowards(transform.position, pointToMove, speed * Time.deltaTime);
         }
     }
