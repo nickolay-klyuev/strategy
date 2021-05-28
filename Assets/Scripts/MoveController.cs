@@ -43,14 +43,6 @@ public class MoveController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.transform.GetComponent<SelectBoxController>() != null)
-        {
-            isSelected = true;
-        }
-    }
-
     void OnMouseDown()
     {
         isSelected = true;

@@ -5,5 +5,5 @@ using UnityEngine;
 public class UnitProperties : MonoBehaviour
 {
     public int health = 100;
-    public float attackRange;
+    public float attackRange = 10f;
 }

@@ -40,6 +40,15 @@ public class SelectBoxController : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        MoveController moveController = collider.transform.GetComponent<MoveController>();
+        if (moveController != null)
+        {
+            moveController.SetIsSelected(true);
+        }
+    }
+
     public void StartSelecting()
     {
         isSelecting = true;

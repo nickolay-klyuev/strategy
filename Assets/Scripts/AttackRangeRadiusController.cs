@@ -13,7 +13,7 @@ public class AttackRangeRadiusController : MonoBehaviour
         unitProperties = transform.parent.GetComponent<UnitProperties>();
         circleCollider = GetComponent<CircleCollider2D>();
 
-        //set attack range for collider
+        //set attack range radius to collider 
         circleCollider.radius = unitProperties.attackRange;
     }
 }
