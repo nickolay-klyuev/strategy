@@ -27,4 +27,9 @@ public class AttackRangeRadiusController : MonoBehaviour
             attackController.StartAttack(collider.gameObject);
         }
     }
+
+    void OnTriggerExit2D()
+    {
+        attackController.StopAttack();
+    }
 }
