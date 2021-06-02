@@ -28,6 +28,14 @@ public class AttackRangeRadiusController : MonoBehaviour
         }
     }
 
+    void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.transform.GetComponent<Enemy>() != null && !attackController.GetIsAttacking())
+        {
+            attackController.StartAttack(collider.gameObject);
+        }
+    }
+
     void OnTriggerExit2D()
     {
         attackController.StopAttack();

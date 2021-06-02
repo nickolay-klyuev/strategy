@@ -8,7 +8,6 @@ public class MoveController : MonoBehaviour
 
     private bool isSelected = false;
     private bool isMoving = false;
-    private bool isAttacking = false;
     private Vector3 pointToMove;
     private AttackController attackController;
 
@@ -37,7 +36,7 @@ public class MoveController : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, pointToMove, speed * Time.deltaTime);
         }
         //rotate
-        if (isMoving && !isAttacking)
+        if (isMoving && !attackController.GetIsAttacking())
         {
             RotateToPoint(pointToMove);
         }
@@ -70,11 +69,6 @@ public class MoveController : MonoBehaviour
     public bool GetIsSelected()
     {
         return isSelected;
-    }
-
-    public void SetIsAttacking(bool attacking)
-    {
-        isAttacking = attacking;
     }
 
     public void MoveToPoint(Vector3 point)

@@ -5,17 +5,15 @@ using UnityEngine;
 public class AttackController : MonoBehaviour
 {
     private UnitProperties currentUnitProperties;
-    private MoveController moveController;
     private GameObject targetGameobject;
     private float attackSpeed;
     private float attackPower;
-    //private bool isAttacking = false;
+    private bool isAttacking = false;
 
     // Start is called before the first frame update
     void Start()
     {
         currentUnitProperties = GetComponent<UnitProperties>();
-        moveController = GetComponent<MoveController>();
         attackSpeed = currentUnitProperties.attackSpeed;
         attackPower = currentUnitProperties.attackPower;
     }
@@ -37,21 +35,24 @@ public class AttackController : MonoBehaviour
 
     public void StartAttack(GameObject target)
     {
+        isAttacking = true;
         targetGameobject = target;
-        moveController.SetIsAttacking(true);
-        
         InvokeRepeating("AttackingTarget", attackSpeed, attackSpeed);
-        //isAttacking = true;
     }
 
     public void StopAttack()
     {
+        isAttacking = false;
         CancelInvoke("AttackingTarget");
-        moveController.SetIsAttacking(false);
     }
 
     public GameObject GetTargetGameobject()
     {
         return targetGameobject;
+    }
+
+    public bool GetIsAttacking()
+    {
+        return isAttacking;
     }
 }
