@@ -227,6 +227,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2607638597103306259, guid: beab684158f4857c9b9dec58c6b243f5, type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6756639828481556739, guid: beab684158f4857c9b9dec58c6b243f5, type: 3}
       propertyPath: m_Name
       value: Enemy Unit prototype (1)
@@ -284,6 +288,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2607638597103306259, guid: beab684158f4857c9b9dec58c6b243f5, type: 3}
+      propertyPath: attackRange
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6756639828481556739, guid: beab684158f4857c9b9dec58c6b243f5, type: 3}
       propertyPath: m_Name
       value: Enemy Unit prototype (2)
@@ -634,6 +642,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2607638597103306259, guid: beab684158f4857c9b9dec58c6b243f5, type: 3}
+      propertyPath: attackRange
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6756639828481556739, guid: beab684158f4857c9b9dec58c6b243f5, type: 3}
       propertyPath: m_Name
       value: Enemy Unit prototype

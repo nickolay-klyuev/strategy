@@ -224,6 +224,7 @@ MonoBehaviour:
   attackRange: 5
   attackPower: 10
   attackSpeed: 10
+  unitType: friendly
 --- !u!114 &2372913605311998394
 MonoBehaviour:
   m_ObjectHideFlags: 0

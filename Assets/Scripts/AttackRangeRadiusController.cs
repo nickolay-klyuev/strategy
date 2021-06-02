@@ -22,7 +22,7 @@ public class AttackRangeRadiusController : MonoBehaviour
     //trigger if something in radius of attack
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.transform.GetComponent<Enemy>() != null)
+        if (ColliderResult(collider))
         {
             attackController.StartAttack(collider.gameObject);
         }
@@ -30,7 +30,7 @@ public class AttackRangeRadiusController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collider)
     {
-        if (collider.transform.GetComponent<Enemy>() != null && !attackController.GetIsAttacking())
+        if (ColliderResult(collider) && !attackController.GetIsAttacking())
         {
             attackController.StartAttack(collider.gameObject);
         }
@@ -39,5 +39,13 @@ public class AttackRangeRadiusController : MonoBehaviour
     void OnTriggerExit2D()
     {
         attackController.StopAttack();
+    }
+
+    // used to change behave for enemies or friendly units
+    private bool ColliderResult(Collider2D collider)
+    {
+        return
+            (collider.transform.GetComponent<UnitProperties>().unitType == "enemy" && unitProperties.unitType == "friendly") || 
+            (collider.transform.GetComponent<UnitProperties>().unitType == "friendly" && unitProperties.unitType == "enemy");
     }
 }
