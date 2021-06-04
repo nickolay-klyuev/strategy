@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackController : MonoBehaviour
 {
     private UnitProperties currentUnitProperties;
+    private AttackAnimationController attackAnimationController;
     private GameObject targetGameobject;
     private float attackSpeed;
     private float attackPower;
@@ -14,6 +15,7 @@ public class AttackController : MonoBehaviour
     void Start()
     {
         currentUnitProperties = GetComponent<UnitProperties>();
+        attackAnimationController = GetComponentInChildren<AttackAnimationController>();
         attackSpeed = currentUnitProperties.attackSpeed;
         attackPower = currentUnitProperties.attackPower;
     }
@@ -21,10 +23,7 @@ public class AttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (isAttacking)
-        {
-
-        }*/
+        
     }
 
     private void AttackingTarget()
@@ -33,17 +32,24 @@ public class AttackController : MonoBehaviour
         targetProperties.health -= attackPower;
     }
 
+    private void AttackAnimation()
+    {
+        attackAnimationController.Animate(targetGameobject);
+    }
+
     public void StartAttack(GameObject target)
     {
         isAttacking = true;
         targetGameobject = target;
         InvokeRepeating("AttackingTarget", attackSpeed, attackSpeed);
+        InvokeRepeating("AttackAnimation", attackSpeed, attackSpeed);
     }
 
     public void StopAttack()
     {
         isAttacking = false;
         CancelInvoke("AttackingTarget");
+        CancelInvoke("AttackAnimation");
     }
 
     public GameObject GetTargetGameobject()

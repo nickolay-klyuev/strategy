@@ -10,28 +10,32 @@ public class MoveController : MonoBehaviour
     private bool isMoving = false;
     private Vector3 pointToMove;
     private AttackController attackController;
+    private UnitProperties unitProperties;
+    private string unitType;
 
     // Start is called before the first frame update
     void Start()
     {
+        unitProperties = GetComponent<UnitProperties>();
         attackController = GetComponent<AttackController>();
+        unitType = unitProperties.unitType;
     }
 
     // Update is called once per frame
     void Update()
     {
         // to change later and remove from this controller
-        if (isSelected)
+        if (isSelected && unitType == "friendly")
         {
             GetComponent<SpriteRenderer>().color = new Color(0, 0, 1, 1);
         }
-        else
+        else if (unitType == "friendly")
         {
             GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         }
 
         //move
-        if (isMoving)
+        if (isMoving && unitType == "friendly")
         {
             transform.position = Vector3.MoveTowards(transform.position, pointToMove, speed * Time.deltaTime);
         }
