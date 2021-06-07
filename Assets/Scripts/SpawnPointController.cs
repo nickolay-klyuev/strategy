@@ -8,7 +8,7 @@ public class SpawnPointController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Instantiate(spawnObject);
     }
 
     // Update is called once per frame
