@@ -24,16 +24,6 @@ public class MoveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // to change later and remove from this controller
-        if (isSelected && unitType == "friendly")
-        {
-            GetComponent<SpriteRenderer>().color = new Color(0, 0, 1, 1);
-        }
-        else if (unitType == "friendly")
-        {
-            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-        }
-
         //move
         if (isMoving && unitType == "friendly")
         {
