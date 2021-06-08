@@ -32,11 +32,6 @@ public class AttackController : MonoBehaviour
         targetProperties.health -= attackPower;
     }
 
-    private void AttackAnimation()
-    {
-        attackAnimationController.Animate(targetGameobject);
-    }
-
     public void StartAttack(GameObject target)
     {
         isAttacking = true;
