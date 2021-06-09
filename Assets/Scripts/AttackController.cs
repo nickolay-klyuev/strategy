@@ -5,19 +5,19 @@ using UnityEngine;
 public class AttackController : MonoBehaviour
 {
     private UnitProperties currentUnitProperties;
-    private AttackAnimationController attackAnimationController;
+    private MissileSpawnerController missileSpawnerController;
     private GameObject targetGameobject;
+
     private float attackSpeed;
-    private float attackPower;
     private bool isAttacking = false;
 
     // Start is called before the first frame update
     void Start()
     {
         currentUnitProperties = GetComponent<UnitProperties>();
-        attackAnimationController = GetComponentInChildren<AttackAnimationController>();
+        missileSpawnerController = GetComponentInChildren<MissileSpawnerController>();
+
         attackSpeed = currentUnitProperties.attackSpeed;
-        attackPower = currentUnitProperties.attackPower;
     }
 
     // Update is called once per frame
@@ -26,25 +26,22 @@ public class AttackController : MonoBehaviour
         
     }
 
-    private void AttackingTarget()
-    {
-        UnitProperties targetProperties = targetGameobject.GetComponent<UnitProperties>();
-        targetProperties.health -= attackPower;
-    }
-
     public void StartAttack(GameObject target)
     {
         isAttacking = true;
         targetGameobject = target;
-        InvokeRepeating("AttackingTarget", attackSpeed, attackSpeed);
-        InvokeRepeating("AttackAnimation", attackSpeed, attackSpeed);
+        InvokeRepeating("DoAttack", attackSpeed, attackSpeed);
+    }
+
+    private void DoAttack()
+    {
+        missileSpawnerController.SpawnMissile(targetGameobject);
     }
 
     public void StopAttack()
     {
         isAttacking = false;
-        CancelInvoke("AttackingTarget");
-        CancelInvoke("AttackAnimation");
+        CancelInvoke("DoAttack");
     }
 
     public GameObject GetTargetGameobject()

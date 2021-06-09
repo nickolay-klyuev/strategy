@@ -24,7 +24,7 @@ public class AttackRangeRadiusController : MonoBehaviour
     {
         if (ColliderResult(collider))
         {
-            attackController.StartAttack(collider.gameObject);
+            StartAttack(collider);
         }
     }
 
@@ -32,7 +32,7 @@ public class AttackRangeRadiusController : MonoBehaviour
     {
         if (ColliderResult(collider) && !attackController.GetIsAttacking())
         {
-            attackController.StartAttack(collider.gameObject);
+            StartAttack(collider);
         }
     }
 
@@ -47,5 +47,11 @@ public class AttackRangeRadiusController : MonoBehaviour
         return
             (collider.transform.GetComponent<UnitProperties>().unitType == "enemy" && unitProperties.unitType == "friendly") || 
             (collider.transform.GetComponent<UnitProperties>().unitType == "friendly" && unitProperties.unitType == "enemy");
+    }
+
+    private void StartAttack(Collider2D collider)
+    {
+        attackController.StartAttack(collider.gameObject);
+        //attackAnimationController.StartAttackAnimation(collider.gameObject);
     }
 }
