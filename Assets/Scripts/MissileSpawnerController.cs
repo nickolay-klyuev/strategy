@@ -29,6 +29,7 @@ public class MissileSpawnerController : MonoBehaviour
                 }
                 else
                 {
+                    // TODO change hardcode 10 by normal mechanic
                     createdMissiles[i].transform.position = Vector3.MoveTowards(createdMissiles[i].transform.position, targetPosition, 10 * Time.deltaTime);
                     i++;
                 }
@@ -38,9 +39,12 @@ public class MissileSpawnerController : MonoBehaviour
 
     public void SpawnMissile(GameObject target)
     {
-        targetPosition = target.transform.position;
-        GameObject createdMissile = Instantiate(missile, transform.position, transform.rotation);
-        createdMissile.GetComponent<MissileController>().SetParentUnitType(parentUnitType);
-        createdMissiles.Add(createdMissile);
+        if (target != null)
+        {
+            targetPosition = target.transform.position;
+            GameObject createdMissile = Instantiate(missile, transform.position, transform.rotation);
+            createdMissile.GetComponent<MissileController>().SetParentUnitType(parentUnitType);
+            createdMissiles.Add(createdMissile);
+        }
     }
 }

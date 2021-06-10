@@ -36,9 +36,12 @@ public class AttackRangeRadiusController : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D()
+    void OnTriggerExit2D(Collider2D collider)
     {
-        attackController.StopAttack();
+        if (ColliderResult(collider) && attackController.GetIsAttacking())
+        {
+            StartAttack(collider);
+        }
     }
 
     // used to change behave for enemies or friendly units
