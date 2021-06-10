@@ -40,7 +40,7 @@ public class AttackRangeRadiusController : MonoBehaviour
     {
         if (ColliderResult(collider) && attackController.GetIsAttacking())
         {
-            StartAttack(collider);
+            StopAttack();
         }
     }
 
@@ -63,5 +63,10 @@ public class AttackRangeRadiusController : MonoBehaviour
     private void StartAttack(Collider2D collider)
     {
         attackController.StartAttack(collider.gameObject);
+    }
+
+    private void StopAttack()
+    {
+        attackController.StopAttack();
     }
 }
