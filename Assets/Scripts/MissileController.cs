@@ -20,10 +20,13 @@ public class MissileController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.GetComponent<UnitProperties>().unitType == "enemy")
+        if (collider.GetComponent<UnitProperties>() != null)
         {
-            collider.GetComponent<UnitProperties>().health -= attackPower;
-            Destroy(gameObject);
+            if (collider.GetComponent<UnitProperties>().unitType == "enemy")
+            {
+                collider.GetComponent<UnitProperties>().health -= attackPower;
+                Destroy(gameObject);
+            }
         }
     }
 }

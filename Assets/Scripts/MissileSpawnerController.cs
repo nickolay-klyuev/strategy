@@ -6,8 +6,8 @@ public class MissileSpawnerController : MonoBehaviour
 {
     public GameObject missile;
 
-    private GameObject createdMissile;
     private Vector3 targetPosition;
+    private List<GameObject> createdMissiles = new List<GameObject>();
     
     // Start is called before the first frame update
     void Start()
@@ -18,15 +18,29 @@ public class MissileSpawnerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (createdMissile != null)
+        if (createdMissiles.Count > 0)
         {
-            createdMissile.transform.position = Vector3.MoveTowards(createdMissile.transform.position, targetPosition, 10 * Time.deltaTime);
+            for (int i = 0; i < createdMissiles.Count;)
+            {
+                if (createdMissiles[i] == null)
+                {
+                    createdMissiles.RemoveAt(i);
+                }
+                else
+                {
+                    createdMissiles[i].transform.position = Vector3.MoveTowards(createdMissiles[i].transform.position, targetPosition, 10 * Time.deltaTime);
+                    i++;
+                }
+            }
         }
     }
 
     public void SpawnMissile(GameObject target)
     {
         targetPosition = target.transform.position;
-        createdMissile = Instantiate(missile, transform.position, transform.rotation);
+        GameObject createdMissile = Instantiate(missile, transform.position, transform.rotation);
+        Debug.Log(createdMissiles);
+        createdMissiles.Add(createdMissile);
+        Debug.Log(createdMissiles.Count);
     }
 }

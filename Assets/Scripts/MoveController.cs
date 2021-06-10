@@ -34,7 +34,7 @@ public class MoveController : MonoBehaviour
         {
             RotateToPoint(pointToMove);
         }
-        else
+        if (attackController.GetTargetGameobject() != null)
         {
             RotateToPoint(attackController.GetTargetGameobject().transform.position);
         }
