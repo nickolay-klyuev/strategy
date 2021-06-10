@@ -49,7 +49,7 @@ public class AttackRangeRadiusController : MonoBehaviour
         {
             return
                 (colliderUnitProperties.unitType == "enemy" && unitProperties.unitType == "friendly") || 
-                (colliderUnitProperties.unitType == "friendly" && unitProperties.unitType == "enemy");   
+                (colliderUnitProperties.unitType == "friendly" && unitProperties.unitType == "enemy");
         }
         else
         {

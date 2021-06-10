@@ -8,11 +8,12 @@ public class MissileSpawnerController : MonoBehaviour
 
     private Vector3 targetPosition;
     private List<GameObject> createdMissiles = new List<GameObject>();
+    private string parentUnitType;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        parentUnitType = GetComponentInParent<UnitProperties>().unitType;
     }
 
     // Update is called once per frame
@@ -39,8 +40,7 @@ public class MissileSpawnerController : MonoBehaviour
     {
         targetPosition = target.transform.position;
         GameObject createdMissile = Instantiate(missile, transform.position, transform.rotation);
-        Debug.Log(createdMissiles);
+        createdMissile.GetComponent<MissileController>().SetParentUnitType(parentUnitType);
         createdMissiles.Add(createdMissile);
-        Debug.Log(createdMissiles.Count);
     }
 }
