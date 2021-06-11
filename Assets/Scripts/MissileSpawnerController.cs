@@ -9,11 +9,13 @@ public class MissileSpawnerController : MonoBehaviour
     private Vector3 targetPosition;
     private List<GameObject> createdMissiles = new List<GameObject>();
     private string parentUnitType;
+    private float parentAccuracy; 
     
     // Start is called before the first frame update
     void Start()
     {
         parentUnitType = GetComponentInParent<UnitProperties>().unitType;
+        parentAccuracy = GetComponentInParent<UnitProperties>().accuracy;
     }
 
     // Update is called once per frame
@@ -29,8 +31,13 @@ public class MissileSpawnerController : MonoBehaviour
                 }
                 else
                 {
-                    // TODO change hardcode 10 by normal mechanic
-                    createdMissiles[i].transform.position = Vector3.MoveTowards(createdMissiles[i].transform.position, targetPosition, 10 * Time.deltaTime);
+                    MissileController missileController = createdMissiles[i].GetComponent<MissileController>();
+                    if (!missileController.GetIsFlying())
+                    {
+                        // change target possition by accuracy 
+                        targetPosition += new Vector3(Random.Range(-parentAccuracy, parentAccuracy), Random.Range(-parentAccuracy, parentAccuracy), 0);
+                        missileController.LunchMissile(targetPosition);
+                    }
                     i++;
                 }
             }

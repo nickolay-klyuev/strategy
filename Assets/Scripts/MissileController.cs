@@ -5,12 +5,32 @@ using UnityEngine;
 public class MissileController : MonoBehaviour
 {
     public float attackPower = 10f;
+    public float flySpeed = 10f;
 
     private string parentUnitType;
+    private Vector3 targetPosition;
+    private bool isFlying = false;
 
     public void SetParentUnitType(string type)
     {
         parentUnitType = type;
+    }
+
+    public bool GetIsFlying()
+    {
+        return isFlying;
+    }
+
+    void Update()
+    {
+        if (isFlying)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, flySpeed * Time.deltaTime);
+            if (transform.position == targetPosition)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -24,5 +44,11 @@ public class MissileController : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void LunchMissile(Vector3 position)
+    {
+        targetPosition = position;
+        isFlying = true;
     }
 }

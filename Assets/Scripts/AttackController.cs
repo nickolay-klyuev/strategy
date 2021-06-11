@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackController : MonoBehaviour
 {
     private UnitProperties currentUnitProperties;
-    private MissileSpawnerController missileSpawnerController;
+    private MissileSpawnerController[] missileSpawnerControllers;
     private GameObject targetGameobject;
 
     private float attackSpeed;
@@ -15,15 +15,9 @@ public class AttackController : MonoBehaviour
     void Start()
     {
         currentUnitProperties = GetComponent<UnitProperties>();
-        missileSpawnerController = GetComponentInChildren<MissileSpawnerController>();
+        missileSpawnerControllers = GetComponentsInChildren<MissileSpawnerController>();
 
         attackSpeed = currentUnitProperties.attackSpeed;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void StartAttack(GameObject target)
@@ -35,7 +29,10 @@ public class AttackController : MonoBehaviour
 
     private void DoAttack()
     {
-        missileSpawnerController.SpawnMissile(targetGameobject);
+        foreach(MissileSpawnerController missileSpawnerController in missileSpawnerControllers)
+        {
+            missileSpawnerController.SpawnMissile(targetGameobject);
+        }
     }
 
     public void StopAttack()
