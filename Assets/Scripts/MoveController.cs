@@ -50,9 +50,9 @@ public class MoveController : MonoBehaviour
         //rotate to point direction
         Vector3 vectorToTarget = point - transform.position;
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 90;
-        //Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-        //transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 10f);
+        //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     public void SetIsSelected(bool selected)
