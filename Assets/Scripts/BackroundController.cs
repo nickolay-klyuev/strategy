@@ -27,16 +27,22 @@ public class BackroundController : MonoBehaviour
     {
         foreach(MoveController moveController in moveControllers)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (moveController != null)
             {
-                moveController.SetIsSelected(false);
-                selectBoxController.StartSelecting();
-            }
-            else if (Input.GetMouseButtonDown(1))
-            {
-                if (moveController.GetIsSelected())
+                if (moveController.GetComponent<UnitProperties>().unitType != "enemy") // filter enemies units, because player can't control them
                 {
-                    moveController.MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        moveController.SetIsSelected(false);
+                        selectBoxController.StartSelecting();
+                    }
+                    else if (Input.GetMouseButtonDown(1))
+                    {
+                        if (moveController.GetIsSelected())
+                        {
+                            moveController.MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                        }
+                    }
                 }
             }
         }
