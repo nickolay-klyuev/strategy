@@ -24,11 +24,18 @@ public class MoveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // stop moving after reach the point
+        if (transform.position == pointToMove)
+        {
+            isMoving = false;
+        }
+
         //move
         if (isMoving && unitType == "friendly")
         {
             transform.position = Vector3.MoveTowards(transform.position, pointToMove, speed * Time.deltaTime);
         }
+
         //rotate
         if (isMoving && !attackController.GetIsAttacking())
         {
@@ -52,7 +59,6 @@ public class MoveController : MonoBehaviour
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - 90;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 10f);
-        //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     public void SetIsSelected(bool selected)
