@@ -5,16 +5,22 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public float cameraSpeed = 1f;
+    public float cameraSizeStep = .5f;
+    public float maxCameraSize = 7f;
+    public float minCameraSize = 3f;
+
+    private Camera mainCamera;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        mainCamera = GetComponent<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // camera move by WASD
         Vector3 pos = transform.position;
         if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
         {
@@ -34,5 +40,15 @@ public class CameraController : MonoBehaviour
         }
 
         transform.position = pos;
+
+        // chage camera size by mouse wheel (zoom)
+        if (Input.GetAxisRaw("Mouse ScrollWheel") < 0 && mainCamera.orthographicSize < maxCameraSize)
+        {
+            mainCamera.orthographicSize += cameraSizeStep;
+        }
+        if (Input.GetAxisRaw("Mouse ScrollWheel") > 0 && mainCamera.orthographicSize > minCameraSize)
+        {
+            mainCamera.orthographicSize -= cameraSizeStep;
+        }
     }
 }
