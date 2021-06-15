@@ -37,13 +37,13 @@ public class MoveController : MonoBehaviour
         }
 
         //rotate
+        if (attackController.GetTargetGameobject() != null && attackController.GetIsAttacking())
+        {
+            RotateToPoint(attackController.GetTargetGameobject().transform.position);
+        }
         if (isMoving && !attackController.GetIsAttacking())
         {
             RotateToPoint(pointToMove);
-        }
-        if (attackController.GetTargetGameobject() != null)
-        {
-            RotateToPoint(attackController.GetTargetGameobject().transform.position);
         }
     }
 
@@ -69,6 +69,11 @@ public class MoveController : MonoBehaviour
     public bool GetIsSelected()
     {
         return isSelected;
+    }
+
+    public bool GetIsMoving()
+    {
+        return isMoving;
     }
 
     public void MoveToPoint(Vector3 point)

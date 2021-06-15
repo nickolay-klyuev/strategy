@@ -9,13 +9,17 @@ public class MissileSpawnerController : MonoBehaviour
     private Vector3 targetPosition;
     private List<GameObject> createdMissiles = new List<GameObject>();
     private string parentUnitType;
-    private float parentAccuracy; 
+    private float parentAccuracy;
+    private float parentAccuracyWhileMoving;
+    private MoveController moveController;
     
     // Start is called before the first frame update
     void Start()
     {
+        moveController = GetComponentInParent<MoveController>();
         parentUnitType = GetComponentInParent<UnitProperties>().unitType;
         parentAccuracy = GetComponentInParent<UnitProperties>().accuracy;
+        parentAccuracyWhileMoving = GetComponentInParent<UnitProperties>().accuracyWhileMoving;
     }
 
     // Update is called once per frame
@@ -35,7 +39,15 @@ public class MissileSpawnerController : MonoBehaviour
                     if (!missileController.GetIsFlying())
                     {
                         // change target possition by accuracy 
-                        targetPosition += new Vector3(Random.Range(-parentAccuracy, parentAccuracy), Random.Range(-parentAccuracy, parentAccuracy), 0);
+                        if (moveController.GetIsMoving())
+                        {
+                            targetPosition += new Vector3(Random.Range(-parentAccuracyWhileMoving, parentAccuracyWhileMoving), 
+                                                          Random.Range(-parentAccuracyWhileMoving, parentAccuracyWhileMoving), 0);
+                        }
+                        else
+                        {
+                            targetPosition += new Vector3(Random.Range(-parentAccuracy, parentAccuracy), Random.Range(-parentAccuracy, parentAccuracy), 0);
+                        }
                         missileController.LunchMissile(targetPosition);
                     }
                     i++;

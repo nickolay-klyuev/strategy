@@ -329,6 +329,7 @@ MonoBehaviour:
   attackRange: 5
   attackSpeed: 1
   accuracy: 1.5
+  accuracyWhileMoving: 5
   unitType: friendly
 --- !u!114 &2372913605311998394
 MonoBehaviour:
