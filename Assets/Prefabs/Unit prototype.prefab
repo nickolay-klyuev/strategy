@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 2372913605311998394}
   - component: {fileID: 116014309977780182}
   - component: {fileID: 7678011793547987011}
+  - component: {fileID: 1788127079087177643}
   m_Layer: 0
   m_Name: Unit prototype
   m_TagString: Untagged
@@ -327,7 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  attackRange: 5
+  attackRange: 10
   attackSpeed: 1
   accuracy: 1.5
   accuracyWhileMoving: 2.5
@@ -373,6 +374,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb16456d53fab465b9f2d97e68daa211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1788127079087177643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9011085627555594377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025fb5a5805156a04878cc898eb880fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &148791956053786246

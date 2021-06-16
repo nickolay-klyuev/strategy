@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -6759288452479636772}
   - component: {fileID: 1797842266}
   - component: {fileID: 549305076558654230}
+  - component: {fileID: -6132728069223673742}
   m_Layer: 0
   m_Name: Enemy Unit prototype
   m_TagString: Untagged
@@ -192,6 +193,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!114 &-6132728069223673742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6756639828481556739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 365ddd99ba7d989cc817d41295deb21a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainTarget: {fileID: 8416557789531695849, guid: 3988f7e232f355bf084c1c16dc697dd5, type: 3}
 --- !u!1 &9075081650979812846
 GameObject:
   m_ObjectHideFlags: 0

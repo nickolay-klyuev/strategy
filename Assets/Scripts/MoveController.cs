@@ -46,4 +46,9 @@ public class MoveController : MonoBehaviour
         pointToMove = new Vector3(point.x, point.y, transform.position.z);
         isMoving = true;
     }
+
+    public void StopMoving()
+    {
+        isMoving = false;
+    }
 }
