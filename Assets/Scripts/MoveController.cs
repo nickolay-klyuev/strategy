@@ -6,7 +6,6 @@ public class MoveController : MonoBehaviour
 {
     public float speed = 1f;
 
-    private bool isSelected = false;
     private bool isMoving = false;
     private Vector3 pointToMove;
 
@@ -30,21 +29,6 @@ public class MoveController : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, pointToMove, speed * Time.deltaTime);
         }
-    }
-
-    void OnMouseDown()
-    {
-        isSelected = true;
-    }
-
-    public void SetIsSelected(bool selected)
-    {
-        isSelected = selected;
-    }
-
-    public bool GetIsSelected()
-    {
-        return isSelected;
     }
 
     public bool GetIsMoving()

@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: 357706228}
   - component: {fileID: 357706229}
   - component: {fileID: 357706230}
+  - component: {fileID: 357706231}
   m_Layer: 0
   m_Name: 'Key Point '
   m_TagString: Untagged
@@ -507,6 +508,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.32
+--- !u!114 &357706231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357706224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442aaa064770328d7b164e22affed382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &383330446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -899,6 +912,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: beab684158f4857c9b9dec58c6b243f5, type: 3}
+--- !u!1 &814796641 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9011085627555594377, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
+  m_PrefabInstance: {fileID: 2145824702}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &814796642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814796641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025fb5a5805156a04878cc898eb880fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &841602672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1979,6 +2009,10 @@ PrefabInstance:
     - target: {fileID: 9011085627555594377, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
       propertyPath: m_Name
       value: Unit prototype
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011085627555594380, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9011085627555594383, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
       propertyPath: m_RootOrder

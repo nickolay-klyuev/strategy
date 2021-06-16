@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BackroundController : MonoBehaviour
 {
-    private MoveController[] moveControllers;
+    private FriendlyMoveController[] friendlyMoveControllers;
     private SelectBoxController selectBoxController;
 
     // Start is called before the first frame update
     void Start()
     {
-        moveControllers = FindObjectsOfType<MoveController>();
+        friendlyMoveControllers = FindObjectsOfType<FriendlyMoveController>();
         selectBoxController = FindObjectOfType<SelectBoxController>();
     }
 
@@ -25,24 +25,18 @@ public class BackroundController : MonoBehaviour
 
     void OnMouseOver()
     {
-        foreach(MoveController moveController in moveControllers)
+        foreach(FriendlyMoveController friendlyMoveController in friendlyMoveControllers)
         {
-            if (moveController != null)
+            if (Input.GetMouseButtonDown(0))
             {
-                if (moveController.GetComponent<UnitProperties>().unitType != "enemy") // filter enemies units, because player can't control them
+                friendlyMoveController.SetIsSelected(false);
+                selectBoxController.StartSelecting();
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                if (friendlyMoveController.GetIsSelected())
                 {
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        moveController.SetIsSelected(false);
-                        selectBoxController.StartSelecting();
-                    }
-                    else if (Input.GetMouseButtonDown(1))
-                    {
-                        if (moveController.GetIsSelected())
-                        {
-                            moveController.MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-                        }
-                    }
+                    friendlyMoveController.MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                 }
             }
         }
