@@ -5,12 +5,12 @@ using UnityEngine;
 public class SpawnPointController : MonoBehaviour
 {
     public GameObject spawnObject;
-    public float spawnRate = 10f;
+    //public float spawnRate = 10f;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnObject", spawnRate, spawnRate);
+        
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class SpawnPointController : MonoBehaviour
         
     }
 
-    void SpawnObject()
+    public void SpawnObject()
     {
         Instantiate(spawnObject, transform.position, Quaternion.identity);
     }

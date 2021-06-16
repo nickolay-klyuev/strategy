@@ -10,7 +10,6 @@ public class BackroundController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        friendlyMoveControllers = FindObjectsOfType<FriendlyMoveController>();
         selectBoxController = FindObjectOfType<SelectBoxController>();
     }
 
@@ -25,6 +24,7 @@ public class BackroundController : MonoBehaviour
 
     void OnMouseOver()
     {
+        friendlyMoveControllers = FindObjectsOfType<FriendlyMoveController>();
         foreach(FriendlyMoveController friendlyMoveController in friendlyMoveControllers)
         {
             if (Input.GetMouseButtonDown(0))
