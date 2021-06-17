@@ -25,7 +25,34 @@ public class BackroundController : MonoBehaviour
     void OnMouseOver()
     {
         friendlyMoveControllers = FindObjectsOfType<FriendlyMoveController>();
-        foreach(FriendlyMoveController friendlyMoveController in friendlyMoveControllers)
+        List<FriendlyMoveController> selectedFMoveControllers = new List<FriendlyMoveController>();
+
+        foreach (FriendlyMoveController friendlyMoveController in friendlyMoveControllers)
+        {
+            if (friendlyMoveController.GetIsSelected())
+            {
+                selectedFMoveControllers.Add(friendlyMoveController);
+            }
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            selectBoxController.StartSelecting();
+        }
+
+        foreach (FriendlyMoveController selectedFMoveController in selectedFMoveControllers)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                selectedFMoveController.SetIsSelected(false);
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                selectedFMoveController.MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            }
+        }
+
+        /*foreach(FriendlyMoveController friendlyMoveController in friendlyMoveControllers)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -39,6 +66,6 @@ public class BackroundController : MonoBehaviour
                     friendlyMoveController.MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                 }
             }
-        }
+        }*/
     }
 }
