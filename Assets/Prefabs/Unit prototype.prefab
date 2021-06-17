@@ -329,7 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   attackRange: 10
-  attackSpeed: 1
+  attackSpeed: 3
   accuracy: 1.5
   accuracyWhileMoving: 2.5
   unitType: friendly

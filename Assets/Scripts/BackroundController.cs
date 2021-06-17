@@ -35,11 +35,14 @@ public class BackroundController : MonoBehaviour
             }
         }
 
+        int controllersCount = selectedFMoveControllers.Count;
+
         if (Input.GetMouseButtonDown(0))
         {
             selectBoxController.StartSelecting();
         }
 
+        FriendlyMoveController previousFMController = selectedFMoveControllers[0];
         foreach (FriendlyMoveController selectedFMoveController in selectedFMoveControllers)
         {
             if (Input.GetMouseButtonDown(0))
@@ -48,24 +51,27 @@ public class BackroundController : MonoBehaviour
             }
             else if (Input.GetMouseButtonDown(1))
             {
-                selectedFMoveController.MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                Vector3 vector = previousFMController.transform.position - selectedFMoveController.transform.position;
+                previousFMController = selectedFMoveController;
+
+                for (int i = 0, j = 0; i < 1 && j < 100; j++) // TODO: change and improve later
+                {
+                    vector *= 0.9f;
+
+                    float vectorLength = Mathf.Sqrt(Mathf.Pow(vector.x, 2) + Mathf.Pow(vector.y, 2));
+
+                    if (vectorLength <= 3f && vectorLength >= 2f)
+                    {
+                        i++;
+                    }
+                    else
+                    {
+                        vector *= 1.1f;
+                    }
+                }
+
+                selectedFMoveController.MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition) - vector);
             }
         }
-
-        /*foreach(FriendlyMoveController friendlyMoveController in friendlyMoveControllers)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                friendlyMoveController.SetIsSelected(false);
-                selectBoxController.StartSelecting();
-            }
-            else if (Input.GetMouseButtonDown(1))
-            {
-                if (friendlyMoveController.GetIsSelected())
-                {
-                    friendlyMoveController.MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-                }
-            }
-        }*/
     }
 }
