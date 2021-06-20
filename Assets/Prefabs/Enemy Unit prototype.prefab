@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: -6132728069223673742}
   m_Layer: 0
   m_Name: Enemy Unit prototype
-  m_TagString: Untagged
+  m_TagString: Enemy Unit prototype
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   accuracy: 1
   accuracyWhileMoving: 10
   cost: 20
-  limit: 1
+  limit: 10
   unitType: enemy
 --- !u!114 &-6759288452479636772
 MonoBehaviour:

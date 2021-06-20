@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResourceSystem : MonoBehaviour
 {
-    private int resourceAmount = 100;
+    private int resourceAmount = 0;
     private int gatherAmount = 10;
 
     // Start is called before the first frame update
