@@ -51,6 +51,8 @@ public class BackroundController : MonoBehaviour
             }
             else if (Input.GetMouseButtonDown(1))
             {
+                // commented until I figure out how to improve it
+
                 /*Vector3 vector = previousFMController.transform.position - selectedFMoveController.transform.position;
                 previousFMController = selectedFMoveController;*/
 

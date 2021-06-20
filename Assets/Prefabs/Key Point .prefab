@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 9011085627555594377, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
+  resourceSystem: {fileID: 0}
 --- !u!1 &8416557789531695849
 GameObject:
   m_ObjectHideFlags: 0

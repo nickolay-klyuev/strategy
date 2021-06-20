@@ -150,11 +150,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f71b7a553ab151dead8870dcb985e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 50
   attackRange: 5
   attackSpeed: 1.5
   accuracy: 1
   accuracyWhileMoving: 10
+  cost: 20
   unitType: enemy
 --- !u!114 &-6759288452479636772
 MonoBehaviour:

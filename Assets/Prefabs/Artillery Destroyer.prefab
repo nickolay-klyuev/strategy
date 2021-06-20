@@ -174,8 +174,8 @@ GameObject:
   - component: {fileID: 7678011793547987011}
   - component: {fileID: 1788127079087177643}
   m_Layer: 0
-  m_Name: Unit prototype
-  m_TagString: Untagged
+  m_Name: Artillery Destroyer
+  m_TagString: Artillery Destroyer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -332,6 +332,8 @@ MonoBehaviour:
   attackSpeed: 3
   accuracy: 1.5
   accuracyWhileMoving: 2.5
+  cost: 50
+  limit: 1
   unitType: friendly
 --- !u!114 &2372913605311998394
 MonoBehaviour:
