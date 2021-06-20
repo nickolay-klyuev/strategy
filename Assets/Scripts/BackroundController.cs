@@ -42,7 +42,7 @@ public class BackroundController : MonoBehaviour
             selectBoxController.StartSelecting();
         }
 
-        FriendlyMoveController previousFMController = selectedFMoveControllers[0];
+        //FriendlyMoveController previousFMController = selectedFMoveControllers[0];
         foreach (FriendlyMoveController selectedFMoveController in selectedFMoveControllers)
         {
             if (Input.GetMouseButtonDown(0))
@@ -51,10 +51,10 @@ public class BackroundController : MonoBehaviour
             }
             else if (Input.GetMouseButtonDown(1))
             {
-                Vector3 vector = previousFMController.transform.position - selectedFMoveController.transform.position;
-                previousFMController = selectedFMoveController;
+                /*Vector3 vector = previousFMController.transform.position - selectedFMoveController.transform.position;
+                previousFMController = selectedFMoveController;*/
 
-                for (int i = 0, j = 0; i < 1 && j < 100; j++) // TODO: change and improve later
+                /*for (int i = 0, j = 0; i < 1 && j < 100; j++) // TODO: change and improve later
                 {
                     vector *= 0.9f;
 
@@ -68,9 +68,9 @@ public class BackroundController : MonoBehaviour
                     {
                         vector *= 1.1f;
                     }
-                }
+                }*/
 
-                selectedFMoveController.MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition) - vector);
+                selectedFMoveController.MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             }
         }
     }
