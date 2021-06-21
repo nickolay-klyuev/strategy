@@ -7,6 +7,8 @@ TagManager:
   - Artillery Destroyer
   - Attack Plane
   - Tank
+  - Enemy Unit prototype
+  - Worm
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,7 @@ public class AttackRangeRadiusController : MonoBehaviour
     private UnitProperties unitProperties;
     private CircleCollider2D circleCollider;
     private AttackController attackController;
+    private MoveController moveController;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,7 @@ public class AttackRangeRadiusController : MonoBehaviour
         unitProperties = transform.parent.GetComponent<UnitProperties>();
         attackController = transform.parent.GetComponent<AttackController>();
         circleCollider = GetComponent<CircleCollider2D>();
+        moveController = transform.parent.GetComponent<MoveController>();
 
         //set attack range radius to collider 
         circleCollider.radius = unitProperties.attackRange;
@@ -22,7 +24,12 @@ public class AttackRangeRadiusController : MonoBehaviour
     //trigger if something in radius of attack
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (ColliderResult(collider) && !attackController.GetIsAttacking())
+        if (ColliderResult(collider) && unitProperties.unitType == "enemy")
+        {
+            moveController.StopMoving();
+        }
+
+        if (ColliderResult(collider) && !attackController.GetIsAttacking() && (unitProperties.canFireWhileMoving || !moveController.GetIsMoving()))
         {
             StartAttack(collider);
         }
@@ -30,7 +37,12 @@ public class AttackRangeRadiusController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collider)
     {
-        if (ColliderResult(collider) && !attackController.GetIsAttacking())
+        if (ColliderResult(collider) && unitProperties.unitType == "enemy")
+        {
+            moveController.StopMoving();
+        }
+
+        if (ColliderResult(collider) && !attackController.GetIsAttacking() && (unitProperties.canFireWhileMoving || !moveController.GetIsMoving()))
         {
             StartAttack(collider);
         }
@@ -39,6 +51,14 @@ public class AttackRangeRadiusController : MonoBehaviour
     void OnTriggerExit2D(Collider2D collider)
     {
         if (ColliderResult(collider) && attackController.GetIsAttacking())
+        {
+            StopAttack();
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (!unitProperties.canFireWhileMoving && moveController.GetIsMoving())
         {
             StopAttack();
         }

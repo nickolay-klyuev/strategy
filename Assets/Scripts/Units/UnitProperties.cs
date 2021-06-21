@@ -9,6 +9,7 @@ public class UnitProperties : MonoBehaviour
     public float attackSpeed = 10f; // attack every attackSpeed seconds
     public float accuracy = 10f;
     public float accuracyWhileMoving = 10f;
+    public bool canFireWhileMoving = false;
     public int cost = 50;
     public int limit = 1;
     public string unitType; // enemy, friendly

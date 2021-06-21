@@ -684,6 +684,7 @@ MonoBehaviour:
   attackSpeed: 3
   accuracy: 1.5
   accuracyWhileMoving: 2.5
+  canFireWhileMoving: 1
   cost: 50
   limit: 1
   unitType: friendly
