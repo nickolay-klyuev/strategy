@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181352113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9008413058433267611}
@@ -180,7 +180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7226679177831339169}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05330324, y: -0.0034852028, z: 0.42503685}
+  m_LocalPosition: {x: -0, y: 0.143, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 9008413058433267611}
@@ -355,6 +355,7 @@ MonoBehaviour:
   attackSpeed: 1.5
   accuracy: 1
   accuracyWhileMoving: 2
+  canFireWhileMoving: 0
   cost: 20
   limit: 3
   unitType: friendly
