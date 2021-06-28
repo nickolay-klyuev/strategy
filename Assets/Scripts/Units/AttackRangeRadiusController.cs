@@ -6,6 +6,7 @@ public class AttackRangeRadiusController : MonoBehaviour
 {
     private UnitProperties unitProperties;
     private CircleCollider2D circleCollider;
+    private LineRenderer lineRenderer;
     private AttackController attackController;
     private MoveController moveController;
 
@@ -15,10 +16,39 @@ public class AttackRangeRadiusController : MonoBehaviour
         unitProperties = transform.parent.GetComponent<UnitProperties>();
         attackController = transform.parent.GetComponent<AttackController>();
         circleCollider = GetComponent<CircleCollider2D>();
+        lineRenderer = GetComponent<LineRenderer>();
         moveController = transform.parent.GetComponent<MoveController>();
 
         //set attack range radius to collider 
         circleCollider.radius = unitProperties.attackRange;
+
+        //draw attack range radius
+        lineRenderer.positionCount = 51;
+        lineRenderer.useWorldSpace = false;
+        CreatePoints();
+    }
+
+    private void CreatePoints ()
+    {
+        float x;
+        float y;
+        //float z;
+
+        float angle = 20f;
+
+        for (int i = 0; i < (50 + 1); i++)
+        {
+            if ()
+            {
+
+            }
+            x = Mathf.Sin (Mathf.Deg2Rad * angle) * unitProperties.attackRange;
+            y = Mathf.Cos (Mathf.Deg2Rad * angle) * unitProperties.attackRange;
+
+            lineRenderer.SetPosition(i, new Vector3(x,y,0) );
+
+            angle += (360f / 50);
+        }
     }
 
     //trigger if something in radius of attack
