@@ -23,35 +23,6 @@ public class AttackRangeRadiusController : MonoBehaviour
 
         //set attack range radius to collider 
         circleCollider.radius = unitProperties.attackRange;
-
-        if (friendlyMoveController != null)
-        {
-            //draw attack range radius
-            lineRenderer.positionCount = 51;
-            lineRenderer.useWorldSpace = false;
-            CreatePoints();
-
-            lineRenderer.enabled = false;
-        }
-    }
-
-    private void CreatePoints ()
-    {
-        float x;
-        float y;
-        //float z;
-
-        float angle = 20f;
-
-        for (int i = 0; i < (50 + 1); i++)
-        {
-            x = Mathf.Sin(Mathf.Deg2Rad * angle) * unitProperties.attackRange;
-            y = Mathf.Cos(Mathf.Deg2Rad * angle) * unitProperties.attackRange;
-
-            lineRenderer.SetPosition(i, new Vector3(x,y,0) );
-
-            angle += (360f / 50);
-        }
     }
 
     //trigger if something in radius of attack
@@ -91,22 +62,6 @@ public class AttackRangeRadiusController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (friendlyMoveController != null)
-        {
-            // show radius if selected
-            if (friendlyMoveController.GetIsSelected())
-            {
-                lineRenderer.enabled = true;
-            }
-            else
-            {
-                lineRenderer.enabled = false;
-            }
-
-            // little rotate attack range drawed radius
-            transform.Rotate(new Vector3(0,0,1), Time.deltaTime * 10);
-        }
-
         if (!unitProperties.canFireWhileMoving && moveController.GetIsMoving())
         {
             StopAttack();
