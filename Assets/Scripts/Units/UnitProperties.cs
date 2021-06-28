@@ -13,12 +13,4 @@ public class UnitProperties : MonoBehaviour
     public int cost = 50;
     public int limit = 1;
     public string unitType; // enemy, friendly
-
-    void Update()
-    {
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
 }
