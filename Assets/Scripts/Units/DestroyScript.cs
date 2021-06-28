@@ -9,7 +9,14 @@ public class DestroyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        unitProperties = GetComponentInChildren<UnitProperties>();
+        if (GetComponentInChildren<UnitProperties>() != null)
+        {
+            unitProperties = GetComponentInChildren<UnitProperties>();
+        }
+        else
+        {
+            unitProperties = GetComponent<UnitProperties>();
+        }
     }
 
     // Update is called once per frame
