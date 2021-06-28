@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AttackController : MonoBehaviour
 {
+    private FriendlyMoveController friendlyMoveController;
     private UnitProperties currentUnitProperties;
     private MissileSpawnerController[] missileSpawnerControllers;
     private GameObject targetGameobject;
@@ -14,10 +15,29 @@ public class AttackController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        friendlyMoveController = GetComponent<FriendlyMoveController>();
         currentUnitProperties = GetComponent<UnitProperties>();
         missileSpawnerControllers = GetComponentsInChildren<MissileSpawnerController>();
 
         attackSpeed = currentUnitProperties.attackSpeed;
+    }
+
+    void Update()
+    {
+        // raycast click 
+        if (Input.GetMouseButtonDown(1)) {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+            
+            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+            UnitProperties raycastHitunitProperties = hit.collider.gameObject.GetComponent<UnitProperties>();
+            if (raycastHitunitProperties != null) {
+                if (raycastHitunitProperties.unitType == "enemy" && friendlyMoveController != null)
+                {
+                    StartAttack(hit.collider.gameObject);
+                }
+            }
+        }
     }
 
     public void StartAttack(GameObject target)
