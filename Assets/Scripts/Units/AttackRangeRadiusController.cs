@@ -9,6 +9,7 @@ public class AttackRangeRadiusController : MonoBehaviour
     private LineRenderer lineRenderer;
     private AttackController attackController;
     private MoveController moveController;
+    private FriendlyMoveController friendlyMoveController;
 
     // Start is called before the first frame update
     void Start()
@@ -18,14 +19,20 @@ public class AttackRangeRadiusController : MonoBehaviour
         circleCollider = GetComponent<CircleCollider2D>();
         lineRenderer = GetComponent<LineRenderer>();
         moveController = transform.parent.GetComponent<MoveController>();
+        friendlyMoveController = transform.parent.GetComponent<FriendlyMoveController>();
 
         //set attack range radius to collider 
         circleCollider.radius = unitProperties.attackRange;
 
-        //draw attack range radius
-        lineRenderer.positionCount = 51;
-        lineRenderer.useWorldSpace = false;
-        CreatePoints();
+        if (friendlyMoveController != null)
+        {
+            //draw attack range radius
+            lineRenderer.positionCount = 51;
+            lineRenderer.useWorldSpace = false;
+            CreatePoints();
+
+            lineRenderer.enabled = false;
+        }
     }
 
     private void CreatePoints ()
@@ -38,12 +45,8 @@ public class AttackRangeRadiusController : MonoBehaviour
 
         for (int i = 0; i < (50 + 1); i++)
         {
-            if ()
-            {
-
-            }
-            x = Mathf.Sin (Mathf.Deg2Rad * angle) * unitProperties.attackRange;
-            y = Mathf.Cos (Mathf.Deg2Rad * angle) * unitProperties.attackRange;
+            x = Mathf.Sin(Mathf.Deg2Rad * angle) * unitProperties.attackRange;
+            y = Mathf.Cos(Mathf.Deg2Rad * angle) * unitProperties.attackRange;
 
             lineRenderer.SetPosition(i, new Vector3(x,y,0) );
 
@@ -88,6 +91,22 @@ public class AttackRangeRadiusController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (friendlyMoveController != null)
+        {
+            // show radius if selected
+            if (friendlyMoveController.GetIsSelected())
+            {
+                lineRenderer.enabled = true;
+            }
+            else
+            {
+                lineRenderer.enabled = false;
+            }
+
+            // little rotate attack range drawed radius
+            transform.Rotate(new Vector3(0,0,1), Time.deltaTime * 10);
+        }
+
         if (!unitProperties.canFireWhileMoving && moveController.GetIsMoving())
         {
             StopAttack();
