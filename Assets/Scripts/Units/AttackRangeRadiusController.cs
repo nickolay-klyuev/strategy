@@ -25,22 +25,9 @@ public class AttackRangeRadiusController : MonoBehaviour
         circleCollider.radius = unitProperties.attackRange;
     }
 
-    //trigger if something in radius of attack
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (ColliderResult(collider) && unitProperties.unitType == "enemy")
-        {
-            moveController.StopMoving();
-        }
-
-        if (ColliderResult(collider) && !attackController.GetIsAttacking() && (unitProperties.canFireWhileMoving || !moveController.GetIsMoving()))
-        {
-            StartAttack(collider);
-        }
-    }
-
     void OnTriggerStay2D(Collider2D collider)
     {
+        // all enemies stop while attacking, but maybe change later
         if (ColliderResult(collider) && unitProperties.unitType == "enemy")
         {
             moveController.StopMoving();

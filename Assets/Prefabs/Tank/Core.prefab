@@ -293,8 +293,8 @@ MonoBehaviour:
   health: 50
   attackRange: 5
   attackSpeed: 1.5
-  accuracy: 1
-  accuracyWhileMoving: 2
+  accuracy: 0.5
+  accuracyWhileMoving: 1
   canFireWhileMoving: 0
   cost: 20
   limit: 3
