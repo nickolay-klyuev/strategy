@@ -18,8 +18,10 @@ public class MoveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // stop moving after reach the point
-        if (transform.position == pointToMove)
+        // stop after reach point to move
+        float stopRange = .2f;
+        if (transform.position.x < pointToMove.x + stopRange && transform.position.x > pointToMove.x - stopRange &&
+            transform.position.y < pointToMove.y + stopRange && transform.position.y > pointToMove.y - stopRange)
         {
             isMoving = false;
         }
