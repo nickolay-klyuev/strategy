@@ -23,6 +23,11 @@ public class UnitRotateController : MonoBehaviour
             RotateToPoint(attackController.GetTargetGameobject().transform.position);
         }
 
+        if (moveController.GetChasingTarget() != null && moveController.GetIsChasing())
+        {
+            RotateToPoint(moveController.GetChasingTarget().transform.position);
+        }
+
         if (moveController.GetIsMoving() && !attackController.GetIsAttacking())
         {
             RotateToPoint(moveController.GetPointToMove());

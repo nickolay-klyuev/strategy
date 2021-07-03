@@ -94,7 +94,7 @@ Transform:
   m_GameObject: {fileID: 4456635579496693066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.7618322, y: -2.0203981, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 3776460022745650140}
   - {fileID: 503910262130678740}
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f71b7a553ab151dead8870dcb985e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 50
   attackRange: 0.3
   attackSpeed: 0.5
   accuracy: 0.3
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a305401e9071426c1bf929c29be49807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 1
 --- !u!114 &455499067652812506
 MonoBehaviour:
   m_ObjectHideFlags: 0

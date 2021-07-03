@@ -9,7 +9,7 @@ public class AttackRangeRadiusController : MonoBehaviour
     private LineRenderer lineRenderer;
     private AttackController attackController;
     private MoveController moveController;
-    private FriendlyMoveController friendlyMoveController;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,6 @@ public class AttackRangeRadiusController : MonoBehaviour
         circleCollider = GetComponent<CircleCollider2D>();
         lineRenderer = GetComponent<LineRenderer>();
         moveController = transform.parent.GetComponent<MoveController>();
-        friendlyMoveController = transform.parent.GetComponent<FriendlyMoveController>();
 
         //set attack range radius to collider 
         circleCollider.radius = unitProperties.attackRange;
@@ -41,7 +40,8 @@ public class AttackRangeRadiusController : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        if (ColliderResult(collider) && attackController.GetIsAttacking())
+        if (ColliderResult(collider) && attackController.GetIsAttacking() && 
+            GameObject.ReferenceEquals(attackController.GetTargetGameobject(), collider.gameObject))
         {
             StopAttack();
         }
