@@ -10,6 +10,7 @@ public class AttackController : MonoBehaviour
     private UnitProperties currentUnitProperties;
     private MissileSpawnerController[] missileSpawnerControllers;
     private GameObject targetGameobject;
+    private LineRenderer attackLine;
 
     private float attackSpeed;
     private bool isAttacking = false;
@@ -22,6 +23,12 @@ public class AttackController : MonoBehaviour
         attackRangeRadiusController = GetComponentInChildren<AttackRangeRadiusController>();
         currentUnitProperties = GetComponent<UnitProperties>();
         missileSpawnerControllers = GetComponentsInChildren<MissileSpawnerController>();
+        
+        attackLine = GetComponent<LineRenderer>();
+        attackLine.positionCount = 2;
+        attackLine.useWorldSpace = true;
+        attackLine.loop = false;
+        attackLine.enabled = false;
 
         attackSpeed = currentUnitProperties.attackSpeed;
     }
@@ -47,6 +54,18 @@ public class AttackController : MonoBehaviour
                 }
             }
         }
+
+        // update line to see which enemy is under attack
+        if (isAttacking && friendlyMoveController.GetIsSelected())
+        {
+            attackLine.enabled = true;
+            attackLine.SetPosition(0, transform.position);
+            attackLine.SetPosition(1, targetGameobject.transform.position);
+        }
+        else
+        {
+            attackLine.enabled = false;
+        }
     }
 
     public void StartAttack(GameObject target)
@@ -54,6 +73,10 @@ public class AttackController : MonoBehaviour
         StopAttack();
         isAttacking = true;
         targetGameobject = target;
+
+        // draw line to see which enemy under attack
+        attackLine.enabled = true;
+
         InvokeRepeating("DoAttack", attackSpeed, attackSpeed);
     }
 
@@ -68,6 +91,7 @@ public class AttackController : MonoBehaviour
     public void StopAttack()
     {
         isAttacking = false;
+        attackLine.enabled = false;
         CancelInvoke("DoAttack");
     }
 
