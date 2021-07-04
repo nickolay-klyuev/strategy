@@ -8,9 +8,9 @@ public class AttackController : MonoBehaviour
     private MoveController moveController;
     private AttackRangeRadiusController attackRangeRadiusController;
     private UnitProperties currentUnitProperties;
+    private MoveAttackLineDrawer attackLineDrawer;
     private MissileSpawnerController[] missileSpawnerControllers;
     private GameObject targetGameobject;
-    private LineRenderer attackLine;
 
     private float attackSpeed;
     private bool isAttacking = false;
@@ -22,13 +22,8 @@ public class AttackController : MonoBehaviour
         moveController = GetComponent<MoveController>();
         attackRangeRadiusController = GetComponentInChildren<AttackRangeRadiusController>();
         currentUnitProperties = GetComponent<UnitProperties>();
+        attackLineDrawer = GetComponent<MoveAttackLineDrawer>();
         missileSpawnerControllers = GetComponentsInChildren<MissileSpawnerController>();
-        
-        attackLine = GetComponent<LineRenderer>();
-        attackLine.positionCount = 2;
-        attackLine.useWorldSpace = true;
-        attackLine.loop = false;
-        attackLine.enabled = false;
 
         attackSpeed = currentUnitProperties.attackSpeed;
     }
@@ -54,18 +49,6 @@ public class AttackController : MonoBehaviour
                 }
             }
         }
-
-        // update line to see which enemy is under attack
-        if (isAttacking && friendlyMoveController.GetIsSelected())
-        {
-            attackLine.enabled = true;
-            attackLine.SetPosition(0, transform.position);
-            attackLine.SetPosition(1, targetGameobject.transform.position);
-        }
-        else
-        {
-            attackLine.enabled = false;
-        }
     }
 
     public void StartAttack(GameObject target)
@@ -75,7 +58,7 @@ public class AttackController : MonoBehaviour
         targetGameobject = target;
 
         // draw line to see which enemy under attack
-        attackLine.enabled = true;
+        //attackLineDrawer.StartDraw(target);
 
         InvokeRepeating("DoAttack", attackSpeed, attackSpeed);
     }
@@ -91,7 +74,7 @@ public class AttackController : MonoBehaviour
     public void StopAttack()
     {
         isAttacking = false;
-        attackLine.enabled = false;
+        //attackLineDrawer.StopDraw();
         CancelInvoke("DoAttack");
     }
 

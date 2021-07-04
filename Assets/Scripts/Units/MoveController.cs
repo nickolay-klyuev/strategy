@@ -22,12 +22,14 @@ public class MoveController : MonoBehaviour
     private Vector3 pointToMove;
     private UnitProperties unitProperties;
     private AttackController attackController;
+    private MoveAttackLineDrawer moveLineDrawer;
 
     // Start is called before the first frame update
     void Start()
     {
         unitProperties = GetComponent<UnitProperties>();
         attackController = GetComponent<AttackController>();
+        moveLineDrawer = GetComponent<MoveAttackLineDrawer>();
     }
 
     // Update is called once per frame
@@ -86,18 +88,34 @@ public class MoveController : MonoBehaviour
     public void MoveToPoint(Vector3 point)
     {
         pointToMove = new Vector3(point.x, point.y, transform.position.z);
+
+        if (moveLineDrawer != null)
+        {
+            moveLineDrawer.StartDraw(pointToMove);
+        }
+
         isChasing = false;
         isMoving = true;
     }
 
     public void StopMoving()
     {
+        if (moveLineDrawer != null)
+        {
+            moveLineDrawer.StopDraw();
+        }
+
         isMoving = false;
     }
 
     public bool StartChasing(GameObject target)
     {
         chasingTarget = target;
+
+        if (moveLineDrawer != null)
+        {
+            moveLineDrawer.StartDraw(target);
+        }
 
         isMoving = false;
         isChasing = true;
@@ -106,6 +124,8 @@ public class MoveController : MonoBehaviour
 
     public bool StopChasing()
     {
+        moveLineDrawer.StopDraw();
+
         isChasing = false;
         return !isChasing;
     }
