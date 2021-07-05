@@ -38,7 +38,9 @@ public class MoveAttackLineDrawer : MonoBehaviour
                 attackMoveLine.SetPosition(1, drawPosition);
             }
         }
-        else
+        
+        if (!letDraw || !friendlyMoveController.GetIsSelected() || 
+            (!GetComponent<MoveController>().GetIsMoving() && !GetComponent<MoveController>().GetIsChasing())) // TODO fix this shit
         {
             attackMoveLine.enabled = false;
         }
