@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 8416557789531695852}
   - component: {fileID: 8416557789531695855}
   - component: {fileID: 8416557789531695854}
+  - component: {fileID: 1838843274}
   m_Layer: 0
   m_Name: 'Key Point '
   m_TagString: Untagged
@@ -219,5 +220,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 442aaa064770328d7b164e22affed382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1838843274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8416557789531695849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cbb6603da449056cbe2a5eb2565e850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

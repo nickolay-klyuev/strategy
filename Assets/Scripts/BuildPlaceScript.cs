@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuildPlaceScript : MonoBehaviour
 {
-    private bool canBeBuild = false;
+    private bool canBeBuild = true;
     public bool GetCanBeBuild()
     {
         return canBeBuild;

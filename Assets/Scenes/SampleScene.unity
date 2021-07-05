@@ -386,49 +386,11 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!1 &566547047
+--- !u!1 &566547047 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7343498525528543025, guid: 438bcec5c1deb0167b8c452d3796b92c, type: 3}
+  m_PrefabInstance: {fileID: 7343498526078213462}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 566547048}
-  - component: {fileID: 566547049}
-  m_Layer: 0
-  m_Name: ResourceSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &566547048
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566547047}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &566547049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566547047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3706167129f313cc1b1607d7cb92be41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &689510627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,6 +1227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildPlace: {fileID: 8871505699986726562, guid: 4a1be919252228dd7b9e35da4dfa3f52, type: 3}
+  resourceSystem: {fileID: 566547047}
 --- !u!114 &1643684289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1312,10 +1275,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1643684288}
         m_TargetAssemblyTypeName: BuildingScript, Assembly-CSharp
         m_MethodName: StartBuild
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 3183651122326625570, guid: 4ef7a6f4cbc1bef8e88370f69afdb5f1, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1612,6 +1575,7 @@ GameObject:
   - component: {fileID: 1976184393}
   - component: {fileID: 1976184394}
   - component: {fileID: 1976184395}
+  - component: {fileID: 1976184391}
   m_Layer: 0
   m_Name: Worm Hole
   m_TagString: Untagged
@@ -1685,6 +1649,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1976184391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976184388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cbb6603da449056cbe2a5eb2565e850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1976184392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2044,6 +2020,63 @@ PrefabInstance:
       objectReference: {fileID: 4210396979408387165, guid: c4049b8c29c7848bebdd9d2a069e36ba, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d190847d0ff04c78acde7651112b66b, type: 3}
+--- !u!1001 &7343498526078213462
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7343498525528543025, guid: 438bcec5c1deb0167b8c452d3796b92c, type: 3}
+      propertyPath: m_Name
+      value: ResourceSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343498525528543038, guid: 438bcec5c1deb0167b8c452d3796b92c, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343498525528543038, guid: 438bcec5c1deb0167b8c452d3796b92c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343498525528543038, guid: 438bcec5c1deb0167b8c452d3796b92c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343498525528543038, guid: 438bcec5c1deb0167b8c452d3796b92c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343498525528543038, guid: 438bcec5c1deb0167b8c452d3796b92c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343498525528543038, guid: 438bcec5c1deb0167b8c452d3796b92c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343498525528543038, guid: 438bcec5c1deb0167b8c452d3796b92c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343498525528543038, guid: 438bcec5c1deb0167b8c452d3796b92c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343498525528543038, guid: 438bcec5c1deb0167b8c452d3796b92c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343498525528543038, guid: 438bcec5c1deb0167b8c452d3796b92c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343498525528543038, guid: 438bcec5c1deb0167b8c452d3796b92c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 438bcec5c1deb0167b8c452d3796b92c, type: 3}
 --- !u!1001 &8416557789216195353
 PrefabInstance:
   m_ObjectHideFlags: 0

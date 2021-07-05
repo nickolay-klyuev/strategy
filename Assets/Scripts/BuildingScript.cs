@@ -5,7 +5,9 @@ using UnityEngine;
 public class BuildingScript : MonoBehaviour
 {
     public GameObject buildPlace;
+    public GameObject resourceSystem;
     private GameObject activeBuildPlace;
+    private GameObject objectToBuild;
     private bool isBuilding = false;
 
     // Start is called before the first frame update
@@ -24,11 +26,17 @@ public class BuildingScript : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && activeBuildPlace.GetComponent<BuildPlaceScript>().GetCanBeBuild())
             {
-                // Build
-                isBuilding = false;
-                Vector3 buildingPosition = activeBuildPlace.transform.position;
-                
-                Destroy(activeBuildPlace);
+                if (resourceSystem.GetComponent<ResourceSystem>().SpendResource(objectToBuild.GetComponent<UnitProperties>().cost))
+                {
+                    // Build
+                    isBuilding = false;
+                    Vector3 buildingPosition = activeBuildPlace.transform.position;
+                    
+                    Destroy(activeBuildPlace);
+
+                    Instantiate(objectToBuild, buildingPosition, Quaternion.identity);   
+                }
+
             }
             else if (Input.GetMouseButtonDown(0))
             {
@@ -43,11 +51,13 @@ public class BuildingScript : MonoBehaviour
         }
     }
 
-    public void StartBuild()
+    public void StartBuild(GameObject building)
     {
         if (!isBuilding)
         {
             isBuilding = true;
+
+            objectToBuild = building;
 
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
