@@ -32,6 +32,19 @@ public class IsSelectedObjectController : MonoBehaviour
                 DisableSelectBox();
             }
         }
+
+        BuildingsSelectTools buildingsSelectTools = GetComponentInParent<BuildingsSelectTools>();
+        if (buildingsSelectTools != null)
+        {
+            if (buildingsSelectTools.GetIsSelected())
+            {
+                EnableSelectBox();
+            }
+            else if (!isExternal)
+            {
+                DisableSelectBox();
+            }
+        }
     }
 
     void LateUpdate()
