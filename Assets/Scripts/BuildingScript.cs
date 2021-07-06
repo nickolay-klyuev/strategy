@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuildingScript : MonoBehaviour
 {
     public GameObject buildPlace;
     public GameObject resourceSystem;
+    public GameObject objectToBuild;
     private GameObject activeBuildPlace;
-    private GameObject objectToBuild;
     private bool isBuilding = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetComponentInChildren<Text>().text += "(" + objectToBuild.GetComponent<UnitProperties>().cost + ")";
     }
 
     // Update is called once per frame
@@ -51,13 +52,11 @@ public class BuildingScript : MonoBehaviour
         }
     }
 
-    public void StartBuild(GameObject building)
+    public void StartBuild()
     {
         if (!isBuilding)
         {
             isBuilding = true;
-
-            objectToBuild = building;
 
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
