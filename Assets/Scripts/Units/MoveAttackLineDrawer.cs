@@ -31,6 +31,8 @@ public class MoveAttackLineDrawer : MonoBehaviour
             attackMoveLine.SetPosition(0, transform.position);
             if (drawObject != null)
             {
+                drawObject.transform.GetComponentInChildren<IsSelectedObjectController>().EnableSelectBox(); // select box on enemies on
+
                 attackMoveLine.SetPosition(1, drawObject.transform.position);
             }
             else
@@ -38,10 +40,14 @@ public class MoveAttackLineDrawer : MonoBehaviour
                 attackMoveLine.SetPosition(1, drawPosition);
             }
         }
-        
+
         if (!letDraw || !friendlyMoveController.GetIsSelected() || 
-            (!GetComponent<MoveController>().GetIsMoving() && !GetComponent<MoveController>().GetIsChasing())) // TODO fix this shit
+            (!GetComponent<MoveController>().GetIsMoving() && !GetComponent<MoveController>().GetIsChasing())) // TODO fix this shit and maybe figure something better 
         {
+            if (drawObject != null)
+            {
+                drawObject.transform.GetComponentInChildren<IsSelectedObjectController>().DisableSelectBox(); // select box on enemies off
+            }
             attackMoveLine.enabled = false;
         }
     }
@@ -64,7 +70,11 @@ public class MoveAttackLineDrawer : MonoBehaviour
 
     public void StopDraw()
     {
-        drawObject = null;
+        if (drawObject != null)
+        {
+            drawObject.transform.GetComponentInChildren<IsSelectedObjectController>().DisableSelectBox(); // select box on enemies off
+            drawObject = null;
+        }
         letDraw = false;
     }
 }

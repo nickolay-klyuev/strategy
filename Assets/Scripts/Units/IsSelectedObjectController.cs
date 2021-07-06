@@ -5,11 +5,15 @@ using UnityEngine;
 public class IsSelectedObjectController : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
+    private Vector3 initialScale;
+    private bool isExternal = false;
 
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        initialScale = transform.localScale;
+        DisableSelectBox();
     }
 
     // Update is called once per frame
@@ -21,11 +25,11 @@ public class IsSelectedObjectController : MonoBehaviour
             // maybe remove from this controller later
             if (friendlyMoveController.GetIsSelected())
             {
-                spriteRenderer.enabled = true;
+                EnableSelectBox();
             }
-            else
+            else if (!isExternal)
             {
-                spriteRenderer.enabled = false;
+                DisableSelectBox();
             }
         }
     }
@@ -33,5 +37,22 @@ public class IsSelectedObjectController : MonoBehaviour
     void LateUpdate()
     {
         transform.rotation = Quaternion.identity;
+    }
+
+    public void EnableSelectBox(Vector3 extraScale = new Vector3(), bool external = false)
+    {
+        isExternal = external;
+        spriteRenderer.transform.localScale = initialScale + extraScale;
+        spriteRenderer.enabled = true;
+    }
+
+    public void DisableSelectBox(Vector3 extraScaleRemove = new Vector3(), bool external = false)
+    {
+        if (external)
+        {
+            isExternal = false;
+        }
+        spriteRenderer.transform.localScale = initialScale - extraScaleRemove;
+        spriteRenderer.enabled = false;
     }
 }
