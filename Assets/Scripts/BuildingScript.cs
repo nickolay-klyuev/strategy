@@ -10,6 +10,10 @@ public class BuildingScript : MonoBehaviour
     public GameObject objectToBuild;
     private GameObject activeBuildPlace;
     private bool isBuilding = false;
+    public bool GetIsBuilding()
+    {
+        return isBuilding;
+    }
 
     // Start is called before the first frame update
     void Start()

@@ -9,6 +9,7 @@ TagManager:
   - Tank
   - Enemy Unit prototype
   - Worm
+  - Canvas
   layers:
   - Default
   - TransparentFX
