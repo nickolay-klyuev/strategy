@@ -10,8 +10,9 @@ public class BuildPlaceScript : MonoBehaviour
         return canBeBuild;
     }
 
-    private void OnTriggerStay2D()
+    private void OnTriggerStay2D(Collider2D collider)
     {
+        Debug.Log(collider);
         canBeBuild = false;
         GetComponent<SpriteRenderer>().color = Color.red;
     }

@@ -16,6 +16,9 @@ public class BuildingsSelectTools : MonoBehaviour
     private void Start()
     {
         thisMenu = Instantiate(buildMenuUI);
+
+        thisMenu.GetComponent<PanelMetaData>().SetCallObject(gameObject);
+
         thisMenu.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform);
         thisMenu.GetComponent<RectTransform>().anchoredPosition = buildMenuUI.GetComponent<RectTransform>().anchoredPosition;
 
@@ -31,7 +34,8 @@ public class BuildingsSelectTools : MonoBehaviour
                 isSelected = true;
                 thisMenu.SetActive(true);
             }
-            else if (!thisMenu.GetComponent<IsPanelActive>().GetIsActive() && !thisMenu.GetComponentInChildren<BuildingScript>().GetIsBuilding())
+            else if (!thisMenu.GetComponent<IsPanelActive>().GetIsActive() && 
+                (thisMenu.GetComponentInChildren<SpawningScript>() != null || !thisMenu.GetComponentInChildren<BuildingScript>().GetIsBuilding()))
             {
                 bool isSomeBuildingActive = false;
                 foreach (BuildingScript buildingScript in thisMenu.GetComponentsInChildren<BuildingScript>())

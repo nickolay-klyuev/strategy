@@ -375,11 +375,6 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!1 &566547047 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7343498525528543025, guid: 438bcec5c1deb0167b8c452d3796b92c, type: 3}
-  m_PrefabInstance: {fileID: 7343498526078213462}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &689510627
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,24 +423,6 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
---- !u!1 &769756100 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8416557789531695849, guid: 3988f7e232f355bf084c1c16dc697dd5, type: 3}
-  m_PrefabInstance: {fileID: 8416557789216195353}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &769756110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769756100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d615b9bd730b093309c0840e42590a0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildMenuUI: {fileID: 422371138867565383, guid: 677e0494b557d379cba5e2c6f73711a6, type: 3}
 --- !u!1 &805699056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,13 +1317,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8416557789189773762, guid: 3988f7e232f355bf084c1c16dc697dd5, type: 3}
-      propertyPath: resourceSystem
-      value: 
-      objectReference: {fileID: 566547047}
     - target: {fileID: 8416557789531695849, guid: 3988f7e232f355bf084c1c16dc697dd5, type: 3}
       propertyPath: m_Name
-      value: 'Key Point '
+      value: Core
       objectReference: {fileID: 0}
     - target: {fileID: 8416557789531695851, guid: 3988f7e232f355bf084c1c16dc697dd5, type: 3}
       propertyPath: m_RootOrder

@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e883b3a4a516fba4e98e7f5f486956d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitToSpawn: {fileID: 4210396979408387165, guid: c4049b8c29c7848bebdd9d2a069e36ba, type: 3}
 --- !u!1 &422371138867565383
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,6 +117,7 @@ GameObject:
   - component: {fileID: 422371138867565434}
   - component: {fileID: 422371138867565433}
   - component: {fileID: 495051782}
+  - component: {fileID: 4439752561146911412}
   m_Layer: 5
   m_Name: Destroyer Factory Panel
   m_TagString: Untagged
@@ -194,6 +196,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af47451730fea1aceae3086d22418c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4439752561146911412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422371138867565383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88770c865ae284d0947082ba92b3bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3659557450864620527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -208,6 +222,14 @@ PrefabInstance:
     - target: {fileID: 3969303277133268278, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 499162104377230623}
+    - target: {fileID: 3969303277133268278, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpawnUnit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969303277133268278, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpawningScript, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3969303277133268296, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
       propertyPath: m_Pivot.x
