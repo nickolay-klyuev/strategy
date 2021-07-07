@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class BuildingScript : MonoBehaviour
 {
     public GameObject buildPlace;
-    public GameObject resourceSystem;
     public GameObject objectToBuild;
     private GameObject activeBuildPlace;
     private bool isBuilding = false;
@@ -31,7 +30,7 @@ public class BuildingScript : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && activeBuildPlace.GetComponent<BuildPlaceScript>().GetCanBeBuild())
             {
-                if (resourceSystem.GetComponent<ResourceSystem>().SpendResource(objectToBuild.GetComponent<UnitProperties>().cost))
+                if (GameObject.FindGameObjectWithTag("ResourceSystem").GetComponent<ResourceSystem>().SpendResource(objectToBuild.GetComponent<UnitProperties>().cost))
                 {
                     // Build
                     isBuilding = false;

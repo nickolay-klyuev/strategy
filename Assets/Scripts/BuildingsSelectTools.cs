@@ -5,6 +5,7 @@ using UnityEngine;
 public class BuildingsSelectTools : MonoBehaviour
 {
     public GameObject buildMenuUI;
+    private GameObject thisMenu;
 
     private bool isSelected = false;
     public bool GetIsSelected()
@@ -14,7 +15,11 @@ public class BuildingsSelectTools : MonoBehaviour
 
     private void Start()
     {
-        buildMenuUI.SetActive(false);
+        thisMenu = Instantiate(buildMenuUI);
+        thisMenu.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform);
+        thisMenu.GetComponent<RectTransform>().anchoredPosition = buildMenuUI.GetComponent<RectTransform>().anchoredPosition;
+
+        thisMenu.SetActive(false);
     }
 
     private void Update()
@@ -24,12 +29,12 @@ public class BuildingsSelectTools : MonoBehaviour
             if (!isSelected && GameObject.ReferenceEquals(gameObject, StaticMethods.GetGameObjectByRaycast()))
             {
                 isSelected = true;
-                buildMenuUI.SetActive(true);
+                thisMenu.SetActive(true);
             }
-            else if (!buildMenuUI.GetComponent<IsPanelActive>().GetIsActive() && !buildMenuUI.GetComponentInChildren<BuildingScript>().GetIsBuilding())
+            else if (!thisMenu.GetComponent<IsPanelActive>().GetIsActive() && !thisMenu.GetComponentInChildren<BuildingScript>().GetIsBuilding())
             {
                 bool isSomeBuildingActive = false;
-                foreach (BuildingScript buildingScript in buildMenuUI.GetComponentsInChildren<BuildingScript>())
+                foreach (BuildingScript buildingScript in thisMenu.GetComponentsInChildren<BuildingScript>())
                 {
                     if (buildingScript.GetIsBuilding())
                     {
@@ -41,7 +46,7 @@ public class BuildingsSelectTools : MonoBehaviour
                 if (!isSomeBuildingActive)
                 {
                     isSelected = false;
-                    buildMenuUI.SetActive(false);
+                    thisMenu.SetActive(false);
                 }
             }
         }

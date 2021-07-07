@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 public class ResourceDisplay : MonoBehaviour
 {
-    public GameObject resourceSystem;
     private ResourceSystem resourceSystemScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        resourceSystemScript = resourceSystem.GetComponent<ResourceSystem>();
+        resourceSystemScript = GameObject.FindGameObjectWithTag("ResourceSystem").GetComponent<ResourceSystem>();
     }
 
     // Update is called once per frame

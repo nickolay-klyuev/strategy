@@ -10,6 +10,7 @@ TagManager:
   - Enemy Unit prototype
   - Worm
   - Canvas
+  - ResourceSystem
   layers:
   - Default
   - TransparentFX
