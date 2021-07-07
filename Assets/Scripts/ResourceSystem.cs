@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResourceSystem : MonoBehaviour
 {
-    private int resourceAmount = 100;
+    private int resourceAmount = 500;
 
     public void GatherResource(int amount)
     {

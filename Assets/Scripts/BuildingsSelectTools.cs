@@ -28,8 +28,21 @@ public class BuildingsSelectTools : MonoBehaviour
             }
             else if (!buildMenuUI.GetComponent<IsPanelActive>().GetIsActive() && !buildMenuUI.GetComponentInChildren<BuildingScript>().GetIsBuilding())
             {
-                isSelected = false;
-                buildMenuUI.SetActive(false);
+                bool isSomeBuildingActive = false;
+                foreach (BuildingScript buildingScript in buildMenuUI.GetComponentsInChildren<BuildingScript>())
+                {
+                    if (buildingScript.GetIsBuilding())
+                    {
+                        isSomeBuildingActive = true;
+                        break;
+                    }
+                }
+
+                if (!isSomeBuildingActive)
+                {
+                    isSelected = false;
+                    buildMenuUI.SetActive(false);
+                }
             }
         }
     }
