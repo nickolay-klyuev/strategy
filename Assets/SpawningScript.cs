@@ -43,7 +43,7 @@ public class SpawningScript : MonoBehaviour
         metaData = GetComponentInParent<PanelMetaData>();
 
         // TODO: maybe improve and change this one
-        unitsLimit = metaData.GetCallObject().GetComponent<DestroyerFactoryScript>().GetUnitsLimit();
+        unitsLimit = metaData.GetCallObject().GetComponent<SpawnLimits>().unitsLimit;
 
         if (unitsOnStage.Count < unitsLimit)
         {
