@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8704755911250817455}
   - component: {fileID: -1866242499274661578}
   - component: {fileID: -3166925919086407523}
+  - component: {fileID: 508695048343973200}
   m_Layer: 0
   m_Name: Destroyer Factory
   m_TagString: Untagged
@@ -194,6 +195,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildMenuUI: {fileID: 422371138867565383, guid: b3df703620599ac97890982beb6c314b, type: 3}
+--- !u!114 &508695048343973200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7951982193473794917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726c811bae014755fbbe9fbbb544692d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8588772888522297569
 PrefabInstance:
   m_ObjectHideFlags: 0

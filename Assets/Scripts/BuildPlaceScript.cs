@@ -12,9 +12,11 @@ public class BuildPlaceScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collider)
     {
-        Debug.Log(collider);
-        canBeBuild = false;
-        GetComponent<SpriteRenderer>().color = Color.red;
+        if (collider.name != "Attack Range Collider")
+        {
+            canBeBuild = false;
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
     }
 
     private void OnTriggerExit2D()
