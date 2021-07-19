@@ -22,7 +22,12 @@ public class DestroyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (unitProperties.health <= 0)
+        if (unitProperties.health <= 0 && GetComponent<BuildingsSelectTools>() != null)
+        {
+            Destroy(GetComponent<BuildingsSelectTools>().GetMenuUI());
+            Destroy(gameObject);
+        }
+        else if (unitProperties.health <= 0)
         {
             Destroy(gameObject);
         }

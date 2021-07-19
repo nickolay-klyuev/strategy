@@ -6,6 +6,10 @@ public class BuildingsSelectTools : MonoBehaviour
 {
     public GameObject buildMenuUI;
     private GameObject thisMenu;
+    public GameObject GetMenuUI()
+    {
+        return thisMenu;
+    }
 
     private bool isSelected = false;
     public bool GetIsSelected()
@@ -35,7 +39,9 @@ public class BuildingsSelectTools : MonoBehaviour
                 thisMenu.SetActive(true);
             }
             else if (!thisMenu.GetComponent<IsPanelActive>().GetIsActive() && 
-                (thisMenu.GetComponentInChildren<SpawningScript>() != null || !thisMenu.GetComponentInChildren<BuildingScript>().GetIsBuilding()))
+                (thisMenu.GetComponentInChildren<SpawningScript>() != null || 
+                thisMenu.GetComponentInChildren<OverloadScript>() != null ||
+                !thisMenu.GetComponentInChildren<BuildingScript>().GetIsBuilding()))
             {
                 bool isSomeBuildingActive = false;
                 foreach (BuildingScript buildingScript in thisMenu.GetComponentsInChildren<BuildingScript>())
