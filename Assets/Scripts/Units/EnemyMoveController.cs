@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class EnemyMoveController : MonoBehaviour
 {
-    public GameObject mainTarget;
-
-    private Vector3 mainTargetPosition;
-
     private MoveController moveController;
     private AttackController attackController;
+    private GameObject background;
 
     // Start is called before the first frame update
     void Start()
     {
-        mainTargetPosition = mainTarget.transform.position;
+        background = GameObject.Find("Background");
         moveController = GetComponent<MoveController>();
         attackController = GetComponent<AttackController>();
 
-        moveController.MoveToPoint(mainTargetPosition);
+        moveController.MoveToPoint(GetRandomBackgroundPoint());
     }
 
     // Update is called once per frame
@@ -28,9 +25,16 @@ public class EnemyMoveController : MonoBehaviour
         {
             moveController.StopMoving();
         }
-        else
+        else if (!attackController.GetIsAttacking() && !moveController.GetIsMoving())
         {
-            moveController.MoveToPoint(mainTargetPosition);
+            moveController.MoveToPoint(GetRandomBackgroundPoint());
         }
+    }
+
+    private Vector2 GetRandomBackgroundPoint()
+    {
+        float maxX = background.GetComponent<SpriteRenderer>().size.x;
+        float maxY = background.GetComponent<SpriteRenderer>().size.y;
+        return new Vector2(Random.Range(0f, maxX), Random.Range(0f, maxY));
     }
 }
