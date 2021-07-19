@@ -16,6 +16,6 @@ public class ResourceDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Text>().text = resourceSystemScript.GetResourceAmount().ToString();
+        GetComponent<Text>().text = $"Resources: {resourceSystemScript.GetResourceAmount().ToString()};";
     }
 }
