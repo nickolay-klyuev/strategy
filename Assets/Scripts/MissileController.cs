@@ -28,7 +28,8 @@ public class MissileController : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, flySpeed * Time.deltaTime);
             if (transform.position == targetPosition)
             {
-                Destroy(gameObject);
+                isFlying = false;
+                gameObject.SetActive(false);
             }
         }
     }
@@ -41,7 +42,8 @@ public class MissileController : MonoBehaviour
                 (collider.GetComponent<UnitProperties>().unitType == "friendly" && parentUnitType == "enemy"))
             {
                 collider.GetComponent<UnitProperties>().health -= attackPower;
-                Destroy(gameObject);
+                isFlying = false;
+                gameObject.SetActive(false);
             }
         }
     }

@@ -7,6 +7,7 @@ public class MissileSpawnerController : MonoBehaviour
     public GameObject missile;
 
     private Vector3 targetPosition;
+    private bool doSpawn = false;
     private List<GameObject> createdMissiles = new List<GameObject>();
     private string parentUnitType;
     private float parentAccuracy;
@@ -20,38 +21,48 @@ public class MissileSpawnerController : MonoBehaviour
         parentUnitType = GetComponentInParent<UnitProperties>().unitType;
         parentAccuracy = GetComponentInParent<UnitProperties>().accuracy;
         parentAccuracyWhileMoving = GetComponentInParent<UnitProperties>().accuracyWhileMoving;
+
+        // create 3 missiles, just in case
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject createdMissile = Instantiate(missile, transform.position, transform.rotation);
+            createdMissile.GetComponent<MissileController>().SetParentUnitType(parentUnitType);
+            createdMissile.SetActive(false);
+            createdMissiles.Add(createdMissile);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (createdMissiles.Count > 0)
+        if (doSpawn)
         {
-            for (int i = 0; i < createdMissiles.Count;)
+            for (int i = 0; i < createdMissiles.Count; i++)
             {
-                if (createdMissiles[i] == null)
+                if (createdMissiles[i].activeSelf)
                 {
-                    createdMissiles.RemoveAt(i);
+                    continue;
                 }
-                else
+                createdMissiles[i].transform.position = transform.position;
+                createdMissiles[i].transform.rotation = transform.rotation;
+                createdMissiles[i].SetActive(true);
+                MissileController missileController = createdMissiles[i].GetComponent<MissileController>();
+                if (!missileController.GetIsFlying())
                 {
-                    MissileController missileController = createdMissiles[i].GetComponent<MissileController>();
-                    if (!missileController.GetIsFlying())
+                    // change target possition by accuracy 
+                    if (moveController.GetIsMoving())
                     {
-                        // change target possition by accuracy 
-                        if (moveController.GetIsMoving())
-                        {
-                            targetPosition += new Vector3(Random.Range(-parentAccuracyWhileMoving, parentAccuracyWhileMoving), 
-                                                          Random.Range(-parentAccuracyWhileMoving, parentAccuracyWhileMoving), 0);
-                        }
-                        else
-                        {
-                            targetPosition += new Vector3(Random.Range(-parentAccuracy, parentAccuracy), Random.Range(-parentAccuracy, parentAccuracy), 0);
-                        }
-                        missileController.LunchMissile(targetPosition);
+                        targetPosition += new Vector3(Random.Range(-parentAccuracyWhileMoving, parentAccuracyWhileMoving), 
+                                                        Random.Range(-parentAccuracyWhileMoving, parentAccuracyWhileMoving), 0);
                     }
-                    i++;
+                    else
+                    {
+                        targetPosition += new Vector3(Random.Range(-parentAccuracy, parentAccuracy), Random.Range(-parentAccuracy, parentAccuracy), 0);
+                    }
+                    missileController.LunchMissile(targetPosition);
                 }
+                doSpawn = false;
+                break;
             }
         }
     }
@@ -61,9 +72,7 @@ public class MissileSpawnerController : MonoBehaviour
         if (target != null)
         {
             targetPosition = target.transform.position;
-            GameObject createdMissile = Instantiate(missile, transform.position, transform.rotation);
-            createdMissile.GetComponent<MissileController>().SetParentUnitType(parentUnitType);
-            createdMissiles.Add(createdMissile);
+            doSpawn = true;
         }
     }
 }
