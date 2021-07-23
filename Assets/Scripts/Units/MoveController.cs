@@ -68,7 +68,7 @@ public class MoveController : MonoBehaviour
                 }
             }
         }
-        else if (isChasing && chasingTarget == null)
+        else if (chasingTarget == null)
         {
             isChasing = false;
         }

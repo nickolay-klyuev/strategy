@@ -33,9 +33,17 @@ public class AttackRangeRadiusController : MonoBehaviour
             moveController.StartChasing(collider.gameObject);
         }
 
-        if (ColliderResult(collider) && !attackController.GetIsAttacking() && (unitProperties.canFireWhileMoving || !moveController.GetIsMoving()))
+        if (ColliderResult(collider) && !attackController.GetIsAttacking() && 
+            (unitProperties.canFireWhileMoving || !moveController.GetIsMoving()))
         {
-            StartAttack(collider);
+            if (moveController.GetIsChasing())
+            {
+                StartAttack(moveController.GetChasingTarget());
+            }
+            else
+            {
+                StartAttack(collider.gameObject);
+            }
         }
     }
 
@@ -72,9 +80,9 @@ public class AttackRangeRadiusController : MonoBehaviour
         }
     }
 
-    private void StartAttack(Collider2D collider)
+    private void StartAttack(GameObject target)
     {
-        attackController.StartAttack(collider.gameObject);
+        attackController.StartAttack(target);
     }
 
     private void StopAttack()
