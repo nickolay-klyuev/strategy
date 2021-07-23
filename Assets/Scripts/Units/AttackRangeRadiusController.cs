@@ -26,10 +26,11 @@ public class AttackRangeRadiusController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collider)
     {
-        // all enemies stop while attacking, but maybe change later
+        
+        // all enemies will chase enemies
         if (ColliderResult(collider) && unitProperties.unitType == "enemy")
         {
-            moveController.StopMoving();
+            moveController.StartChasing(collider.gameObject);
         }
 
         if (ColliderResult(collider) && !attackController.GetIsAttacking() && (unitProperties.canFireWhileMoving || !moveController.GetIsMoving()))

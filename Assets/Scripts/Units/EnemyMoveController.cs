@@ -21,11 +21,11 @@ public class EnemyMoveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (attackController.GetIsAttacking())
+        /*if (attackController.GetIsAttacking())
         {
             moveController.StopMoving();
         }
-        else if (!attackController.GetIsAttacking() && !moveController.GetIsMoving())
+        else*/ if (!attackController.GetIsAttacking() && !moveController.GetIsMoving() && !moveController.GetIsChasing())
         {
             moveController.MoveToPoint(GetRandomBackgroundPoint());
         }

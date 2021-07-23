@@ -68,6 +68,10 @@ public class MoveController : MonoBehaviour
                 }
             }
         }
+        else if (isChasing && chasingTarget == null)
+        {
+            isChasing = false;
+        }
     }
 
     private float CalculateVectorRange(Vector3 vector)
