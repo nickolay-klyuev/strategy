@@ -28,7 +28,7 @@ public class AttackRangeRadiusController : MonoBehaviour
     {
         
         // all enemies will chase enemies
-        if (ColliderResult(collider) && unitProperties.unitType == "enemy")
+        if (ColliderResult(collider) && unitProperties.unitType == "enemy" && !moveController.GetIsChasing())
         {
             moveController.StartChasing(collider.gameObject);
         }

@@ -65,10 +65,13 @@ public class AttackController : MonoBehaviour
 
     private void DoAttack()
     {
-        foreach(MissileSpawnerController missileSpawnerController in missileSpawnerControllers)
+        missileSpawnerControllers[Random.Range(0, missileSpawnerControllers.Length - 1)].SpawnMissile(targetGameobject);
+
+        // all missiles at the same time
+        /*foreach(MissileSpawnerController missileSpawnerController in missileSpawnerControllers)
         {
             missileSpawnerController.SpawnMissile(targetGameobject);
-        }
+        }*/
     }
 
     public void StopAttack()
