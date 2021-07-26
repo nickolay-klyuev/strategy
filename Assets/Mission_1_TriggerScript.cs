@@ -34,7 +34,7 @@ public class Mission_1_TriggerScript : MonoBehaviour
             if (areAllDestroyed)
             {
                 isComplete = true;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelsController.LoadNextScene();
             }
         }
         goalDisplay.GetComponent<Text>().text = $"{goalText}{targetsLeft};";
