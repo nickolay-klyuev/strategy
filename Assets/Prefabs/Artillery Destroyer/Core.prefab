@@ -531,7 +531,7 @@ MonoBehaviour:
   attackRange: 10
   attackSpeed: 0.5
   accuracy: 0.5
-  accuracyWhileMoving: 2
+  accuracyWhileMoving: 0.7
   canFireWhileMoving: 1
   cost: 50
   limit: 1

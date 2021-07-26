@@ -22,8 +22,8 @@ public class MissileSpawnerController : MonoBehaviour
         parentAccuracy = GetComponentInParent<UnitProperties>().accuracy;
         parentAccuracyWhileMoving = GetComponentInParent<UnitProperties>().accuracyWhileMoving;
 
-        // create 3 missiles, just in case
-        for (int i = 0; i < 3; i++)
+        // create 2 missiles, just in case
+        for (int i = 0; i < 2; i++)
         {
             GameObject createdMissile = Instantiate(missile, transform.position, transform.rotation);
             createdMissile.GetComponent<MissileController>().SetParentUnitType(parentUnitType);

@@ -12,7 +12,7 @@ public class EnemyKeyPointController : MonoBehaviour
     void Start()
     {
         spawnPoint = transform.Find("Spawn Point");
-        InvokeRepeating("Spawn", 1f, 1f);
+        InvokeRepeating("Spawn", 5f, 5f);
     }
 
     private void Spawn()
