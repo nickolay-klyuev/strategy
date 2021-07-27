@@ -14,6 +14,7 @@ public class AttackController : MonoBehaviour
 
     private float attackSpeed;
     private bool isAttacking = false;
+    private bool isDoAttackCoroutine = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -57,28 +58,31 @@ public class AttackController : MonoBehaviour
         isAttacking = true;
         targetGameobject = target;
 
-        // draw line to see which enemy under attack
-        //attackLineDrawer.StartDraw(target);
-
-        InvokeRepeating("DoAttack", attackSpeed, attackSpeed);
+        if (!isDoAttackCoroutine)
+        {
+            StartCoroutine(DoAttack());
+        }
     }
 
-    private void DoAttack()
+    IEnumerator DoAttack()
     {
-        missileSpawnerControllers[Random.Range(0, missileSpawnerControllers.Length - 1)].SpawnMissile(targetGameobject);
-
-        // all missiles at the same time
-        /*foreach(MissileSpawnerController missileSpawnerController in missileSpawnerControllers)
+        // all these need to avoid delay after click and attack start
+        isDoAttackCoroutine = true;
+        while (isAttacking)
         {
-            missileSpawnerController.SpawnMissile(targetGameobject);
-        }*/
+            yield return new WaitForSeconds(attackSpeed);
+            if (isAttacking)
+            {
+                missileSpawnerControllers[Random.Range(0, missileSpawnerControllers.Length - 1)].SpawnMissile(targetGameobject);
+            }
+        }
+        isDoAttackCoroutine = false;
+        StopCoroutine(DoAttack());
     }
 
     public void StopAttack()
     {
         isAttacking = false;
-        //attackLineDrawer.StopDraw();
-        CancelInvoke("DoAttack");
     }
 
     public GameObject GetTargetGameobject()
