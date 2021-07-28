@@ -36,16 +36,13 @@ public class AttackController : MonoBehaviour
         if (friendlyMoveController != null && friendlyMoveController.GetIsSelected())
         {
             if (Input.GetMouseButtonDown(1)) {
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-                
-                RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-                UnitProperties raycastHitunitProperties = hit.collider.gameObject.GetComponent<UnitProperties>();
+                GameObject hitGameobject = StaticMethods.GetGameObjectByRaycast();
+                UnitProperties raycastHitunitProperties = hitGameobject.GetComponent<UnitProperties>();
                 if (raycastHitunitProperties != null) {
                     if (raycastHitunitProperties.unitType == "enemy" && friendlyMoveController != null)
                     {
                         StopAttack();
-                        moveController.StartChasing(hit.collider.gameObject);
+                        moveController.StartChasing(hitGameobject);
                     }
                 }
             }
