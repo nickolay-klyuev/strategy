@@ -24,55 +24,16 @@ public class BackroundController : MonoBehaviour
 
     void OnMouseOver()
     {
-        friendlyMoveControllers = FindObjectsOfType<FriendlyMoveController>();
-        List<FriendlyMoveController> selectedFMoveControllers = new List<FriendlyMoveController>();
-
-        foreach (FriendlyMoveController friendlyMoveController in friendlyMoveControllers)
-        {
-            if (friendlyMoveController.GetIsSelected())
-            {
-                selectedFMoveControllers.Add(friendlyMoveController);
-            }
-        }
-
-        int controllersCount = selectedFMoveControllers.Count;
-
         if (Input.GetMouseButtonDown(0))
         {
+            SelectedUnits.UnselectAll();
             selectBoxController.StartSelecting();
         }
-
-        //FriendlyMoveController previousFMController = selectedFMoveControllers[0];
-        foreach (FriendlyMoveController selectedFMoveController in selectedFMoveControllers)
+        else if (Input.GetMouseButtonDown(1))
         {
-            if (Input.GetMouseButtonDown(0))
+            foreach (GameObject unit in SelectedUnits.selectedUnits)
             {
-                selectedFMoveController.SetIsSelected(false);
-            }
-            else if (Input.GetMouseButtonDown(1))
-            {
-                // commented until I figure out how to improve it
-
-                /*Vector3 vector = previousFMController.transform.position - selectedFMoveController.transform.position;
-                previousFMController = selectedFMoveController;*/
-
-                /*for (int i = 0, j = 0; i < 1 && j < 100; j++) // TODO: change and improve later
-                {
-                    vector *= 0.9f;
-
-                    float vectorLength = Mathf.Sqrt(Mathf.Pow(vector.x, 2) + Mathf.Pow(vector.y, 2));
-
-                    if (vectorLength <= 3f && vectorLength >= 2f)
-                    {
-                        i++;
-                    }
-                    else
-                    {
-                        vector *= 1.1f;
-                    }
-                }*/
-
-                selectedFMoveController.MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                unit.GetComponent<MoveController>().MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             }
         }
     }

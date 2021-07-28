@@ -45,6 +45,7 @@ public class SelectBoxController : MonoBehaviour
         FriendlyMoveController friendlyMoveController = collider.transform.GetComponent<FriendlyMoveController>();
         if (friendlyMoveController != null)
         {
+            SelectedUnits.selectedUnits.Add(collider.gameObject);
             friendlyMoveController.SetIsSelected(true);
         }
     }
