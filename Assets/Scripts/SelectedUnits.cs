@@ -8,10 +8,13 @@ public class SelectedUnits : MonoBehaviour
 
     public static void UnselectAll()
     {
-        foreach (GameObject unit in selectedUnits)
+        if (!Input.GetKey(KeyCode.LeftShift))
         {
-            unit.GetComponent<FriendlyMoveController>().SetIsSelected(false);
+            foreach (GameObject unit in selectedUnits)
+            {
+                unit.GetComponent<FriendlyMoveController>().SetIsSelected(false);
+            }
+            selectedUnits = new List<GameObject>();
         }
-        selectedUnits = new List<GameObject>();
     }
 }
