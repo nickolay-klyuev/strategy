@@ -5,6 +5,11 @@ using UnityEngine;
 public class OnHoverScript : MonoBehaviour
 {
     private IsSelectedObjectController isSelectedScript;
+    private bool isOnHover = false;
+    public bool GetIsOnHover()
+    {
+        return isOnHover;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -21,11 +26,13 @@ public class OnHoverScript : MonoBehaviour
     private Vector3 extraScale = new Vector3(0.1f, 0.1f, 0);
     private void OnMouseOver()
     {
+        isOnHover = true;
         isSelectedScript.EnableSelectBox(extraScale, true);
     }
 
     private void OnMouseExit()
     {
+        isOnHover = false;
         isSelectedScript.DisableSelectBox(extraScale, true);
     }
 }

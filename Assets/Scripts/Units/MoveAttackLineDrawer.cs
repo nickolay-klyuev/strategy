@@ -42,9 +42,9 @@ public class MoveAttackLineDrawer : MonoBehaviour
         }
 
         if (!letDraw || !friendlyMoveController.GetIsSelected() || 
-            (!GetComponent<MoveController>().GetIsMoving() && !GetComponent<MoveController>().GetIsChasing())) // TODO fix this shit and maybe figure something better 
+            (!GetComponent<MoveController>().GetIsMoving() && !GetComponent<MoveController>().GetIsChasing())) // TODO: fix this mess and maybe figure something better 
         {
-            if (drawObject != null)
+            if (drawObject != null && !drawObject.GetComponent<OnHoverScript>().GetIsOnHover())
             {
                 drawObject.transform.GetComponentInChildren<IsSelectedObjectController>().DisableSelectBox(); // select box on enemies off
             }
