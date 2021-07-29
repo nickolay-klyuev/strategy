@@ -8,6 +8,8 @@ public class CameraController : MonoBehaviour
     public float cameraSizeStep = .5f;
     public float maxCameraSize = 7f;
     public float minCameraSize = 3f;
+    public GameObject background;
+    private Vector2 bgSize;
 
     private Camera mainCamera;
 
@@ -15,6 +17,8 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         mainCamera = GetComponent<Camera>();
+
+        bgSize = background.GetComponent<SpriteRenderer>().size;
     }
 
     // Update is called once per frame
@@ -22,19 +26,21 @@ public class CameraController : MonoBehaviour
     {
         // camera move by WASD
         Vector3 pos = transform.position;
-        if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
+        float camHorizontalSize = mainCamera.orthographicSize * mainCamera.aspect;
+        
+        if (pos.x < bgSize.x - camHorizontalSize && Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
         {
             pos = new Vector3(pos.x + cameraSpeed * Time.deltaTime, pos.y, pos.z);
         }
-        if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
+        if (pos.x > camHorizontalSize && Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
         {
             pos = new Vector3(pos.x - cameraSpeed * Time.deltaTime, pos.y, pos.z);
         }
-        if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") > 0)
+        if (pos.y < bgSize.y - mainCamera.orthographicSize && Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") > 0)
         {
             pos = new Vector3(pos.x, pos.y + cameraSpeed * Time.deltaTime, pos.z);
         }
-        if (Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") < 0)
+        if (pos.y > mainCamera.orthographicSize && Input.GetButton("Vertical") && Input.GetAxisRaw("Vertical") < 0)
         {
             pos = new Vector3(pos.x, pos.y - cameraSpeed * Time.deltaTime, pos.z);
         }

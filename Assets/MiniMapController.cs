@@ -58,9 +58,12 @@ public class MiniMapController : MonoBehaviour
                 continue;
             }
 
-            indicatorsRT[i].anchoredPosition = new Vector2(core.position.x * scale, core.position.y * scale);
+            indicatorsRT[i].anchoredPosition = new Vector2(core.position.x, core.position.y) * scale;
         }
 
         cameraIndicator.anchoredPosition = mainCamera.transform.position * scale;
+        float cameraSizeY = mainCamera.GetComponent<Camera>().orthographicSize * 2;
+        float cameraSizeX = cameraSizeY * mainCamera.GetComponent<Camera>().aspect;
+        cameraIndicator.sizeDelta = new Vector2(cameraSizeX, cameraSizeY) * scale;
     }
 }
