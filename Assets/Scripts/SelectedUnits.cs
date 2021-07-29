@@ -6,16 +6,19 @@ public class SelectedUnits : MonoBehaviour
 {
     public static List<GameObject> selectedUnits = new List<GameObject>();
 
-    // FIXME:
-    // if unit was destroyed during selecting then this fuction dives null error
     public static void UnselectAll()
     {
         if (!Input.GetKey(KeyCode.LeftShift))
         {
             foreach (GameObject unit in selectedUnits)
             {
-                unit.GetComponent<FriendlyMoveController>().SetIsSelected(false);
+                // skip if unit is already destroyed
+                if (unit != null)
+                {
+                    unit.GetComponent<FriendlyMoveController>().SetIsSelected(false);
+                }
             }
+            // clean all selected List
             selectedUnits = new List<GameObject>();
         }
     }
