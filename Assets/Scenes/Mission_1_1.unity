@@ -149,7 +149,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110730519}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -185,6 +185,7 @@ MonoBehaviour:
   - {fileID: 133126583}
   - {fileID: 2128428049}
   friendlyUnitIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
+  cameraIndicator: {fileID: 805902003}
 --- !u!114 &110730522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,7 +828,7 @@ RectTransform:
   - {fileID: 936191257}
   - {fileID: 672563189}
   m_Father: {fileID: 2112812015}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1317,7 +1318,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 805902003}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1326,7 +1327,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 52.36794, y: 101.362656}
+  m_AnchoredPosition: {x: 79.9, y: 68.1}
   m_SizeDelta: {x: 74.0095, y: 47.5549}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &805902005
@@ -2670,7 +2671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6607548905699189920, guid: 974a070a9a2dad5e4aa35af8a47214f5, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6607548905699189920, guid: 974a070a9a2dad5e4aa35af8a47214f5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3077,8 +3078,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 110730520}
-  - {fileID: 2019313274}
   - {fileID: 550298932}
+  - {fileID: 2019313274}
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

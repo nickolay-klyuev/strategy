@@ -8,20 +8,28 @@ public class MiniMapController : MonoBehaviour, IPointerClickHandler
     public GameObject mainCamera;
     public List<GameObject> initialUnits;
     public GameObject friendlyUnitIndicator;
+    public GameObject cameraIndicator;
 
     private List<Transform> unitsCores = new List<Transform>();
     private GameObject background;
     private RectTransform rectTransform;
     private List<RectTransform> indicatorsRT = new List<RectTransform>();
-    private RectTransform cameraIndicator;
+    private RectTransform cameraIndicatorRT;
 
     private float scale = 10;
 
     public void OnPointerClick(PointerEventData pointerEventData) // move camera by clicking mini map
     {
-        mainCamera.transform.position = new Vector3(pointerEventData.position.x / scale, 
-                                                    (pointerEventData.position.y - (transform.position.y - rectTransform.sizeDelta.y / 2)) / scale,
-                                                    mainCamera.transform.position.z);
+        float pointerX = pointerEventData.position.x;
+        float pointerY = pointerEventData.position.y;
+        if (pointerX > 0 && pointerX < rectTransform.sizeDelta.x &&
+            pointerY > transform.position.y - rectTransform.sizeDelta.y / 2 && 
+            pointerY < Screen.height) // move camera only if you click on mini map panel
+        {
+            mainCamera.transform.position = new Vector3(pointerEventData.position.x / scale, 
+                                                        (pointerEventData.position.y - (transform.position.y - rectTransform.sizeDelta.y / 2)) / scale,
+                                                        mainCamera.transform.position.z);
+        }
     }
 
     // Start is called before the first frame update
@@ -29,15 +37,15 @@ public class MiniMapController : MonoBehaviour, IPointerClickHandler
     {
         background = GameObject.Find("Background");
         rectTransform = transform.GetComponent<RectTransform>();
-        cameraIndicator = transform.Find("Camera indicator").GetComponent<RectTransform>();
+        cameraIndicatorRT = cameraIndicator.GetComponent<RectTransform>();
 
         Vector2 bgSize = background.GetComponent<SpriteRenderer>().size;
         rectTransform.sizeDelta = bgSize * scale;
 
         rectTransform.anchoredPosition = new Vector2(rectTransform.sizeDelta.x / 2, rectTransform.sizeDelta.y / -2);
 
-        cameraIndicator.anchorMin = new Vector2(0, 0);
-        cameraIndicator.anchorMax = new Vector2(0, 0);
+        cameraIndicatorRT.anchorMin = new Vector2(0, 0);
+        cameraIndicatorRT.anchorMax = new Vector2(0, 0);
 
         for (int i = 0; i < initialUnits.Count; i++)
         {
@@ -68,9 +76,9 @@ public class MiniMapController : MonoBehaviour, IPointerClickHandler
             indicatorsRT[i].anchoredPosition = new Vector2(core.position.x, core.position.y) * scale;
         }
 
-        cameraIndicator.anchoredPosition = mainCamera.transform.position * scale;
+        cameraIndicatorRT.anchoredPosition = mainCamera.transform.position * scale;
         float cameraSizeY = mainCamera.GetComponent<Camera>().orthographicSize * 2;
         float cameraSizeX = cameraSizeY * mainCamera.GetComponent<Camera>().aspect;
-        cameraIndicator.sizeDelta = new Vector2(cameraSizeX, cameraSizeY) * scale;
+        cameraIndicatorRT.sizeDelta = new Vector2(cameraSizeX, cameraSizeY) * scale;
     }
 }
