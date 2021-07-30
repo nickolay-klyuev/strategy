@@ -26,8 +26,12 @@ public class BackroundController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            SelectedUnits.UnselectAll();
-            selectBoxController.StartSelecting();
+            if (Input.mousePosition.x > MiniMapController.miniMapWidth || 
+                Input.mousePosition.y < Screen.height - MiniMapController.miniMapHeight)
+            {
+                SelectedUnits.UnselectAll();
+                selectBoxController.StartSelecting();
+            }
         }
         else if (Input.GetMouseButtonDown(1))
         {

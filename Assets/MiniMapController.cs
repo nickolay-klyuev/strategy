@@ -3,33 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MiniMapController : MonoBehaviour, IPointerClickHandler
+public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public GameObject mainCamera;
     public List<GameObject> initialUnits;
     public GameObject friendlyUnitIndicator;
     public GameObject cameraIndicator;
 
+    public static float miniMapHeight;
+    public static float miniMapWidth;
+
     private List<Transform> unitsCores = new List<Transform>();
     private GameObject background;
     private RectTransform rectTransform;
     private List<RectTransform> indicatorsRT = new List<RectTransform>();
     private RectTransform cameraIndicatorRT;
+    private bool isMiniMapPointerDown = false;
+    private PointerEventData onpointerDownEventDataGlobal;
 
     private float scale = 10;
 
-    public void OnPointerClick(PointerEventData pointerEventData) // move camera by clicking mini map
+    public void OnPointerDown(PointerEventData pointerEventData) // move camera by clicking mini map
     {
-        float pointerX = pointerEventData.position.x;
-        float pointerY = pointerEventData.position.y;
-        if (pointerX > 0 && pointerX < rectTransform.sizeDelta.x &&
-            pointerY > transform.position.y - rectTransform.sizeDelta.y / 2 && 
-            pointerY < Screen.height) // move camera only if you click on mini map panel
-        {
-            mainCamera.transform.position = new Vector3(pointerEventData.position.x / scale, 
-                                                        (pointerEventData.position.y - (transform.position.y - rectTransform.sizeDelta.y / 2)) / scale,
-                                                        mainCamera.transform.position.z);
-        }
+        onpointerDownEventDataGlobal = pointerEventData;
+        isMiniMapPointerDown = true;
+    }
+
+    public void OnPointerUp(PointerEventData pointerEventData)
+    {
+        isMiniMapPointerDown = false;
     }
 
     // Start is called before the first frame update
@@ -41,6 +43,9 @@ public class MiniMapController : MonoBehaviour, IPointerClickHandler
 
         Vector2 bgSize = background.GetComponent<SpriteRenderer>().size;
         rectTransform.sizeDelta = bgSize * scale;
+
+        miniMapWidth = rectTransform.sizeDelta.x;
+        miniMapHeight = rectTransform.sizeDelta.y;
 
         rectTransform.anchoredPosition = new Vector2(rectTransform.sizeDelta.x / 2, rectTransform.sizeDelta.y / -2);
 
@@ -61,6 +66,20 @@ public class MiniMapController : MonoBehaviour, IPointerClickHandler
 
     private void FixedUpdate()
     {
+        if (isMiniMapPointerDown)
+        {
+            float pointerX = onpointerDownEventDataGlobal.position.x;
+            float pointerY = onpointerDownEventDataGlobal.position.y;
+            if (pointerX > 0 && pointerX < rectTransform.sizeDelta.x &&
+                pointerY > transform.position.y - rectTransform.sizeDelta.y / 2 && 
+                pointerY < Screen.height) // move camera only if you click on mini map panel
+            {
+                mainCamera.transform.position = new Vector3(onpointerDownEventDataGlobal.position.x / scale, 
+                                                    (onpointerDownEventDataGlobal.position.y - (transform.position.y - rectTransform.sizeDelta.y / 2)) / scale,
+                                                    mainCamera.transform.position.z);
+            }
+        }
+
         for (int i = 0; i < unitsCores.Count; i++)
         {
             Transform core = unitsCores[i];
