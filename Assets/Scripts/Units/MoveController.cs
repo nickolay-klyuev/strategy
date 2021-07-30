@@ -128,7 +128,10 @@ public class MoveController : MonoBehaviour
 
     public bool StopChasing()
     {
-        moveLineDrawer.StopDraw();
+        if (moveLineDrawer != null) // skip for enemies
+        {
+            moveLineDrawer.StopDraw();
+        }
 
         isChasing = false;
         return !isChasing;

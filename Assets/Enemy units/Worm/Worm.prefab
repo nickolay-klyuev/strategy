@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 1496559574186912228}
   - component: {fileID: 1524903443015855070}
   - component: {fileID: 8656054060527809512}
+  - component: {fileID: 9181680460792488648}
   m_Layer: 0
   m_Name: Worm
   m_TagString: Worm
@@ -196,6 +197,7 @@ MonoBehaviour:
   cost: 20
   limit: 30
   unitType: enemy
+  hasDeathAnimation: 1
 --- !u!114 &6925777919709731091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,6 +287,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1834088a6ae8205bdae7d6ec682134be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &9181680460792488648
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4456635579496693066}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a343d3333f22b228e9d48184a9342f00, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6584469508222429516
 GameObject:
   m_ObjectHideFlags: 0
