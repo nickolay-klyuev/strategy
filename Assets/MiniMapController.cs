@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MiniMapController : MonoBehaviour
+public class MiniMapController : MonoBehaviour, IPointerClickHandler
 {
     public GameObject mainCamera;
     public List<GameObject> initialUnits;
@@ -12,10 +13,16 @@ public class MiniMapController : MonoBehaviour
     private GameObject background;
     private RectTransform rectTransform;
     private List<RectTransform> indicatorsRT = new List<RectTransform>();
-    private RectTransform indicatorRT;
     private RectTransform cameraIndicator;
 
     private float scale = 10;
+
+    public void OnPointerClick(PointerEventData pointerEventData) // move camera by clicking mini map
+    {
+        mainCamera.transform.position = new Vector3(pointerEventData.position.x / scale, 
+                                                    (pointerEventData.position.y - (transform.position.y - rectTransform.sizeDelta.y / 2)) / scale,
+                                                    mainCamera.transform.position.z);
+    }
 
     // Start is called before the first frame update
     private void Start()
