@@ -141,6 +141,8 @@ MonoBehaviour:
   cost: 50
   limit: 1
   unitType: enemy
+  isBuilding: 1
+  hasDeathAnimation: 0
 --- !u!58 &2815167559861292077
 CircleCollider2D:
   m_ObjectHideFlags: 0

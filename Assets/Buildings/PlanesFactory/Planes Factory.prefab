@@ -137,6 +137,8 @@ MonoBehaviour:
   cost: 100
   limit: 1
   unitType: friendly
+  isBuilding: 1
+  hasDeathAnimation: 0
 --- !u!50 &3534881368282501045
 Rigidbody2D:
   serializedVersion: 4

@@ -27,7 +27,7 @@ public class BackroundController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             if (Input.mousePosition.x > MiniMapController.miniMapWidth || 
-                Input.mousePosition.y < Screen.height - MiniMapController.miniMapHeight)
+                Input.mousePosition.y < Screen.height - MiniMapController.miniMapHeight) // ignore selection if mouse is on minimap
             {
                 SelectedUnits.UnselectAll();
                 selectBoxController.StartSelecting();

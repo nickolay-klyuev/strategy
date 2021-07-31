@@ -13,5 +13,6 @@ public class UnitProperties : MonoBehaviour
     public int cost = 50;
     public int limit = 1;
     public string unitType; // enemy, friendly
+    public bool isBuilding = false;
     public bool hasDeathAnimation = false;
 }

@@ -137,6 +137,8 @@ MonoBehaviour:
   cost: 100
   limit: 1
   unitType: friendly
+  isBuilding: 1
+  hasDeathAnimation: 0
 --- !u!114 &3183651122326625575
 MonoBehaviour:
   m_ObjectHideFlags: 0

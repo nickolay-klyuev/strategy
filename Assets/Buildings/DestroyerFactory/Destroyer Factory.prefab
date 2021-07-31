@@ -137,6 +137,8 @@ MonoBehaviour:
   cost: 500
   limit: 1
   unitType: friendly
+  isBuilding: 1
+  hasDeathAnimation: 0
 --- !u!50 &5763126193625380554
 Rigidbody2D:
   serializedVersion: 4
@@ -207,6 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726c811bae014755fbbe9fbbb544692d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitsLimit: 2
 --- !u!1001 &8588772888522297569
 PrefabInstance:
   m_ObjectHideFlags: 0
