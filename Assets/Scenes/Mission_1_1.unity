@@ -3070,6 +3070,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420028}
     - target: {fileID: 1413101283086004851, guid: 617b2948127286cd9a68336562def50f, type: 3}
+      propertyPath: enemyBuildingIndicator
+      value: 
+      objectReference: {fileID: 5562261032259588495, guid: 14e14a4e36da1b329ae1a19dec43ccdd, type: 3}
+    - target: {fileID: 1413101283086004851, guid: 617b2948127286cd9a68336562def50f, type: 3}
       propertyPath: initialUnits.Array.size
       value: 15
       objectReference: {fileID: 0}

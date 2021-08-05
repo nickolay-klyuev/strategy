@@ -7,6 +7,7 @@ public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpH
 {
     public GameObject mainCamera;
     public GameObject friendlyUnitIndicator;
+    public GameObject enemyBuildingIndicator;
     public GameObject cameraIndicator;
 
     public static float miniMapHeight;
@@ -61,6 +62,11 @@ public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpH
             indicatorsRT[i].anchorMin = new Vector2(0, 0);
             indicatorsRT[i].anchorMax = new Vector2(0, 0);
         }
+    }
+
+    private void InstantiateIndicator(GameObject indicator)
+    {
+
     }
 
     private void FixedUpdate()
