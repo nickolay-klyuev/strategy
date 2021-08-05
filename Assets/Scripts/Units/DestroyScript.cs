@@ -10,6 +10,7 @@ public class DestroyScript : MonoBehaviour
     public void DestroyThisGameObject()
     {
         Destroy(gameObject);
+        UnitsOnScene.RemoveUnit(gameObject);
     }
 
     // Start is called before the first frame update
@@ -45,11 +46,11 @@ public class DestroyScript : MonoBehaviour
         else if (unitProperties.health <= 0 && GetComponent<BuildingsSelectTools>() != null)
         {
             Destroy(GetComponent<BuildingsSelectTools>().GetMenuUI());
-            Destroy(gameObject);
+            DestroyThisGameObject();
         }
         else if (unitProperties.health <= 0)
         {
-            Destroy(gameObject);
+            DestroyThisGameObject();
         }
     }
 }

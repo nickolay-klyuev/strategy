@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public GameObject mainCamera;
-    public List<GameObject> initialUnits;
     public GameObject friendlyUnitIndicator;
     public GameObject cameraIndicator;
 
@@ -52,9 +51,9 @@ public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpH
         cameraIndicatorRT.anchorMin = new Vector2(0, 0);
         cameraIndicatorRT.anchorMax = new Vector2(0, 0);
 
-        for (int i = 0; i < initialUnits.Count; i++)
+        for (int i = 0; i < UnitsOnScene.GetAllUnits().Count; i++)
         {
-            unitsCores.Add(initialUnits[i].transform.Find("Core"));
+            unitsCores.Add(UnitsOnScene.GetAllUnits()[i].transform.Find("Core"));
             
             GameObject indicator = Instantiate(friendlyUnitIndicator);
             indicator.transform.SetParent(gameObject.transform);
