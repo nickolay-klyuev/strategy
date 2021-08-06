@@ -22,7 +22,7 @@ public class EnemyKeyPointController : MonoBehaviour
         if (GameObject.FindGameObjectsWithTag(spawnObject.name).Length < spawnObject.GetComponent<UnitProperties>().limit)
         {
             GameObject newUnit = Instantiate(spawnObject, spawnPoint.position, Quaternion.identity);
-            miniMapController.AddIndicator(newUnit, UnitsOnScene.AllCount());
+            miniMapController.AddIndicator(newUnit);
             UnitsOnScene.AddUnit(newUnit);
         }
     }

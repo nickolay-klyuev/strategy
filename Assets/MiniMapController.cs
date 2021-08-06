@@ -54,11 +54,11 @@ public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpH
         for (int i = 0; i < UnitsOnScene.AllCount(); i++)
         {
             GameObject currentUnit = UnitsOnScene.GetAllUnits()[i];
-            AddIndicator(currentUnit, i);
+            AddIndicator(currentUnit);
         }
     }
 
-    public void AddIndicator(GameObject unit, int index)
+    public void AddIndicator(GameObject unit)
     {
         UnitProperties unitProperties = unit.GetComponent<UnitProperties>();
         if (unitProperties == null)
@@ -70,8 +70,8 @@ public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpH
         GameObject createdIndicator = Instantiate(unitProperties.miniMapIndicator);
         createdIndicator.transform.SetParent(gameObject.transform);
         indicatorsRT.Add(createdIndicator.GetComponent<RectTransform>());
-        indicatorsRT[index].anchorMin = new Vector2(0, 0);
-        indicatorsRT[index].anchorMax = new Vector2(0, 0);
+        indicatorsRT[indicatorsRT.Count - 1].anchorMin = new Vector2(0, 0);
+        indicatorsRT[indicatorsRT.Count - 1].anchorMax = new Vector2(0, 0);
     }
 
     private void FixedUpdate()
