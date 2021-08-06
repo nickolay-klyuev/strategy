@@ -6,14 +6,13 @@ using UnityEngine.EventSystems;
 public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public GameObject mainCamera;
-    public GameObject friendlyUnitIndicator;
-    public GameObject enemyBuildingIndicator;
     public GameObject cameraIndicator;
 
     public static float miniMapHeight;
     public static float miniMapWidth;
 
-    private List<Transform> unitsCores = new List<Transform>();
+    private List<GameObject> unitsWithIndicator = new List<GameObject>();
+
     private GameObject background;
     private RectTransform rectTransform;
     private List<RectTransform> indicatorsRT = new List<RectTransform>();
@@ -52,21 +51,27 @@ public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpH
         cameraIndicatorRT.anchorMin = new Vector2(0, 0);
         cameraIndicatorRT.anchorMax = new Vector2(0, 0);
 
-        for (int i = 0; i < UnitsOnScene.GetAllUnits().Count; i++)
+        for (int i = 0; i < UnitsOnScene.AllCount(); i++)
         {
-            unitsCores.Add(UnitsOnScene.GetAllUnits()[i].transform.Find("Core"));
-            
-            GameObject indicator = Instantiate(friendlyUnitIndicator);
-            indicator.transform.SetParent(gameObject.transform);
-            indicatorsRT.Add(indicator.GetComponent<RectTransform>());
-            indicatorsRT[i].anchorMin = new Vector2(0, 0);
-            indicatorsRT[i].anchorMax = new Vector2(0, 0);
+            GameObject currentUnit = UnitsOnScene.GetAllUnits()[i];
+            AddIndicator(currentUnit, i);
         }
     }
 
-    private void InstantiateIndicator(GameObject indicator)
+    public void AddIndicator(GameObject unit, int index)
     {
+        UnitProperties unitProperties = unit.GetComponent<UnitProperties>();
+        if (unitProperties == null)
+        {
+            unitProperties = unit.GetComponentInChildren<UnitProperties>();
+        }
 
+        unitsWithIndicator.Add(unit);
+        GameObject createdIndicator = Instantiate(unitProperties.miniMapIndicator);
+        createdIndicator.transform.SetParent(gameObject.transform);
+        indicatorsRT.Add(createdIndicator.GetComponent<RectTransform>());
+        indicatorsRT[index].anchorMin = new Vector2(0, 0);
+        indicatorsRT[index].anchorMax = new Vector2(0, 0);
     }
 
     private void FixedUpdate()
@@ -85,19 +90,26 @@ public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpH
             }
         }
 
-        for (int i = 0; i < unitsCores.Count; i++)
+        for (int i = 0; i < unitsWithIndicator.Count; i++)
         {
-            Transform core = unitsCores[i];
             // remove from List<> if unit is destroyed
-            if (core == null)
+            if (unitsWithIndicator[i] == null)
             {
-                unitsCores.RemoveAt(i);
+                unitsWithIndicator.RemoveAt(i);
                 Destroy(indicatorsRT[i].gameObject);
                 indicatorsRT.RemoveAt(i);
                 continue;
             }
 
-            indicatorsRT[i].anchoredPosition = new Vector2(core.position.x, core.position.y) * scale;
+            Transform core = unitsWithIndicator[i].transform.Find("Core");
+            if (core != null)
+            {
+                indicatorsRT[i].anchoredPosition = new Vector2(core.position.x, core.position.y) * scale;
+            }
+            else
+            {
+                indicatorsRT[i].anchoredPosition = new Vector2(unitsWithIndicator[i].transform.position.x, unitsWithIndicator[i].transform.position.y) * scale;
+            }
         }
 
         cameraIndicatorRT.anchoredPosition = mainCamera.transform.position * scale;

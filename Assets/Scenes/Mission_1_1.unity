@@ -2144,6 +2144,13 @@ MonoBehaviour:
   - {fileID: 570843393}
   - {fileID: 133126583}
   - {fileID: 2128428049}
+  - {fileID: 1908293558}
+  - {fileID: 1369909808}
+  - {fileID: 509865456}
+  - {fileID: 524154101}
+  - {fileID: 883533340}
+  - {fileID: 927011861}
+  - {fileID: 1934152077}
 --- !u!1001 &1707181918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3211,6 +3218,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3145321713408158312, guid: 0657220a5523e6bd1899592908f8746a, type: 3}
+      propertyPath: m_Volume
+      value: 0.605
+      objectReference: {fileID: 0}
     - target: {fileID: 3145321713408158313, guid: 0657220a5523e6bd1899592908f8746a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3258,6 +3269,10 @@ PrefabInstance:
     - target: {fileID: 3145321713408158314, guid: 0657220a5523e6bd1899592908f8746a, type: 3}
       propertyPath: m_Name
       value: Music Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145321713408158314, guid: 0657220a5523e6bd1899592908f8746a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0657220a5523e6bd1899592908f8746a, type: 3}

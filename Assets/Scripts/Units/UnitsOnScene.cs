@@ -17,6 +17,28 @@ public class UnitsOnScene : MonoBehaviour
         return allUnits;
     }
 
+    public static int AllCount()
+    {
+        return allUnits.Count;
+    }
+
+    public static List<GameObject> GetUnits(string type)
+    {
+        switch (type)
+        {
+            case "friendly;building":
+                return friendlyBuildings;
+            case "friendly;unit":
+                return friendlyUnits;
+            case "enemy;building":
+                return enemyBuildings;
+            case "enemy;unit":
+                return enemyUnits;
+            default:
+                return new List<GameObject>();
+        }
+    }
+
     public static void RemoveUnit(GameObject unit)
     {
         allUnits.Remove(unit);
@@ -41,30 +63,35 @@ public class UnitsOnScene : MonoBehaviour
         }
     }
 
-    private void Start()
+    public static void AddUnit(GameObject unit)
+    {
+        allUnits.Add(unit);
+
+        switch (GetUnitType(unit))
+        {
+            case "friendly;building":
+                friendlyBuildings.Add(unit);
+                break;
+            case "friendly;unit":
+                friendlyUnits.Add(unit);
+                break;
+            case "enemy;building":
+                enemyBuildings.Add(unit);
+                break;
+            case "enemy;unit":
+                enemyUnits.Add(unit);
+                break;
+            default:
+                Debug.LogWarning("UnknownUnitType during adding");
+                break;
+        }
+    }
+
+    private void Awake() // need Awake to run before Start in MiniMapController
     {
         foreach (GameObject unit in initialUnits)
         {
-            allUnits.Add(unit);
-
-            switch (GetUnitType(unit))
-            {
-                case "friendly;building":
-                    friendlyBuildings.Add(unit);
-                    break;
-                case "friendly;unit":
-                    friendlyUnits.Add(unit);
-                    break;
-                case "enemy;building":
-                    enemyBuildings.Add(unit);
-                    break;
-                case "enemy;unit":
-                    enemyUnits.Add(unit);
-                    break;
-                default:
-                    Debug.LogWarning("UnknownUnitType during adding");
-                    break;
-            }
+            AddUnit(unit);
         }
     }
 

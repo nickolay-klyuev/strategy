@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5562261032259588488}
   - component: {fileID: 5562261032259588489}
   m_Layer: 5
-  m_Name: Enemy Buildng indicator
+  m_Name: Enemy Worm indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -45.984615, y: 45.98471}
-  m_SizeDelta: {x: 7, y: 7}
+  m_SizeDelta: {x: 3, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5562261032259588488
 CanvasRenderer:

@@ -197,7 +197,9 @@ MonoBehaviour:
   cost: 20
   limit: 30
   unitType: enemy
+  isBuilding: 0
   hasDeathAnimation: 1
+  miniMapIndicator: {fileID: 5562261032259588495, guid: 2b902d9cfa8ffd332a8cd3beeb1e90b4, type: 3}
 --- !u!114 &6925777919709731091
 MonoBehaviour:
   m_ObjectHideFlags: 0

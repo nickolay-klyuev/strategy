@@ -176,6 +176,9 @@ MonoBehaviour:
   cost: 10
   limit: 10
   unitType: friendly
+  isBuilding: 0
+  hasDeathAnimation: 0
+  miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
 --- !u!114 &9032009577746403935
 MonoBehaviour:
   m_ObjectHideFlags: 0

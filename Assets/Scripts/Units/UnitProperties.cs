@@ -15,4 +15,5 @@ public class UnitProperties : MonoBehaviour
     public string unitType; // enemy, friendly
     public bool isBuilding = false;
     public bool hasDeathAnimation = false;
+    public GameObject miniMapIndicator;
 }
