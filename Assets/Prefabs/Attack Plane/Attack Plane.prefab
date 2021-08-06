@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2358657104719674220, guid: 09d95e05d1d468410bed32500d4d6f91, type: 3}
       propertyPath: m_Name
-      value: Attack Plane
+      value: Core
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09d95e05d1d468410bed32500d4d6f91, type: 3}

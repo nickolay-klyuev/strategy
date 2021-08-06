@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a305401e9071426c1bf929c29be49807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 6
 --- !u!114 &6435638915697409148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   unitType: friendly
   isBuilding: 0
   hasDeathAnimation: 0
-  miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
+  miniMapIndicator: {fileID: 5562261032259588495, guid: 5bbf6837e4204f456becd7381a94d46d, type: 3}
 --- !u!114 &9032009577746403935
 MonoBehaviour:
   m_ObjectHideFlags: 0

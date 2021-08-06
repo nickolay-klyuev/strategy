@@ -12,10 +12,12 @@ public class SpawningScript : MonoBehaviour
     private string buttonText;
 
     private PanelMetaData metaData;
+    private MiniMapController miniMapController;
 
     // Start is called before the first frame update
     void Start()
     {
+        miniMapController = GameObject.Find("Mini Map").GetComponent<MiniMapController>();
         cost = unitToSpawn.GetComponentInChildren<UnitProperties>().cost;
         GetComponentInChildren<Text>().text += $"({cost})";
         buttonText = GetComponentInChildren<Text>().text;
@@ -51,6 +53,8 @@ public class SpawningScript : MonoBehaviour
             {
                 GameObject currentUnit = Instantiate(unitToSpawn, metaData.GetCallObject().transform.position, Quaternion.identity);
                 unitsOnStage.Add(currentUnit);
+                miniMapController.AddIndicator(currentUnit);
+                UnitsOnScene.AddUnit(currentUnit);
             }
             else
             {

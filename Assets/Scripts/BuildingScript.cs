@@ -7,7 +7,9 @@ public class BuildingScript : MonoBehaviour
 {
     public GameObject buildPlace;
     public GameObject objectToBuild;
+
     private GameObject activeBuildPlace;
+    private MiniMapController miniMapController;
     private bool isBuilding = false;
     public bool GetIsBuilding()
     {
@@ -17,6 +19,7 @@ public class BuildingScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        miniMapController = GameObject.Find("Mini Map").GetComponent<MiniMapController>();
         GetComponentInChildren<Text>().text += "(" + objectToBuild.GetComponent<UnitProperties>().cost + ")";
     }
 
@@ -38,7 +41,9 @@ public class BuildingScript : MonoBehaviour
                     
                     Destroy(activeBuildPlace);
 
-                    Instantiate(objectToBuild, buildingPosition, Quaternion.identity);   
+                    GameObject building = Instantiate(objectToBuild, buildingPosition, Quaternion.identity);
+                    miniMapController.AddIndicator(building);
+                    UnitsOnScene.AddUnit(building);
                 }
 
             }

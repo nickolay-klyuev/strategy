@@ -74,7 +74,7 @@ public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpH
         indicatorsRT[indicatorsRT.Count - 1].anchorMax = new Vector2(0, 0);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (isMiniMapPointerDown)
         {

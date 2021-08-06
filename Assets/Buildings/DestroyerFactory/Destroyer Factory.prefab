@@ -139,6 +139,7 @@ MonoBehaviour:
   unitType: friendly
   isBuilding: 1
   hasDeathAnimation: 0
+  miniMapIndicator: {fileID: 5562261032259588495, guid: 048962dbc2f4ebec78f0ea89fe2d20ab, type: 3}
 --- !u!50 &5763126193625380554
 Rigidbody2D:
   serializedVersion: 4
