@@ -22,6 +22,15 @@ public class UnitsOnScene : MonoBehaviour
         return allUnits.Count;
     }
 
+    public static void ClearAllUnits()
+    {
+        allUnits = new List<GameObject>();
+        friendlyUnits = new List<GameObject>();
+        friendlyBuildings = new List<GameObject>();
+        enemyUnits = new List<GameObject>();
+        enemyBuildings = new List<GameObject>();
+    }
+
     public static List<GameObject> GetUnits(string type)
     {
         switch (type)
@@ -89,6 +98,8 @@ public class UnitsOnScene : MonoBehaviour
 
     private void Awake() // need Awake to run before Start in MiniMapController
     {
+        ClearAllUnits(); // clear static Lists after scene reload
+
         foreach (GameObject unit in initialUnits)
         {
             AddUnit(unit);
