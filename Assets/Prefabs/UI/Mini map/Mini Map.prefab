@@ -89,17 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe4dda7d9862441d922549e766a2d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
-  initialUnits:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  friendlyUnitIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
+  mainCamera: {fileID: 3563282123565282373, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
   cameraIndicator: {fileID: 1413101283982571993}
 --- !u!1 &1413101283982571993
 GameObject:
