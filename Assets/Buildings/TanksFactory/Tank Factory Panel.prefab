@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4026335163439939941}
   - component: {fileID: 3620043283114587674}
   - component: {fileID: 1126411462376310952}
+  - component: {fileID: -4436109144220397504}
   m_Layer: 5
   m_Name: Tank Factory Panel
   m_TagString: Untagged
@@ -63,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
+  m_Color: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -104,6 +105,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88770c865ae284d0947082ba92b3bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4436109144220397504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026335163439939931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1}
+  m_UseGraphicAlpha: 1
 --- !u!114 &3805994021296887555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +144,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: BuildTank
       objectReference: {fileID: 0}
+    - target: {fileID: 3969303276770885958, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 03288e3af6405262498b23286e867443, type: 3}
     - target: {fileID: 3969303277133268278, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -332,6 +352,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5029228680685720916, guid: 8be8df85275e913f2b4cca3c79b37513, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 03288e3af6405262498b23286e867443, type: 3}
     - target: {fileID: 5077402361065860191, guid: 8be8df85275e913f2b4cca3c79b37513, type: 3}
       propertyPath: m_Name
       value: HP Display
@@ -438,6 +462,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Resource Display
       objectReference: {fileID: 0}
+    - target: {fileID: 3468099413793313183, guid: d552f3886d8db82379db2fca33e482b0, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 03288e3af6405262498b23286e867443, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d552f3886d8db82379db2fca33e482b0, type: 3}
 --- !u!224 &6194154294739019716 stripped

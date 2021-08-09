@@ -99,8 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraSpeed: 15
   cameraSizeStep: 0.5
-  maxCameraSize: 3
-  minCameraSize: 1
+  maxCameraSize: 5
+  minCameraSize: 2
   background: {fileID: 7977508979639619357, guid: 438d46e753836295ead0a6f51664cba9, type: 3}
 --- !u!114 &3563282123565282488
 MonoBehaviour:

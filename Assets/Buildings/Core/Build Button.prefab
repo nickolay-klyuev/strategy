@@ -66,7 +66,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 03288e3af6405262498b23286e867443, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -226,5 +226,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildPlace: {fileID: 8871505699986726562, guid: 4a1be919252228dd7b9e35da4dfa3f52, type: 3}
-  resourceSystem: {fileID: 0}
   objectToBuild: {fileID: 3183651122326625570, guid: 4ef7a6f4cbc1bef8e88370f69afdb5f1, type: 3}
