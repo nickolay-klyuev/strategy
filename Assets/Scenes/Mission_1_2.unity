@@ -1322,6 +1322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Artillery Destroyer
       objectReference: {fileID: 0}
+    - target: {fileID: 4210396979408387165, guid: c4049b8c29c7848bebdd9d2a069e36ba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4049b8c29c7848bebdd9d2a069e36ba, type: 3}
 --- !u!1001 &1457253645

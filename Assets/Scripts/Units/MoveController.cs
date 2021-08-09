@@ -68,9 +68,10 @@ public class MoveController : MonoBehaviour
                 }
             }
         }
-        else if (chasingTarget == null)
+        else if (chasingTarget == null && isChasing)
         {
             isChasing = false;
+            attackController.StopAttack();
         }
     }
 
