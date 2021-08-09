@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class CloseMessageScript : MonoBehaviour
 {
+    private void Start()
+    {
+        Time.timeScale = 0;
+    }
+
     public void CloseMessage()
     {
-        Destroy(transform.parent.gameObject);
+        transform.parent.gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
 }
