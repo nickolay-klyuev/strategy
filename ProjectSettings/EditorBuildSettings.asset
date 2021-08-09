@@ -8,14 +8,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main_menu.unity
     guid: 45b6f7d74dabd3c609f52a27ae00bba2
-  - enabled: 1
-    path: Assets/Scenes/Mission_1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Mission_1_1.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: Assets/Scenes/Mission_1_2.unity
     guid: bcbd972ee15482e3f87d4449f44081d2
   - enabled: 1
-    path: Assets/Scenes/Mission_1_2.unity
+    path: Assets/Scenes/Mission_1_3.unity
     guid: 682a6092fc37d5d9abd9f51f40a04ef3
   - enabled: 1
     path: Assets/Scenes/Thanks_for_playing.unity
