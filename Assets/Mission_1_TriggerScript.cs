@@ -11,9 +11,11 @@ public class Mission_1_TriggerScript : MonoBehaviour
     private bool isComplete = false;
     private int targetsLeft;
     private string goalText = "Worm holes left: ";
+    private PostEffectsScript postEffects;
 
     private void Start()
     {
+        postEffects = GameObject.Find("Post processing volume").GetComponent<PostEffectsScript>();
         goalDisplay.GetComponent<Text>().text = $"{goalText}{targets.Length};";
     }
 
@@ -34,7 +36,8 @@ public class Mission_1_TriggerScript : MonoBehaviour
             if (areAllDestroyed)
             {
                 isComplete = true;
-                LevelsController.LoadNextScene();
+                postEffects.StartWinAnimation();
+                // next level load from PostEffectsScript after animation
             }
         }
         goalDisplay.GetComponent<Text>().text = $"{goalText}{targetsLeft};";
