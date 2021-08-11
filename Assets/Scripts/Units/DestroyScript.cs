@@ -41,6 +41,7 @@ public class DestroyScript : MonoBehaviour
             {
                 moveController.StopMoving();
             }
+
             GetComponent<Animator>().SetTrigger("DeathTrigger");
         }
         else if (unitProperties.health <= 0 && GetComponent<BuildingsSelectTools>() != null)

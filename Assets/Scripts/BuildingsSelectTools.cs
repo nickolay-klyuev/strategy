@@ -35,6 +35,7 @@ public class BuildingsSelectTools : MonoBehaviour
         {
             if (!isSelected && GameObject.ReferenceEquals(gameObject, StaticMethods.GetGameObjectByRaycast()))
             {
+                GetComponentInChildren<AudioSource>().Play();
                 isSelected = true;
                 thisMenu.SetActive(true);
             }

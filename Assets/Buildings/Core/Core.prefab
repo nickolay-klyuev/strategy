@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8416557789531695853}
   - component: {fileID: 8416557789531695852}
   - component: {fileID: 8416557789531695855}
-  - component: {fileID: 8416557789531695854}
   - component: {fileID: 1838843274}
   - component: {fileID: 769756109}
   - component: {fileID: 769756110}
@@ -171,18 +170,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.32
---- !u!114 &8416557789531695854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8416557789531695849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 442aaa064770328d7b164e22affed382, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1838843274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +262,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Is Selected
       objectReference: {fileID: 0}
+    - target: {fileID: 7554936647060709749, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 167a42ff1e9bfb0b89ffb9ca0c6d1940, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
 --- !u!4 &4966818629595704075 stripped

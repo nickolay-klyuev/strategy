@@ -5,6 +5,8 @@ using UnityEngine;
 public class MissileSpawnerController : MonoBehaviour
 {
     public GameObject missile;
+    public AudioClip launchSound;
+    public float soundVolume = 0.3f;
 
     private Vector3 targetPosition;
     private bool doSpawn = false;
@@ -59,6 +61,12 @@ public class MissileSpawnerController : MonoBehaviour
                     {
                         targetPosition += new Vector3(Random.Range(-parentAccuracy, parentAccuracy), Random.Range(-parentAccuracy, parentAccuracy), 0);
                     }
+
+                    if (GetComponent<AudioSource>() != null)
+                    {
+                        GetComponent<AudioSource>().PlayOneShot(launchSound, soundVolume);
+                    }
+
                     missileController.LunchMissile(targetPosition);
                 }
                 doSpawn = false;
