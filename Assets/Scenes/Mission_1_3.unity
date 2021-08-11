@@ -2358,10 +2358,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3145321713408158312, guid: 0657220a5523e6bd1899592908f8746a, type: 3}
-      propertyPath: m_Volume
-      value: 0.605
-      objectReference: {fileID: 0}
     - target: {fileID: 3145321713408158313, guid: 0657220a5523e6bd1899592908f8746a, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2409,10 +2405,6 @@ PrefabInstance:
     - target: {fileID: 3145321713408158314, guid: 0657220a5523e6bd1899592908f8746a, type: 3}
       propertyPath: m_Name
       value: Music Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3145321713408158314, guid: 0657220a5523e6bd1899592908f8746a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0657220a5523e6bd1899592908f8746a, type: 3}
