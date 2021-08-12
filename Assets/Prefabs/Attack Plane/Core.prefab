@@ -380,8 +380,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 7756156510420186852, guid: d3065f66abf8c313ab4663cc255d39b8, type: 3}
-  launchSound: {fileID: 8300000, guid: bcc6a7908c724058fad7ac50e74f892e, type: 3}
-  soundVolume: 0.15
+  launchSound: {fileID: 8300000, guid: cd6e40f06cf602fbaac6774aa9f1f353, type: 3}
+  soundVolume: 0.6
 --- !u!82 &2462120588502759633
 AudioSource:
   m_ObjectHideFlags: 0

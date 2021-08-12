@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BackroundController : MonoBehaviour
 {
+    public AudioClip rightBtnClickSound;
+
     private FriendlyMoveController[] friendlyMoveControllers;
     private SelectBoxController selectBoxController;
 
@@ -35,6 +37,7 @@ public class BackroundController : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(1))
         {
+            GetComponent<AudioSource>().PlayOneShot(rightBtnClickSound, 1f);
             foreach (GameObject unit in SelectedUnits.selectedUnits)
             {
                 unit.GetComponent<MoveController>().MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 4202685738947891359, guid: 0279d6305c368e9a4b15cbe23ed02a1e, type: 3}
-  launchSound: {fileID: 8300000, guid: e5d0e13aba9df054c918860cc8d0fa59, type: 3}
+  launchSound: {fileID: 8300000, guid: cf38aae343a3ca73194a87e82a33cf5d, type: 3}
   soundVolume: 0.15
 --- !u!82 &3021998805493709101
 AudioSource:

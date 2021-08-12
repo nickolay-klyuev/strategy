@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 5299752473848658526, guid: 03a536e4733dbbc36821cf859ed789c6, type: 3}
-  launchSound: {fileID: 8300000, guid: ca542ca28d4f711448e6e5f3f35c8db5, type: 3}
+  launchSound: {fileID: 8300000, guid: 362cbc93540cba978a7cd5bbc6e00030, type: 3}
+  soundVolume: 0.3
 --- !u!82 &7485359813907782177
 AudioSource:
   m_ObjectHideFlags: 0
@@ -187,7 +188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 5299752473848658526, guid: 03a536e4733dbbc36821cf859ed789c6, type: 3}
-  launchSound: {fileID: 8300000, guid: ca542ca28d4f711448e6e5f3f35c8db5, type: 3}
+  launchSound: {fileID: 8300000, guid: 362cbc93540cba978a7cd5bbc6e00030, type: 3}
+  soundVolume: 0.3
 --- !u!82 &2081010052462785010
 AudioSource:
   m_ObjectHideFlags: 0
@@ -329,7 +331,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 5299752473848658526, guid: 03a536e4733dbbc36821cf859ed789c6, type: 3}
-  launchSound: {fileID: 8300000, guid: ca542ca28d4f711448e6e5f3f35c8db5, type: 3}
+  launchSound: {fileID: 8300000, guid: 362cbc93540cba978a7cd5bbc6e00030, type: 3}
+  soundVolume: 0.3
 --- !u!82 &1999440843996186275
 AudioSource:
   m_ObjectHideFlags: 0
@@ -471,7 +474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 5299752473848658526, guid: 03a536e4733dbbc36821cf859ed789c6, type: 3}
-  launchSound: {fileID: 8300000, guid: ca542ca28d4f711448e6e5f3f35c8db5, type: 3}
+  launchSound: {fileID: 8300000, guid: 362cbc93540cba978a7cd5bbc6e00030, type: 3}
+  soundVolume: 0.3
 --- !u!82 &6939508277240138011
 AudioSource:
   m_ObjectHideFlags: 0
@@ -613,7 +617,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 5299752473848658526, guid: 03a536e4733dbbc36821cf859ed789c6, type: 3}
-  launchSound: {fileID: 8300000, guid: ca542ca28d4f711448e6e5f3f35c8db5, type: 3}
+  launchSound: {fileID: 8300000, guid: 362cbc93540cba978a7cd5bbc6e00030, type: 3}
+  soundVolume: 0.3
 --- !u!82 &6023615442153718817
 AudioSource:
   m_ObjectHideFlags: 0
@@ -755,7 +760,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 5299752473848658526, guid: 03a536e4733dbbc36821cf859ed789c6, type: 3}
-  launchSound: {fileID: 8300000, guid: ca542ca28d4f711448e6e5f3f35c8db5, type: 3}
+  launchSound: {fileID: 8300000, guid: 362cbc93540cba978a7cd5bbc6e00030, type: 3}
+  soundVolume: 0.3
 --- !u!82 &3869918643814661211
 AudioSource:
   m_ObjectHideFlags: 0
@@ -897,7 +903,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 5299752473848658526, guid: 03a536e4733dbbc36821cf859ed789c6, type: 3}
-  launchSound: {fileID: 8300000, guid: ca542ca28d4f711448e6e5f3f35c8db5, type: 3}
+  launchSound: {fileID: 8300000, guid: 362cbc93540cba978a7cd5bbc6e00030, type: 3}
+  soundVolume: 0.3
 --- !u!82 &136230020474264180
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1039,7 +1046,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 5299752473848658526, guid: 03a536e4733dbbc36821cf859ed789c6, type: 3}
-  launchSound: {fileID: 8300000, guid: ca542ca28d4f711448e6e5f3f35c8db5, type: 3}
+  launchSound: {fileID: 8300000, guid: 362cbc93540cba978a7cd5bbc6e00030, type: 3}
+  soundVolume: 0.3
 --- !u!82 &7376326717441787657
 AudioSource:
   m_ObjectHideFlags: 0
