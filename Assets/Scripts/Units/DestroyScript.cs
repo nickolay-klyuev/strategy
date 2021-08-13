@@ -6,6 +6,7 @@ public class DestroyScript : MonoBehaviour
 {
     private UnitProperties unitProperties;
     private MoveController moveController;
+    private AttackController attackController;
 
     public void DestroyThisGameObject()
     {
@@ -13,10 +14,27 @@ public class DestroyScript : MonoBehaviour
         UnitsOnScene.RemoveUnit(gameObject);
     }
 
+    public void LeaveOnlySprite()
+    {
+        foreach (Component comp in GetComponents<Component>())
+        {
+            if (!(comp is Transform || comp is SpriteRenderer))
+            {
+                Destroy(comp);
+            }
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         moveController = GetComponent<MoveController>();
+        attackController = GetComponent<AttackController>();
+        if (moveController == null || attackController == null)
+        {
+            moveController = GetComponentInChildren<MoveController>();
+            attackController = GetComponentInChildren<AttackController>();
+        }
 
         if (GetComponentInChildren<UnitProperties>() != null)
         {
@@ -33,14 +51,9 @@ public class DestroyScript : MonoBehaviour
     {
         if (unitProperties.health <= 0 && unitProperties.hasDeathAnimation) // trigger death animation and stop moving during it
         {
-            if (moveController.GetIsChasing())
-            {
-                moveController.StopChasing();
-            }
-            else if (moveController.GetIsMoving())
-            {
-                moveController.StopMoving();
-            }
+            moveController.StopChasing();
+            moveController.StopMoving();
+            attackController.StopAttack();
 
             GetComponent<Animator>().SetTrigger("DeathTrigger");
         }

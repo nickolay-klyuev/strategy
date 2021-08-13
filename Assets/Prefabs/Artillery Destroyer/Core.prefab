@@ -1159,7 +1159,6 @@ GameObject:
   - component: {fileID: 9011085627555594380}
   - component: {fileID: -8864887272613165159}
   - component: {fileID: 2372913605311998394}
-  - component: {fileID: 116014309977780182}
   - component: {fileID: 7678011793547987011}
   - component: {fileID: 1788127079087177643}
   - component: {fileID: -5023510317592293643}
@@ -1329,7 +1328,7 @@ MonoBehaviour:
   limit: 1
   unitType: friendly
   isBuilding: 0
-  hasDeathAnimation: 0
+  hasDeathAnimation: 1
   miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
 --- !u!114 &2372913605311998394
 MonoBehaviour:
@@ -1343,25 +1342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b43841ab78d85ee3d9a20368a937a918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &116014309977780182
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9011085627555594377}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7f5c8b54e52348f9796508f072f257e4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7678011793547987011
 MonoBehaviour:
   m_ObjectHideFlags: 0
