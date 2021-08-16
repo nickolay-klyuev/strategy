@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1796110554672470089}
   - component: {fileID: 3096232418714757602}
   - component: {fileID: 6685957126267997707}
+  - component: {fileID: 1427052351443611926}
   m_Layer: 0
   m_Name: Planes Factory
   m_TagString: Untagged
@@ -211,6 +212,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitsLimit: 5
+--- !u!95 &1427052351443611926
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202402763163994650}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 07e1747d999dcde2cb528529567f646e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &704149455662393758
 PrefabInstance:
   m_ObjectHideFlags: 0
