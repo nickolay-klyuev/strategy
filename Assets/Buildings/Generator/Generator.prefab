@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -4992234559465070616}
   - component: {fileID: 8993763432659552093}
   - component: {fileID: 2735883093965421718}
+  - component: {fileID: -1264764391680753223}
   m_Layer: 0
   m_Name: Generator
   m_TagString: Untagged
@@ -212,6 +213,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildMenuUI: {fileID: 36344869284977391, guid: 3eb4cb89c755c84f090b814c2e659403, type: 3}
+--- !u!95 &-1264764391680753223
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183651122326625570}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d334878316d5f0cda8717f304c1b3a6a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &6384110058182512186
 PrefabInstance:
   m_ObjectHideFlags: 0
