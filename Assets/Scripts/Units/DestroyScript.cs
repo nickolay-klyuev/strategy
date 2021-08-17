@@ -50,10 +50,13 @@ public class DestroyScript : MonoBehaviour
     void Update()
     {
         if (unitProperties.health <= 0 && unitProperties.hasDeathAnimation) // trigger death animation and stop moving during it
-        {
-            moveController.StopChasing();
-            moveController.StopMoving();
-            attackController.StopAttack();
+        {   
+            if (!unitProperties.isBuilding)
+            {
+                moveController.StopChasing();
+                moveController.StopMoving();
+                attackController.StopAttack();
+            }
 
             GetComponent<Animator>().SetTrigger("DeathTrigger");
         }
