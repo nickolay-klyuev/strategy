@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 2815167559861292079}
   - component: {fileID: 2815167559861292067}
   - component: {fileID: 2815167559861292072}
+  - component: {fileID: -6791638153622052702}
   m_Layer: 0
   m_Name: Worm Hole
   m_TagString: Untagged
@@ -218,6 +219,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1834088a6ae8205bdae7d6ec682134be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &-6791638153622052702
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2815167559861292064}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 13d5bc7c29692f18dacbce39d94b4338, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2815167557967868067
 PrefabInstance:
   m_ObjectHideFlags: 0
