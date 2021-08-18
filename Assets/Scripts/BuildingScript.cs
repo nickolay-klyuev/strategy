@@ -7,6 +7,7 @@ public class BuildingScript : MonoBehaviour
 {
     public GameObject buildPlace;
     public GameObject objectToBuild;
+    public AudioClip buildSound;
 
     private GameObject activeBuildPlace;
     private MiniMapController miniMapController;

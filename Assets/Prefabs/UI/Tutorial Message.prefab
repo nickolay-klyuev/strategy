@@ -216,8 +216,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 7387471460144675686}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: 35a53706f14c3e9f19316cdb414a7a6c, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine

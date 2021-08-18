@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b85178eecf306e7b3ccd06e64e0793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightBtnClickSound: {fileID: 8300000, guid: 35a53706f14c3e9f19316cdb414a7a6c, type: 3}
+  rightBtnClickSound: {fileID: 8300000, guid: 45461a212aefb6459a3b518e43c63ef6, type: 3}
 --- !u!82 &1642203212024463061
 AudioSource:
   m_ObjectHideFlags: 0
@@ -136,7 +136,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0

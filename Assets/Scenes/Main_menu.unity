@@ -2393,6 +2393,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1252232463}
+    - target: {fileID: 7940132210957638080, guid: 7afe9e906166e8f5db2db135b3e7893b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitTheGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940132210957638080, guid: 7afe9e906166e8f5db2db135b3e7893b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelsController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7940132210957638086, guid: 7afe9e906166e8f5db2db135b3e7893b, type: 3}
       propertyPath: m_Name
       value: Quit game button
