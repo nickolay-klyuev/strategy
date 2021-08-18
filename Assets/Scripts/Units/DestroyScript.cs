@@ -7,6 +7,7 @@ public class DestroyScript : MonoBehaviour
     private UnitProperties unitProperties;
     private MoveController moveController;
     private AttackController attackController;
+    private AudioSource audioSource;
 
     public void DestroyThisGameObject()
     {
@@ -30,6 +31,7 @@ public class DestroyScript : MonoBehaviour
     {
         moveController = GetComponent<MoveController>();
         attackController = GetComponent<AttackController>();
+        audioSource = GetComponent<AudioSource>();
         if (moveController == null || attackController == null)
         {
             moveController = GetComponentInChildren<MoveController>();
@@ -46,11 +48,18 @@ public class DestroyScript : MonoBehaviour
         }
     }
 
+    private bool deathSoundPlayed = false;
     // Update is called once per frame
     void Update()
     {
         if (unitProperties.health <= 0 && unitProperties.hasDeathAnimation) // trigger death animation and stop moving during it
         {   
+            if (audioSource != null && !deathSoundPlayed)
+            {
+                deathSoundPlayed = true;
+                audioSource.Play();
+            }
+
             if (!unitProperties.isBuilding)
             {
                 moveController.StopChasing();

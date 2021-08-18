@@ -201,7 +201,6 @@ MonoBehaviour:
   isBuilding: 0
   hasDeathAnimation: 1
   miniMapIndicator: {fileID: 5562261032259588495, guid: 2b902d9cfa8ffd332a8cd3beeb1e90b4, type: 3}
-  deathSound: {fileID: 8300000, guid: 7c5ce1cac5a761d779423857d765b05d, type: 3}
 --- !u!114 &6925777919709731091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,9 +319,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 022aea12a60be5de1ae0b284829efc9a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.653
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -331,7 +330,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -366,7 +365,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -450,6 +449,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 968777925648777383, guid: 45614775dd4b35cc09e491642fae2968, type: 3}
+  launchSound: {fileID: 0}
+  soundVolume: 0.3
 --- !u!1001 &361649031377477952
 PrefabInstance:
   m_ObjectHideFlags: 0
