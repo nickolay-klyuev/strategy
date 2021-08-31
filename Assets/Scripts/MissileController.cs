@@ -9,6 +9,7 @@ public class MissileController : MonoBehaviour
 
     private string parentUnitType;
     private Vector3 targetPosition;
+    private GameObject targetGameObject;
     private bool isFlying = false;
 
     public void SetParentUnitType(string type)
@@ -25,6 +26,11 @@ public class MissileController : MonoBehaviour
     {
         if (isFlying)
         {
+            if (targetGameObject != null) // if auto aim
+            {
+                targetPosition = targetGameObject.transform.position;
+            }
+
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, flySpeed * Time.deltaTime);
             if (transform.position == targetPosition)
             {
@@ -45,6 +51,20 @@ public class MissileController : MonoBehaviour
                 isFlying = false;
                 gameObject.SetActive(false);
             }
+        }
+    }
+
+    public void LunchMissile(GameObject target)
+    {
+        if (target != null)
+        {
+            targetGameObject = target;
+            targetPosition = target.transform.position;
+            isFlying = true;
+        }
+        else
+        {
+            gameObject.SetActive(false);
         }
     }
 

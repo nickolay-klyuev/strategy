@@ -1324,6 +1324,7 @@ MonoBehaviour:
   accuracy: 0.5
   accuracyWhileMoving: 0.7
   canFireWhileMoving: 1
+  autoAim: 1
   cost: 50
   limit: 1
   unitType: friendly
