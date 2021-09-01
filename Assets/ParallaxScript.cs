@@ -18,8 +18,11 @@ public class ParallaxScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float distX = cam.transform.position.x * parallaxIndex;
-        float distY = cam.transform.position.y * parallaxIndex;
+        //float distX = cam.transform.position.x * parallaxIndex;
+        //float distY = cam.transform.position.y * parallaxIndex;
+
+        float distX = (Input.mousePosition.x - Screen.width/2) / 1000 / parallaxIndex;
+        float distY = (Input.mousePosition.y - Screen.height/2) / 1000 / parallaxIndex;
 
         transform.position = new Vector3(startPosition.x + distX, startPosition.y + distY, transform.position.z);
     }
