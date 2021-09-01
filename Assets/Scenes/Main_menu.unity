@@ -130,57 +130,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 344266558, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 344266558, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 344266560, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
-      propertyPath: parallaxIndex
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 698969465, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
-      propertyPath: parallaxIndex
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 791397297, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 791397297, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 791397299, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
-      propertyPath: parallaxIndex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1570918144, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1570918144, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2023438754, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
-      propertyPath: parallaxIndex
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2032520004, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
-      propertyPath: parallaxIndex
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 3563282123565282373, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
       propertyPath: m_Name
       value: Main Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 3563282123565282375, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3563282123565282489, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
       propertyPath: m_RootOrder
