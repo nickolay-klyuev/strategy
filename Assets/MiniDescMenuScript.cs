@@ -20,7 +20,8 @@ public class MiniDescMenuScript : MonoBehaviour
     {
         if (menuOnStage.activeSelf)
         {
-            menuOnStage.GetComponent<RectTransform>().position = Input.mousePosition;
+            RectTransform menuTransform = menuOnStage.GetComponent<RectTransform>();
+            menuTransform.position = new Vector2(Input.mousePosition.x + menuTransform.sizeDelta.x/2, Input.mousePosition.y);
         }
     }
 

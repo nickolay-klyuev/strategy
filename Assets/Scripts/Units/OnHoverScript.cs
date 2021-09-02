@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class OnHoverScript : MonoBehaviour
 {
+    private SpriteRenderer sprite;
+    private Color defaultColor;
     private IsSelectedObjectController isSelectedScript;
     private bool isOnHover = false;
     public bool GetIsOnHover()
@@ -14,6 +16,8 @@ public class OnHoverScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
+        defaultColor = sprite.color;
         isSelectedScript = GetComponentInChildren<IsSelectedObjectController>();
     }
 
@@ -27,12 +31,14 @@ public class OnHoverScript : MonoBehaviour
     private void OnMouseOver()
     {
         isOnHover = true;
+        sprite.color = Color.white;
         isSelectedScript.EnableSelectBox(extraScale, true);
     }
 
     private void OnMouseExit()
     {
         isOnHover = false;
+        sprite.color = defaultColor;
         isSelectedScript.DisableSelectBox(extraScale, true);
     }
 }
