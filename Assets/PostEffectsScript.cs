@@ -12,7 +12,7 @@ public class PostEffectsScript : MonoBehaviour
     void Start()
     {
         bloom = ScriptableObject.CreateInstance<Bloom>();
-        bloom.enabled.Override(true);
+        //bloom.enabled.Override(true);
         bloom.intensity.Override(5f);
         bloom.threshold.Override(.6f);
         volume = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, bloom);

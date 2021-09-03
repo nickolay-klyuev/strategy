@@ -20,9 +20,24 @@ public class AttackController : MonoBehaviour
     private void Start()
     {
         friendlyMoveController = GetComponent<FriendlyMoveController>();
+        if (friendlyMoveController == null)
+        {
+            friendlyMoveController = GetComponentInParent<FriendlyMoveController>();
+        }
+
         moveController = GetComponent<MoveController>();
+        if (moveController == null)
+        {
+            moveController = GetComponentInParent<MoveController>();
+        }
+
         attackRangeRadiusController = GetComponentInChildren<AttackRangeRadiusController>();
         currentUnitProperties = GetComponent<UnitProperties>();
+        if (currentUnitProperties == null) // for units with separate cannon
+        {
+            currentUnitProperties = GetComponentInParent<UnitProperties>();
+        }
+
         attackLineDrawer = GetComponent<MoveAttackLineDrawer>();
         missileSpawnerControllers = GetComponentsInChildren<MissileSpawnerController>();
 
@@ -46,6 +61,12 @@ public class AttackController : MonoBehaviour
                     }
                 }
             }
+        }
+
+        //rotate
+        if (GetTargetGameobject() != null && GetIsAttacking())
+        {
+            UnitRotateController.RotateToPoint(GetTargetGameobject().transform.position, transform);
         }
     }
 

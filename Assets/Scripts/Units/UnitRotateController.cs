@@ -4,37 +4,7 @@ using UnityEngine;
 
 public class UnitRotateController : MonoBehaviour
 {
-    private AttackController attackController;
-    private MoveController moveController;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        attackController = GetComponent<AttackController>();
-        moveController = GetComponent<MoveController>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //rotate
-        if (attackController.GetTargetGameobject() != null && attackController.GetIsAttacking())
-        {
-            RotateToPoint(attackController.GetTargetGameobject().transform.position);
-        }
-
-        if (moveController.GetChasingTarget() != null && moveController.GetIsChasing())
-        {
-            RotateToPoint(moveController.GetChasingTarget().transform.position);
-        }
-
-        if (moveController.GetIsMoving() && !attackController.GetIsAttacking())
-        {
-            RotateToPoint(moveController.GetPointToMove());
-        }
-    }
-
-    private void RotateToPoint(Vector3 point)
+    static public void RotateToPoint(Vector3 point, Transform transform)
     {
         //rotate to point direction
         Vector3 vectorToTarget = point - transform.position;

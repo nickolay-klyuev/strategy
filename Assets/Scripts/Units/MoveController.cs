@@ -29,6 +29,11 @@ public class MoveController : MonoBehaviour
     {
         unitProperties = GetComponent<UnitProperties>();
         attackController = GetComponent<AttackController>();
+        if (attackController == null)
+        {
+            attackController = GetComponentInChildren<AttackController>();
+        }
+
         moveLineDrawer = GetComponent<MoveAttackLineDrawer>();
     }
 
@@ -72,6 +77,17 @@ public class MoveController : MonoBehaviour
         {
             isChasing = false;
             attackController.StopAttack();
+        }
+
+        // rotate
+        if (GetChasingTarget() != null && GetIsChasing() && !attackController.GetIsAttacking())
+        {
+            UnitRotateController.RotateToPoint(GetChasingTarget().transform.position, transform);
+        }
+
+        if (GetIsMoving())
+        {
+            UnitRotateController.RotateToPoint(GetPointToMove(), transform);
         }
     }
 
