@@ -11,6 +11,7 @@ public class AttackController : MonoBehaviour
     private MoveAttackLineDrawer attackLineDrawer;
     private MissileSpawnerController[] missileSpawnerControllers;
     private GameObject targetGameobject;
+    private Animator animator;
 
     private float attackSpeed;
     private bool isAttacking = false;
@@ -40,6 +41,7 @@ public class AttackController : MonoBehaviour
 
         attackLineDrawer = GetComponent<MoveAttackLineDrawer>();
         missileSpawnerControllers = GetComponentsInChildren<MissileSpawnerController>();
+        animator = GetComponent<Animator>();
 
         attackSpeed = currentUnitProperties.attackSpeed;
     }
@@ -91,11 +93,20 @@ public class AttackController : MonoBehaviour
             yield return new WaitForSeconds(attackSpeed);
             if (isAttacking)
             {
-                missileSpawnerControllers[Random.Range(0, missileSpawnerControllers.Length - 1)].SpawnMissile(targetGameobject);
+                // SpawnMissileInCoroutine() run this funtion in fire animation
+                if (animator != null) // fire animation
+                {
+                    animator.SetTrigger("TriggerFire");
+                }
             }
         }
         isDoAttackCoroutine = false;
         StopCoroutine(DoAttack());
+    }
+
+    public void SpawnMissileInCoroutine()
+    {
+        missileSpawnerControllers[Random.Range(0, missileSpawnerControllers.Length - 1)].SpawnMissile(targetGameobject);
     }
 
     public void StopAttack()

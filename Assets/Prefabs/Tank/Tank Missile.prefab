@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4202685738947891361}
   - component: {fileID: 4202685738947891360}
   - component: {fileID: 8748996857207495578}
-  - component: {fileID: 7608801784861735286}
+  - component: {fileID: 566938338}
+  - component: {fileID: 566938339}
   m_Layer: 0
   m_Name: Tank Missile
   m_TagString: Untagged
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 94aeea3423b6e4f0a94d55195c08b8f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 849211f80ebf2bec79703ac7082b8df8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,10 +97,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1097e68b2c85cca67acbcd54923ad2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPower: 10
-  flySpeed: 12
---- !u!61 &7608801784861735286
-BoxCollider2D:
+  attackPower: 50
+  flySpeed: 25
+--- !u!95 &566938338
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4202685738947891359}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e80968c887130ee60889be8133fcbef5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &566938339
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -111,16 +131,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.03, y: 0.15}
-    newSize: {x: 0.03, y: 0.15}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.03, y: 0.15}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.0007646084, y: -0.0038238764}
+  m_Size: {x: 0.04988432, y: 0.088817835}
+  m_Direction: 0

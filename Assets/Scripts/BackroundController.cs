@@ -24,11 +24,6 @@ public class BackroundController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        Debug.Log(StaticMethods.GetGameObjectByRaycast());
-    }
-
     void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
