@@ -93,7 +93,7 @@ public class AttackController : MonoBehaviour
             yield return new WaitForSeconds(attackSpeed);
             if (isAttacking)
             {
-                // SpawnMissileInCoroutine() run this funtion in fire animation
+                // SpawnMissileInCoroutine() run this funtion in fire animation (TriggerFire)
                 if (animator != null) // fire animation
                 {
                     animator.SetTrigger("TriggerFire");
