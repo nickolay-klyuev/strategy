@@ -17,7 +17,12 @@ public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpH
     private RectTransform rectTransform;
     private List<RectTransform> indicatorsRT = new List<RectTransform>();
     private RectTransform cameraIndicatorRT;
-    private bool isMiniMapPointerDown = false;
+    static private bool isMiniMapPointerDown = false;
+    static public bool GetIsMiniMapPointerDown()
+    {
+        return isMiniMapPointerDown;
+    }
+
     private PointerEventData onpointerDownEventDataGlobal;
 
     private float scale = 10;
