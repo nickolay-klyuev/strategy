@@ -22,6 +22,12 @@ public class SelectBoxController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            SelectedUnits.UnselectAll();
+            StartSelecting();
+        }
+
         if (isSelecting)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

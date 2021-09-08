@@ -6,7 +6,7 @@ public class FriendlyMoveController : MonoBehaviour
 {
     private bool isSelected = false;
 
-    void OnMouseDown()
+    void OnMouseUp()
     {
         SelectedUnits.UnselectAll();
         isSelected = true;
