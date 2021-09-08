@@ -21,6 +21,7 @@ public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpH
     private PointerEventData onpointerDownEventDataGlobal;
 
     private float scale = 10;
+    private float mapMargin = 10f;
 
     public void OnPointerDown(PointerEventData pointerEventData) // move camera by clicking mini map
     {
@@ -46,7 +47,7 @@ public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpH
         miniMapWidth = rectTransform.sizeDelta.x;
         miniMapHeight = rectTransform.sizeDelta.y;
 
-        rectTransform.anchoredPosition = new Vector2(rectTransform.sizeDelta.x / 2, rectTransform.sizeDelta.y / -2);
+        rectTransform.anchoredPosition = new Vector2(rectTransform.sizeDelta.x / 2 + mapMargin, - Screen.height + mapMargin + rectTransform.sizeDelta.y / 2);
 
         cameraIndicatorRT.anchorMin = new Vector2(0, 0);
         cameraIndicatorRT.anchorMax = new Vector2(0, 0);
