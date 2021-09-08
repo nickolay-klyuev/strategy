@@ -13,6 +13,12 @@ public class IsSelectedObjectController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         initialScale = transform.localScale;
+
+        if (GetComponentInParent<UnitProperties>().unitType == "enemy")
+        {
+            spriteRenderer.color = Color.red;
+        }
+
         DisableSelectBox();
     }
 
