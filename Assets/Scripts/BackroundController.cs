@@ -6,7 +6,7 @@ public class BackroundController : MonoBehaviour
 {
     public AudioClip rightBtnClickSound;
 
-    private FriendlyMoveController[] friendlyMoveControllers;
+    private FriendlyUnitsSelectionController[] friendlyMoveControllers;
     private SelectBoxController selectBoxController;
 
     // Start is called before the first frame update

@@ -25,7 +25,7 @@ public class IsSelectedObjectController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FriendlyMoveController friendlyMoveController = GetComponentInParent<FriendlyMoveController>();
+        FriendlyUnitsSelectionController friendlyMoveController = GetComponentInParent<FriendlyUnitsSelectionController>();
         if (friendlyMoveController != null)
         {
             // maybe remove from this controller later

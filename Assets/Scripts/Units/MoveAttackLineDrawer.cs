@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveAttackLineDrawer : MonoBehaviour
 {
-    private FriendlyMoveController friendlyMoveController;
+    private FriendlyUnitsSelectionController friendlyMoveController;
     private LineRenderer attackMoveLine;
     private bool letDraw = false;
     private GameObject drawObject;
@@ -13,7 +13,7 @@ public class MoveAttackLineDrawer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        friendlyMoveController = GetComponent<FriendlyMoveController>();
+        friendlyMoveController = GetComponent<FriendlyUnitsSelectionController>();
 
         attackMoveLine = GetComponent<LineRenderer>();
         attackMoveLine.positionCount = 2;

@@ -15,7 +15,7 @@ public class SelectedUnits : MonoBehaviour
                 // skip if unit is already destroyed
                 if (unit != null)
                 {
-                    unit.GetComponent<FriendlyMoveController>().SetIsSelected(false);
+                    unit.GetComponent<FriendlyUnitsSelectionController>().SetIsSelected(false);
                 }
             }
             // clean all selected List

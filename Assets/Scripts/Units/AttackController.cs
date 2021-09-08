@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackController : MonoBehaviour
 {
-    private FriendlyMoveController friendlyMoveController;
+    private FriendlyUnitsSelectionController friendlyMoveController;
     private MoveController moveController;
     private AttackRangeRadiusController attackRangeRadiusController;
     private UnitProperties currentUnitProperties;
@@ -20,10 +20,10 @@ public class AttackController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        friendlyMoveController = GetComponent<FriendlyMoveController>();
+        friendlyMoveController = GetComponent<FriendlyUnitsSelectionController>();
         if (friendlyMoveController == null)
         {
-            friendlyMoveController = GetComponentInParent<FriendlyMoveController>();
+            friendlyMoveController = GetComponentInParent<FriendlyUnitsSelectionController>();
         }
 
         moveController = GetComponent<MoveController>();

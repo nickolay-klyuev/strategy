@@ -48,7 +48,7 @@ public class SelectBoxController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        FriendlyMoveController friendlyMoveController = collider.transform.GetComponent<FriendlyMoveController>();
+        FriendlyUnitsSelectionController friendlyMoveController = collider.transform.GetComponent<FriendlyUnitsSelectionController>();
         if (friendlyMoveController != null)
         {
             // check if already contains to avoid a bug when you can move unselected units
@@ -62,7 +62,7 @@ public class SelectBoxController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        FriendlyMoveController friendlyMoveController = collider.transform.GetComponent<FriendlyMoveController>();
+        FriendlyUnitsSelectionController friendlyMoveController = collider.transform.GetComponent<FriendlyUnitsSelectionController>();
         if (friendlyMoveController != null && friendlyMoveController.GetIsSelected())
         {
             SelectedUnits.selectedUnits.Remove(collider.gameObject);

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FriendlyMoveController : MonoBehaviour
+public class FriendlyUnitsSelectionController : MonoBehaviour
 {
     private bool isSelected = false;
 
