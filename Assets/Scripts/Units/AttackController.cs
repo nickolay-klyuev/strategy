@@ -90,7 +90,11 @@ public class AttackController : MonoBehaviour
         isDoAttackCoroutine = true;
         while (isAttacking)
         {
-            yield return new WaitForSeconds(attackSpeed);
+            float randomIndex = attackSpeed * 0.1f; // just 10% random for attack speed
+            float attackSpeedWithRandom = attackSpeed + Random.Range(-randomIndex, randomIndex);
+
+            yield return new WaitForSeconds(attackSpeedWithRandom);
+
             if (isAttacking)
             {
                 // SpawnMissileInCoroutine() run this funtion in fire animation (TriggerFire)
