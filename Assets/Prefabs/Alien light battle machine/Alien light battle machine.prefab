@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 4230254651819392262}
   - component: {fileID: 4230254651819392263}
   - component: {fileID: 68594116}
+  - component: {fileID: 313493206}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -247,7 +248,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a5e3250532299b0a4a190025ce6e3a2e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9254902, g: 0.9254902, b: 0.9254902, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -302,7 +303,7 @@ MonoBehaviour:
   unitType: friendly
   isBuilding: 0
   hasDeathAnimation: 0
-  miniMapIndicator: {fileID: 0}
+  miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
 --- !u!120 &4230254651819392381
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -490,6 +491,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regenerationAmount: 10
   regenerationTime: 1
+--- !u!114 &313493206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230254651819392261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de7d2e584066e0d5591c5a5f210b9d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  miniDescMenuPrefab: {fileID: 5359872250936902133, guid: 3775b6699eb3202c4a0dd8d098341713, type: 3}
+  isMouseCling: 0
 --- !u!1 &4230254651887142857
 GameObject:
   m_ObjectHideFlags: 0

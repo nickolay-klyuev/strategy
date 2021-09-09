@@ -6,19 +6,39 @@ public class MiniDescMenuScript : MonoBehaviour
 {
     public GameObject canvas;
     public GameObject miniDescMenuPrefab;
+    public bool isMouseCling  = true;
 
     private GameObject menuOnStage;
+    private MiniDescInfoShowScript descInfoShowScript;
+    private UnitProperties unitProperties;
+
+    void Awake()
+    {
+        menuOnStage = Instantiate(miniDescMenuPrefab, canvas.transform);
+
+        descInfoShowScript = menuOnStage.GetComponent<MiniDescInfoShowScript>();
+        unitProperties = GetComponent<UnitProperties>();
+
+        if (descInfoShowScript != null)
+        {
+            descInfoShowScript.SetDescriptionText($"{gameObject.name} \nHP: {unitProperties.health}");
+
+            if (GetComponent<RegenerationScript>() != null)
+            {
+                descInfoShowScript.AddDescriptionText("\n- regeneration");
+            }
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        menuOnStage = Instantiate(miniDescMenuPrefab, canvas.transform);
-        menuOnStage.SetActive(false);
+        menuOnStage.SetActive(false);   
     }
 
     private void Update()
     {
-        if (menuOnStage.activeSelf)
+        if (menuOnStage.activeSelf && isMouseCling)
         {
             RectTransform menuTransform = menuOnStage.GetComponent<RectTransform>();
             menuTransform.position = new Vector2(Input.mousePosition.x + menuTransform.sizeDelta.x/2, Input.mousePosition.y);
