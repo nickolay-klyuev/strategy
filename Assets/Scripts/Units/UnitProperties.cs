@@ -12,6 +12,7 @@ public class UnitProperties : MonoBehaviour
     public bool canFireWhileMoving = false;
     public bool autoAim = false;
     public int cost = 50;
+    public float buildTime = 3f;
     public int limit = 1;
     public string unitType; // enemy, friendly
     public bool isBuilding = false;
