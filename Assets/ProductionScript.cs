@@ -12,6 +12,9 @@ public class ProductionScript : MonoBehaviour
         return prodactionObjectsQueue.Count;
     }
 
+    private float currentBuildTime;
+    private float startBuildTime;
+
     private bool isWorking = false;
 
     public void AddObjectInProdQueue(GameObject objectToProd)
@@ -29,8 +32,15 @@ public class ProductionScript : MonoBehaviour
         if (!isWorking && prodactionObjectsQueue.Count > 0)
         {
             isWorking = true;
+            startBuildTime = Time.realtimeSinceStartup;
+            currentBuildTime = prodactionObjectsQueue[0].GetComponentInChildren<UnitProperties>().buildTime;
             StartCoroutine(BuildUnit(prodactionObjectsQueue[0]));
         }
+    }
+
+    public float GetProductionPercentage()
+    {
+        return Mathf.Round((Time.realtimeSinceStartup - startBuildTime) * 100 / currentBuildTime);
     }
 
     IEnumerator BuildUnit(GameObject buildObject)
@@ -50,7 +60,7 @@ public class ProductionScript : MonoBehaviour
             placeToBuild = new Vector2(position.x + Random.Range(-colliderSize.x, colliderSize.x), position.y + yColliderSize[Random.Range(0, yColliderSize.Length)]);
         }
 
-        yield return new WaitForSeconds(buildObject.GetComponentInChildren<UnitProperties>().buildTime);
+        yield return new WaitForSeconds(currentBuildTime);
 
         GameObject currentUnit = Instantiate(buildObject, placeToBuild, Quaternion.identity);
         //unitsOnStage.Add(currentUnit);

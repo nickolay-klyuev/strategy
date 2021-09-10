@@ -299,6 +299,7 @@ MonoBehaviour:
   canFireWhileMoving: 1
   autoAim: 0
   cost: 50
+  buildTime: 10
   limit: 1
   unitType: friendly
   isBuilding: 0

@@ -13,24 +13,31 @@ public class SpawningScript : MonoBehaviour
     //private string buttonText;
 
     private PanelMetaData metaData;
+    private ProductionScript productionScript;
     private Text queueLengthText;
+    private Text prodPercentageText;
     //private MiniMapController miniMapController;
 
     // Start is called before the first frame update
     void Start()
     {
+        metaData = GetComponentInParent<PanelMetaData>();
+        productionScript = metaData.GetCallObject().GetComponent<ProductionScript>();
         //miniMapController = GameObject.Find("Mini Map").GetComponent<MiniMapController>();
         cost = unitToSpawn.GetComponentInChildren<UnitProperties>().cost;
         buildTime = unitToSpawn.GetComponentInChildren<UnitProperties>().buildTime;
         //GetComponentInChildren<Text>().text += $"({cost})";
         //buttonText = GetComponentInChildren<Text>().text;
-        queueLengthText = GetComponentInChildren<Text>();
+        queueLengthText = transform.Find("Queue number").GetComponent<Text>();
+        prodPercentageText = transform.Find("Production percentage").GetComponent<Text>();
         queueLengthText.text = "";
+        prodPercentageText.text = "";
     }
 
     private void FixedUpdate()
     {
-        int queueLength = metaData.GetCallObject().GetComponent<ProductionScript>().GetQueueLength();
+        // show info about production units
+        int queueLength = productionScript.GetQueueLength();
         if (queueLength == 0)
         {
             queueLengthText.text = "";
@@ -38,6 +45,16 @@ public class SpawningScript : MonoBehaviour
         else
         {
             queueLengthText.text = queueLength.ToString();
+        }
+
+        float prodPerc = productionScript.GetProductionPercentage();
+        if (prodPerc > 100f || prodPerc == 0)
+        {
+            prodPercentageText.text = "";
+        }
+        else
+        {
+            prodPercentageText.text = $"{prodPerc}%";
         }
 
         /*for (int i = 0; i < unitsOnStage.Count; i++)
@@ -57,8 +74,6 @@ public class SpawningScript : MonoBehaviour
 
     public void SpawnUnit()
     {
-        metaData = GetComponentInParent<PanelMetaData>();
-
         // TODO: maybe improve and change this one
         //unitsLimit = metaData.GetCallObject().GetComponent<SpawnLimits>().unitsLimit;
 
