@@ -8,17 +8,17 @@ public class SpawningScript : MonoBehaviour
     public GameObject unitToSpawn;
     private int cost;
     private float buildTime;
-    private List<GameObject> unitsOnStage = new List<GameObject>();
-    private int unitsLimit;
+    /*private List<GameObject> unitsOnStage = new List<GameObject>();
+    private int unitsLimit;*/
     private string buttonText;
 
     private PanelMetaData metaData;
-    private MiniMapController miniMapController;
+    //private MiniMapController miniMapController;
 
     // Start is called before the first frame update
     void Start()
     {
-        miniMapController = GameObject.Find("Mini Map").GetComponent<MiniMapController>();
+        //miniMapController = GameObject.Find("Mini Map").GetComponent<MiniMapController>();
         cost = unitToSpawn.GetComponentInChildren<UnitProperties>().cost;
         buildTime = unitToSpawn.GetComponentInChildren<UnitProperties>().buildTime;
         /*GetComponentInChildren<Text>().text += $"({cost})";
@@ -27,13 +27,13 @@ public class SpawningScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        for (int i = 0; i < unitsOnStage.Count; i++)
+        /*for (int i = 0; i < unitsOnStage.Count; i++)
         {
             if (unitsOnStage[i] == null)
             {
                 unitsOnStage.RemoveAt(i);
             }
-        }
+        }*/
 
         // write limits near spawn button
         /*if (unitsLimit > 0)
@@ -53,7 +53,8 @@ public class SpawningScript : MonoBehaviour
         //{
             if (GameObject.FindGameObjectWithTag("ResourceSystem").GetComponent<ResourceSystem>().SpendResource(cost))
             {
-                StartCoroutine(BuildUnit());
+                //StartCoroutine(BuildUnit());
+                metaData.GetCallObject().GetComponent<ProductionScript>().AddObjectInProdQueue(unitToSpawn);
             }
             else
             {
@@ -66,7 +67,7 @@ public class SpawningScript : MonoBehaviour
         //}
     }
 
-    IEnumerator BuildUnit()
+    /*IEnumerator BuildUnit()
     {   
         Vector2 position = metaData.GetCallObject().transform.position;
         Vector2 colliderSize = metaData.GetCallObject().GetComponent<CircleCollider2D>().bounds.size / 2;
@@ -86,8 +87,8 @@ public class SpawningScript : MonoBehaviour
         yield return new WaitForSeconds(buildTime);
 
         GameObject currentUnit = Instantiate(unitToSpawn, placeToBuild, Quaternion.identity);
-        unitsOnStage.Add(currentUnit);
+        //unitsOnStage.Add(currentUnit);
         miniMapController.AddIndicator(currentUnit);
         UnitsOnScene.AddUnit(currentUnit);
-    }
+    }*/
 }
