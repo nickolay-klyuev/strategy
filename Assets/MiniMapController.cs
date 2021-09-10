@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
@@ -74,6 +75,10 @@ public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpH
 
         unitsWithIndicator.Add(unit);
         GameObject createdIndicator = Instantiate(unitProperties.miniMapIndicator);
+        if (unitProperties.unitType == "enemy")
+        {
+            createdIndicator.GetComponent<Image>().color = Color.red;
+        }
         createdIndicator.transform.SetParent(gameObject.transform);
         indicatorsRT.Add(createdIndicator.GetComponent<RectTransform>());
         indicatorsRT[indicatorsRT.Count - 1].anchorMin = new Vector2(0, 0);
