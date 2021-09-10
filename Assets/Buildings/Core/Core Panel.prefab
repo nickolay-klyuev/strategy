@@ -599,9 +599,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 422371138867565432}
     m_Modifications:
+    - target: {fileID: 3969303276770885958, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_Text
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969303276770885958, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969303276770885958, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969303276770885958, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969303276770885958, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969303276770885959, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -61.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969303276770885959, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -64.6063
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969303276770885959, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -25.7374
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969303276770885959, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 32.3031
+      objectReference: {fileID: 0}
     - target: {fileID: 3969303276770885976, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3969303277133268277, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
       propertyPath: m_Type

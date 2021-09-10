@@ -6,6 +6,12 @@ public class ProductionScript : MonoBehaviour
 {
     private MiniMapController miniMapController;
     private List<GameObject> prodactionObjectsQueue = new List<GameObject>();
+
+    public int GetQueueLength()
+    {
+        return prodactionObjectsQueue.Count;
+    }
+
     private bool isWorking = false;
 
     public void AddObjectInProdQueue(GameObject objectToProd)

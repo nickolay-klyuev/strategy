@@ -10,9 +10,10 @@ public class SpawningScript : MonoBehaviour
     private float buildTime;
     /*private List<GameObject> unitsOnStage = new List<GameObject>();
     private int unitsLimit;*/
-    private string buttonText;
+    //private string buttonText;
 
     private PanelMetaData metaData;
+    private Text queueLengthText;
     //private MiniMapController miniMapController;
 
     // Start is called before the first frame update
@@ -21,12 +22,24 @@ public class SpawningScript : MonoBehaviour
         //miniMapController = GameObject.Find("Mini Map").GetComponent<MiniMapController>();
         cost = unitToSpawn.GetComponentInChildren<UnitProperties>().cost;
         buildTime = unitToSpawn.GetComponentInChildren<UnitProperties>().buildTime;
-        /*GetComponentInChildren<Text>().text += $"({cost})";
-        buttonText = GetComponentInChildren<Text>().text;*/
+        //GetComponentInChildren<Text>().text += $"({cost})";
+        //buttonText = GetComponentInChildren<Text>().text;
+        queueLengthText = GetComponentInChildren<Text>();
+        queueLengthText.text = "";
     }
 
     private void FixedUpdate()
     {
+        int queueLength = metaData.GetCallObject().GetComponent<ProductionScript>().GetQueueLength();
+        if (queueLength == 0)
+        {
+            queueLengthText.text = "";
+        }
+        else
+        {
+            queueLengthText.text = queueLength.ToString();
+        }
+
         /*for (int i = 0; i < unitsOnStage.Count; i++)
         {
             if (unitsOnStage[i] == null)
