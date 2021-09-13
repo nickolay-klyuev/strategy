@@ -133,6 +133,7 @@ MonoBehaviour:
   canFireWhileMoving: 1
   autoAim: 0
   cost: 50
+  buildTime: 3
   limit: 1
   unitType: enemy
   isBuilding: 0
@@ -374,7 +375,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 22439e9fddbd21f64a9c17a442368b21, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ea452837ffb6fbb989904783858922a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
