@@ -57,6 +57,9 @@ GameObject:
   - component: {fileID: 1663084539160880817}
   - component: {fileID: 1663084539160880812}
   - component: {fileID: 1663084539160880815}
+  - component: {fileID: 4230254651360597323}
+  - component: {fileID: 4230254651360597324}
+  - component: {fileID: 651975243108717333}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -143,6 +146,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b43841ab78d85ee3d9a20368a937a918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &4230254651360597323
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663084539160880816}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d79640c7492d26895b3533bce139e2e5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4230254651360597324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663084539160880816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae82bbed4dbb00ef849d43d78487ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayPower: 40
+--- !u!70 &651975243108717333
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663084539160880816}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.005224228, y: 0.20075393}
+  m_Size: {x: 0.17058372, y: 0.1705842}
+  m_Direction: 0
 --- !u!1 &1663084539441725514
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,8 +551,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.017749786, y: 0.002106905}
-  m_Size: {x: 0.7069998, y: 0.99898386}
+  m_Offset: {x: -0.011213779, y: -0.015321732}
+  m_Size: {x: 0.78107166, y: 1.0338411}
   m_Direction: 0
 --- !u!114 &3287791154370031175
 MonoBehaviour:
