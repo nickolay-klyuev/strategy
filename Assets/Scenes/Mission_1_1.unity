@@ -640,6 +640,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0279d6305c368e9a4b15cbe23ed02a1e, type: 3}
+--- !u!1 &576749377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4230254651819392261, guid: 2b124510a95ba97518a421f53e8cac18, type: 3}
+  m_PrefabInstance: {fileID: 4230254651753485501}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &576749378
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576749377}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &709822552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6168,6 +6192,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 953acb0b4cec10b39872f9065612fffe, type: 3}
+--- !u!1001 &3287791155779613690
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1663084539441725512, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663084539441725512, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.692
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663084539441725512, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.241
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663084539441725512, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663084539441725512, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663084539441725512, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663084539441725512, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663084539441725512, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663084539441725512, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663084539441725512, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663084539441725512, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663084539441725514, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
+      propertyPath: m_Name
+      value: Alien medium battle machine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3287791154663031125, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 2112812011}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
 --- !u!1001 &4230254651753485501
 PrefabInstance:
   m_ObjectHideFlags: 0
