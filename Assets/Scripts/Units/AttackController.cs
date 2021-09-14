@@ -10,7 +10,7 @@ public class AttackController : MonoBehaviour
     private UnitProperties currentUnitProperties;
     private MoveAttackLineDrawer attackLineDrawer;
     private MissileSpawnerController[] missileSpawnerControllers;
-    
+
     private GameObject targetGameobject;
     public GameObject GetTargetGameobject()
     {
@@ -116,7 +116,13 @@ public class AttackController : MonoBehaviour
 
     public void SpawnMissileInCoroutine()
     {
-        missileSpawnerControllers[Random.Range(0, missileSpawnerControllers.Length - 1)].SpawnMissile(targetGameobject);
+        foreach (MissileSpawnerController missileController in missileSpawnerControllers)
+        {
+            missileController.SpawnMissile(targetGameobject);
+        }
+        
+        // spawn from random missile spawner (if a lot of missile spawners, but damage is the same as one missile spawner)
+        //missileSpawnerControllers[Random.Range(0, missileSpawnerControllers.Length - 1)].SpawnMissile(targetGameobject);
     }
 
     public void StopAttack()
