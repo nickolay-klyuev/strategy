@@ -79,7 +79,7 @@ public class MissileSpawnerController : MonoBehaviour
                         }
 
                         // missiles are flying always to attack radius
-                        Vector2 targetDistanceVector = (transform.parent.position - targetPosition);
+                        /*Vector2 targetDistanceVector = (transform.parent.position - targetPosition);
                         float targetDistance = Mathf.Sqrt(Mathf.Pow(targetDistanceVector.x, 2) + Mathf.Pow(targetDistanceVector.y, 2));
                         float d = parentAttackRange - targetDistance;
                         float x1 = transform.parent.position.x;
@@ -87,9 +87,9 @@ public class MissileSpawnerController : MonoBehaviour
                         float x2 = targetPosition.x;
                         float y2 = targetPosition.y;
                         float x3 = x2 + d/Mathf.Sqrt(Mathf.Pow(x2 - x1, 2) + Mathf.Pow(y2 - y1, 2)) * (x2 - x1);
-                        float y3 = y2 + d/Mathf.Sqrt(Mathf.Pow(x2 - x1, 2) + Mathf.Pow(y2 - y1, 2)) * (y2 - y1);
+                        float y3 = y2 + d/Mathf.Sqrt(Mathf.Pow(x2 - x1, 2) + Mathf.Pow(y2 - y1, 2)) * (y2 - y1);*/
 
-                        missileController.LunchMissile(new Vector2(x3, y3));
+                        missileController.LunchMissile(StaticMethods.GetMaxAttackRangePosition(transform.parent.position, targetPosition, parentAttackRange));
                     }
                 }
                 doSpawn = false;

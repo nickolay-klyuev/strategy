@@ -10,7 +10,13 @@ public class AttackController : MonoBehaviour
     private UnitProperties currentUnitProperties;
     private MoveAttackLineDrawer attackLineDrawer;
     private MissileSpawnerController[] missileSpawnerControllers;
+    
     private GameObject targetGameobject;
+    public GameObject GetTargetGameobject()
+    {
+        return targetGameobject;
+    }
+
     private Animator animator;
 
     private float attackSpeed;
@@ -116,11 +122,6 @@ public class AttackController : MonoBehaviour
     public void StopAttack()
     {
         isAttacking = false;
-    }
-
-    public GameObject GetTargetGameobject()
-    {
-        return targetGameobject;
     }
 
     public bool GetIsAttacking()
