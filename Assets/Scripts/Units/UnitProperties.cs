@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class UnitProperties : MonoBehaviour
 {
+    [SerializeField]
+    private string unitName = "unknown";
+    public string GetUnitName()
+    {
+        return unitName;
+    }
+
     public float health = 100f;
     public float attackRange = 10f;
     public float attackSpeed = 10f; // attack every attackSpeed seconds

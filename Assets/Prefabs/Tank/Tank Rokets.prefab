@@ -368,6 +368,7 @@ GameObject:
   - component: {fileID: 6956103642221280133}
   - component: {fileID: 6956103642221280134}
   - component: {fileID: 1381355254052875810}
+  - component: {fileID: 4644677343663751121}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -662,6 +663,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 025fb5a5805156a04878cc898eb880fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4644677343663751121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6956103642221280378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de7d2e584066e0d5591c5a5f210b9d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 537212070068333112, guid: 51989d971ad5b73dc9b078c7c9548d42, type: 3}
+  miniDescMenuPrefab: {fileID: 5359872250936902133, guid: 3775b6699eb3202c4a0dd8d098341713, type: 3}
+  isMouseCling: 0
 --- !u!1001 &6956103641544989052
 PrefabInstance:
   m_ObjectHideFlags: 0

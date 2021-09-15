@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MiniDescMenuScript : MonoBehaviour
 {
-    public GameObject canvas;
     public GameObject miniDescMenuPrefab;
     public bool isMouseCling  = true;
 
@@ -14,14 +13,14 @@ public class MiniDescMenuScript : MonoBehaviour
 
     void Awake()
     {
-        menuOnStage = Instantiate(miniDescMenuPrefab, canvas.transform);
+        menuOnStage = Instantiate(miniDescMenuPrefab, GameObject.Find("Canvas").transform);
 
         descInfoShowScript = menuOnStage.GetComponent<MiniDescInfoShowScript>();
         unitProperties = GetComponent<UnitProperties>();
 
         if (descInfoShowScript != null)
         {
-            descInfoShowScript.SetDescriptionText($"{gameObject.name} \nHP: {unitProperties.health}");
+            descInfoShowScript.SetDescriptionText($"{unitProperties.GetUnitName()} \nMaxHP: {unitProperties.health}");
 
             if (GetComponent<RegenerationScript>() != null)
             {
