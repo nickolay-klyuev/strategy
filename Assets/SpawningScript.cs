@@ -37,7 +37,7 @@ public class SpawningScript : MonoBehaviour
     private void FixedUpdate()
     {
         // show info about production units
-        int queueLength = productionScript.GetQueueLength();
+        int queueLength = productionScript.GetQueueLengthForGameObject(unitToSpawn);
         if (queueLength == 0)
         {
             queueLengthText.text = "";
@@ -48,7 +48,7 @@ public class SpawningScript : MonoBehaviour
         }
 
         float prodPerc = productionScript.GetProductionPercentage();
-        if (prodPerc > 100f || prodPerc == 0)
+        if (prodPerc > 100f || prodPerc == 0 || !GameObject.ReferenceEquals(productionScript.GetCurrentBuildUnit(), unitToSpawn))
         {
             prodPercentageText.text = "";
         }

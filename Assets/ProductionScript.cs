@@ -12,6 +12,19 @@ public class ProductionScript : MonoBehaviour
         return prodactionObjectsQueue.Count;
     }
 
+    public int GetQueueLengthForGameObject(GameObject externalObject)
+    {
+        int queueLength = 0;
+        foreach (GameObject objectInQueue in prodactionObjectsQueue)
+        {
+            if (GameObject.ReferenceEquals(objectInQueue, externalObject))
+            {
+                queueLength++;
+            }
+        }
+        return queueLength;
+    }
+
     private float currentBuildTime;
     private float startBuildTime;
 
@@ -20,6 +33,11 @@ public class ProductionScript : MonoBehaviour
     public void AddObjectInProdQueue(GameObject objectToProd)
     {
         prodactionObjectsQueue.Add(objectToProd);
+    }
+
+    public GameObject GetCurrentBuildUnit()
+    {
+        return prodactionObjectsQueue[0];
     }
 
     void Start()
