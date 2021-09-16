@@ -25,4 +25,11 @@ public class UnitProperties : MonoBehaviour
     public bool isBuilding = false;
     public bool hasDeathAnimation = false;
     public GameObject miniMapIndicator;
+
+    [SerializeField]
+    private string unitDescription = "no description";
+    public string GetUnitDesc()
+    {
+        return unitDescription;
+    }
 }

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ResourceSystem : MonoBehaviour
 {
-    private int resourceAmount = 1000;
+    static private int resourceAmount = 1000;
 
-    public void GatherResource(int amount)
+    static public void GatherResource(int amount)
     {
         resourceAmount += amount;
     }
 
-    public bool SpendResource(int amount)
+    static public bool SpendResource(int amount)
     {
         if (amount > resourceAmount)
         {
@@ -25,7 +25,7 @@ public class ResourceSystem : MonoBehaviour
         }
     }
 
-    public int GetResourceAmount()
+    static public int GetResourceAmount()
     {
         return resourceAmount;
     }

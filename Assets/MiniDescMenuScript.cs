@@ -5,12 +5,32 @@ using UnityEngine.EventSystems;
 
 public class MiniDescMenuScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public GameObject miniDescMenuPrefab;
-    public bool isMouseCling  = true;
+    [SerializeField]
+    private GameObject miniDescMenuPrefab;
+
+    [SerializeField]
+    private  bool isBuildDesc = false;
+
+    [SerializeField]
+    private GameObject unitPrefab;
+    public GameObject GetUnitPrefab()
+    {
+        return unitPrefab;
+    }
 
     private GameObject menuOnStage;
     private MiniDescInfoShowScript descInfoShowScript;
     private UnitProperties unitProperties;
+
+    private bool canBeShowed = true;
+    public void ForbidShowing()
+    {
+        canBeShowed = false;
+    }
+    public void AllowShowing()
+    {
+        canBeShowed = true;
+    }
 
     void Awake()
     {
@@ -18,14 +38,30 @@ public class MiniDescMenuScript : MonoBehaviour, IPointerEnterHandler, IPointerE
 
         descInfoShowScript = menuOnStage.GetComponent<MiniDescInfoShowScript>();
         unitProperties = GetComponent<UnitProperties>();
+        if (unitProperties == null)
+        {
+            unitProperties = unitPrefab.GetComponentInChildren<UnitProperties>();
+        }
 
         if (descInfoShowScript != null)
         {
-            descInfoShowScript.SetDescriptionText($"{unitProperties.GetUnitName()} \nMaxHP: {unitProperties.health}");
+            descInfoShowScript.SetDescriptionText("");
+
+            if (isBuildDesc)
+            {
+                descInfoShowScript.AddDescriptionText($"Costs: {unitProperties.cost}   Build time: {unitProperties.buildTime}\n");
+            }
+
+            descInfoShowScript.AddDescriptionText($"{unitProperties.GetUnitName()} \nMaxHP: {unitProperties.health}");
 
             if (GetComponent<RegenerationScript>() != null)
             {
                 descInfoShowScript.AddDescriptionText("\n- regeneration");
+            }
+
+            if (isBuildDesc)
+            {
+                descInfoShowScript.AddDescriptionText($"\n{unitProperties.GetUnitDesc()}");
             }
         }
 
@@ -34,16 +70,19 @@ public class MiniDescMenuScript : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     private void Update()
     {
-        if (menuOnStage.activeSelf && isMouseCling)
+        if (menuOnStage.activeSelf && isBuildDesc) // cling to mouse is desc for building
         {
             RectTransform menuTransform = menuOnStage.GetComponent<RectTransform>();
-            menuTransform.position = new Vector2(Input.mousePosition.x + menuTransform.sizeDelta.x/2, Input.mousePosition.y + menuTransform.sizeDelta.y/2);
+            menuTransform.position = new Vector2(Input.mousePosition.x + menuTransform.sizeDelta.x/2, Input.mousePosition.y + menuTransform.sizeDelta.y/2 + 5f);
         }
     }
 
     private void OnMouseOver()
     {
-        menuOnStage.SetActive(true);
+        if (canBeShowed)
+        {
+            menuOnStage.SetActive(true);
+        }
     }
 
     private void OnMouseExit()
@@ -54,7 +93,11 @@ public class MiniDescMenuScript : MonoBehaviour, IPointerEnterHandler, IPointerE
     // for UI elements
     public void OnPointerEnter(PointerEventData eventData)
     {
-        menuOnStage.SetActive(true);
+        if (canBeShowed)
+        {
+            menuOnStage.transform.SetAsLastSibling();
+            menuOnStage.SetActive(true);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)

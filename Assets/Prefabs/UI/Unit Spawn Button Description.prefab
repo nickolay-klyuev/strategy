@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5359872250936902130}
   - component: {fileID: 5359872250936902128}
   - component: {fileID: 5359872250936902131}
-  - component: {fileID: 4322983329824074617}
+  - component: {fileID: -5043891756054843401}
   m_Layer: 5
   m_Name: Unit Spawn Button Description
   m_TagString: Untagged
@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -161.58966, y: 201.77144}
-  m_SizeDelta: {x: 310.4041, y: 390.6929}
+  m_AnchoredPosition: {x: -206.8, y: 130.1}
+  m_SizeDelta: {x: 162.797, y: 198.44672}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5359872250936902128
 CanvasRenderer:
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4322983329824074617
+--- !u!114 &-5043891756054843401
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5359872250936902133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f6898aec6c02c736bf33ed0a030a99d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5abff3c02c739d3b0853139539c25ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5359872251609586800

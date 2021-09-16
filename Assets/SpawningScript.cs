@@ -79,7 +79,7 @@ public class SpawningScript : MonoBehaviour
 
         //if (unitsOnStage.Count < unitsLimit)
         //{
-            if (GameObject.FindGameObjectWithTag("ResourceSystem").GetComponent<ResourceSystem>().SpendResource(cost))
+            if (ResourceSystem.SpendResource(cost))
             {
                 //StartCoroutine(BuildUnit());
                 metaData.GetCallObject().GetComponent<ProductionScript>().AddObjectInProdQueue(unitToSpawn);

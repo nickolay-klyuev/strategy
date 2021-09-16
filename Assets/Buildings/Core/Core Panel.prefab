@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniDescMenuPrefab: {fileID: 5359872250936902133, guid: a658b822f4db2accd8fad45f1c6aafa8, type: 3}
-  isMouseCling: 1
+  isBuildDesc: 1
+  unitPrefab: {fileID: 4230254651887142857, guid: 2b124510a95ba97518a421f53e8cac18, type: 3}
 --- !u!114 &3338468029215021959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,19 +231,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 10%
---- !u!114 &7933647536802076507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2414510128326865017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e883b3a4a516fba4e98e7f5f486956d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitToSpawn: {fileID: 1663084539441725514, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
 --- !u!114 &7906572425637395237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +244,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniDescMenuPrefab: {fileID: 5359872250936902133, guid: a658b822f4db2accd8fad45f1c6aafa8, type: 3}
-  isMouseCling: 1
+  isBuildDesc: 1
+  unitPrefab: {fileID: 1663084539441725514, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
+--- !u!114 &7933647536802076507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2414510128326865017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e883b3a4a516fba4e98e7f5f486956d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitToSpawn: {fileID: 1663084539441725514, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
 --- !u!1 &3197862909968518550
 GameObject:
   m_ObjectHideFlags: 0

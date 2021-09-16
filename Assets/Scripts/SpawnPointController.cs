@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SpawnPointController : MonoBehaviour
 {
-    public GameObject resourceSystem;
-
     public void SpawnObject(GameObject spawnObject)
     {
         int spawnObjectLimit = spawnObject.GetComponentInChildren<UnitProperties>().limit;
@@ -13,7 +11,7 @@ public class SpawnPointController : MonoBehaviour
         if (GameObject.FindGameObjectsWithTag(spawnObject.name).Length < spawnObjectLimit) // only if unit limit allows
         {
             int cost = spawnObject.GetComponentInChildren<UnitProperties>().cost;
-            if (resourceSystem.GetComponent<ResourceSystem>().SpendResource(cost))
+            if (ResourceSystem.SpendResource(cost))
             {
                 Instantiate(spawnObject, transform.position, Quaternion.identity);
             }
