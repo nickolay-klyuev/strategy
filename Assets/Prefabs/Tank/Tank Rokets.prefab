@@ -387,7 +387,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5479601392510643672}
+  - {fileID: 6027185475015121742}
   - {fileID: 6956103642145659538}
   m_Father: {fileID: 6956103641445726782}
   m_RootOrder: 0
@@ -476,6 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f71b7a553ab151dead8870dcb985e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: unknown
   health: 1000
   attackRange: 20
   attackSpeed: 6
@@ -675,7 +676,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de7d2e584066e0d5591c5a5f210b9d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 537212070068333112, guid: 51989d971ad5b73dc9b078c7c9548d42, type: 3}
   miniDescMenuPrefab: {fileID: 5359872250936902133, guid: 3775b6699eb3202c4a0dd8d098341713, type: 3}
   isMouseCling: 0
 --- !u!1001 &6956103641544989052
@@ -865,10 +865,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Is Selected
       objectReference: {fileID: 0}
+    - target: {fileID: 3276253008086233528, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3276253008086233528, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
---- !u!4 &5479601392510643672 stripped
+--- !u!4 &6027185475015121742 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3207265553958813593, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3687839145544190223, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
   m_PrefabInstance: {fileID: 6956103642421826113}
   m_PrefabAsset: {fileID: 0}

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MiniDescMenuScript : MonoBehaviour
+public class MiniDescMenuScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject miniDescMenuPrefab;
     public bool isMouseCling  = true;
@@ -27,12 +28,8 @@ public class MiniDescMenuScript : MonoBehaviour
                 descInfoShowScript.AddDescriptionText("\n- regeneration");
             }
         }
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        menuOnStage.SetActive(false);   
+        menuOnStage.SetActive(false);
     }
 
     private void Update()
@@ -40,7 +37,7 @@ public class MiniDescMenuScript : MonoBehaviour
         if (menuOnStage.activeSelf && isMouseCling)
         {
             RectTransform menuTransform = menuOnStage.GetComponent<RectTransform>();
-            menuTransform.position = new Vector2(Input.mousePosition.x + menuTransform.sizeDelta.x/2, Input.mousePosition.y);
+            menuTransform.position = new Vector2(Input.mousePosition.x + menuTransform.sizeDelta.x/2, Input.mousePosition.y + menuTransform.sizeDelta.y/2);
         }
     }
 
@@ -50,6 +47,17 @@ public class MiniDescMenuScript : MonoBehaviour
     }
 
     private void OnMouseExit()
+    {
+        menuOnStage.SetActive(false);
+    }
+
+    // for UI elements
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        menuOnStage.SetActive(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
     {
         menuOnStage.SetActive(false);
     }
