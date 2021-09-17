@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f71b7a553ab151dead8870dcb985e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: unknown
+  unitName: Tank
   health: 1000
   attackRange: 10
   attackSpeed: 2
@@ -153,6 +153,7 @@ MonoBehaviour:
   isBuilding: 0
   hasDeathAnimation: 0
   miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
+  unitDescription: Has average parameters.
 --- !u!120 &8992152573598496805
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -327,7 +328,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniDescMenuPrefab: {fileID: 5359872250936902133, guid: 3775b6699eb3202c4a0dd8d098341713, type: 3}
-  isMouseCling: 0
+  isBuildDesc: 0
+  unitPrefab: {fileID: 0}
 --- !u!1 &8992152573657028916
 GameObject:
   m_ObjectHideFlags: 0

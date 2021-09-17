@@ -59,10 +59,7 @@ public class MiniDescMenuScript : MonoBehaviour, IPointerEnterHandler, IPointerE
                 descInfoShowScript.AddDescriptionText("\n- regeneration");
             }
 
-            if (isBuildDesc)
-            {
-                descInfoShowScript.AddDescriptionText($"\n{unitProperties.GetUnitDesc()}");
-            }
+            descInfoShowScript.AddDescriptionText($"\n{unitProperties.GetUnitDesc()}");
         }
 
         menuOnStage.SetActive(false);

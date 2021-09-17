@@ -202,7 +202,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1600639572874613107}
+  - {fileID: 691641298622441445}
   - {fileID: 4230254650555883826}
   m_Father: {fileID: 4230254651887142859}
   m_RootOrder: 0
@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f71b7a553ab151dead8870dcb985e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: Light battle machine
   health: 750
   attackRange: 5
   attackSpeed: 1
@@ -305,6 +306,8 @@ MonoBehaviour:
   isBuilding: 0
   hasDeathAnimation: 0
   miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
+  unitDescription: Fast moving machine with low range of attack. Has strong regeneration
+    effect.
 --- !u!120 &4230254651819392381
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -504,9 +507,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de7d2e584066e0d5591c5a5f210b9d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 537212070068333112, guid: 51989d971ad5b73dc9b078c7c9548d42, type: 3}
   miniDescMenuPrefab: {fileID: 5359872250936902133, guid: 3775b6699eb3202c4a0dd8d098341713, type: 3}
-  isMouseCling: 0
+  isBuildDesc: 0
+  unitPrefab: {fileID: 0}
 --- !u!1 &4230254651887142857
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,9 +682,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
---- !u!4 &1600639572874613107 stripped
+--- !u!4 &691641298622441445 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3207265553958813593, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3687839145544190223, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
   m_PrefabInstance: {fileID: 4230254651407101674}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4230254651771828430

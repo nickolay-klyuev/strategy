@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f71b7a553ab151dead8870dcb985e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: unknown
+  unitName: Artillery
   health: 1000
   attackRange: 20
   attackSpeed: 6
@@ -491,6 +491,7 @@ MonoBehaviour:
   isBuilding: 0
   hasDeathAnimation: 0
   miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
+  unitDescription: Has huge attack range and huge damage. Low fire rate and accuracy.
 --- !u!120 &6956103642221280128
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -677,7 +678,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniDescMenuPrefab: {fileID: 5359872250936902133, guid: 3775b6699eb3202c4a0dd8d098341713, type: 3}
-  isMouseCling: 0
+  isBuildDesc: 0
+  unitPrefab: {fileID: 0}
 --- !u!1001 &6956103641544989052
 PrefabInstance:
   m_ObjectHideFlags: 0

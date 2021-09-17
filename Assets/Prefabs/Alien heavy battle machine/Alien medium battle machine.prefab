@@ -457,7 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f71b7a553ab151dead8870dcb985e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: unknown
+  unitName: Medium battle machine
   health: 850
   attackRange: 7
   attackSpeed: 2.5
@@ -472,7 +472,8 @@ MonoBehaviour:
   isBuilding: 0
   hasDeathAnimation: 0
   miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
-  unitDescription: no description
+  unitDescription: Machine with strong ray weapon that can spear several enemies.
+    Has light renegeration effect.
 --- !u!120 &1663084539507931902
 LineRenderer:
   m_ObjectHideFlags: 0
