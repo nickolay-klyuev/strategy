@@ -77,7 +77,9 @@ public class SelectBoxController : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         initialMousePosition = new Vector3(mousePosition.x, mousePosition.y, -1);
-
+        
+        lineRenderer.startWidth = 0.01f * Camera.main.orthographicSize;
+        lineRenderer.endWidth = 0.01f * Camera.main.orthographicSize;
         lineRenderer.SetPosition(0, initialMousePosition);
     }
 

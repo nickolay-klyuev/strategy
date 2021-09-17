@@ -130,6 +130,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 344266560, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
+      propertyPath: paralaxType
+      value: mouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 698969465, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
+      propertyPath: paralaxType
+      value: mouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 791397299, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
+      propertyPath: paralaxType
+      value: mouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023438754, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
+      propertyPath: paralaxType
+      value: mouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032520004, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
+      propertyPath: paralaxType
+      value: mouse
+      objectReference: {fileID: 0}
     - target: {fileID: 3563282123565282373, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
       propertyPath: m_Name
       value: Main Camera

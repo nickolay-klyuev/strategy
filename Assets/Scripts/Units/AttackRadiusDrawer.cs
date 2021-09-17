@@ -31,7 +31,7 @@ public class AttackRadiusDrawer : MonoBehaviour
     private void FixedUpdate()
     {
         // show radius if selected
-        if (fMoveController.GetIsSelected())
+        if (fMoveController != null && fMoveController.GetIsSelected())
         {
             lineRenderer.enabled = true;
         }

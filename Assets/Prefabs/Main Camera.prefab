@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890aee6935fdd37b2b20a5de9601617e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paralaxType: keyboard
   cam: {fileID: 3563282123565282373}
   parallaxIndex: 5
 --- !u!1 &698969462
@@ -192,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890aee6935fdd37b2b20a5de9601617e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paralaxType: keyboard
   cam: {fileID: 3563282123565282373}
   parallaxIndex: 10
 --- !u!1 &791397296
@@ -289,6 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890aee6935fdd37b2b20a5de9601617e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paralaxType: keyboard
   cam: {fileID: 3563282123565282373}
   parallaxIndex: 1
 --- !u!1 &1066881023
@@ -460,6 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890aee6935fdd37b2b20a5de9601617e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paralaxType: keyboard
   cam: {fileID: 3563282123565282373}
   parallaxIndex: 20
 --- !u!1 &2032520001
@@ -557,6 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890aee6935fdd37b2b20a5de9601617e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paralaxType: keyboard
   cam: {fileID: 3563282123565282373}
   parallaxIndex: 15
 --- !u!1 &3563282123565282373
@@ -653,14 +658,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3563282123565282373}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcec2fc2295df26dfbc3e758bef7bddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraSpeed: 15
   cameraSizeStep: 0.5
-  maxCameraSize: 5
+  maxCameraSize: 10
   minCameraSize: 2
   background: {fileID: 0}
 --- !u!114 &3563282123565282488
