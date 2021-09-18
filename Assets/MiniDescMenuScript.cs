@@ -101,4 +101,9 @@ public class MiniDescMenuScript : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         menuOnStage.SetActive(false);
     }
+
+    void OnDestroy()
+    {
+        Destroy(menuOnStage);
+    }
 }
