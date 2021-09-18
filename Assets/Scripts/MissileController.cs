@@ -7,6 +7,8 @@ public class MissileController : MonoBehaviour
     public float attackPower = 10f;
     public float flySpeed = 10f;
 
+    [SerializeField] private AudioClip explosionSound;
+
     private string parentUnitType;
     private Vector3 targetPosition;
     private GameObject targetGameObject;
@@ -101,5 +103,10 @@ public class MissileController : MonoBehaviour
     {
         targetPosition = position;
         isFlying = true;
+    }
+
+    public void PlayExplosionSound()
+    {
+        GetComponent<AudioSource>().PlayOneShot(explosionSound);
     }
 }

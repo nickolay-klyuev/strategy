@@ -32786,14 +32786,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien medium battle machine (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1663084539441725514, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3287791154663031125, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 2112812011}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
 --- !u!1001 &1654170879

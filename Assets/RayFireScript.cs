@@ -6,10 +6,10 @@ public class RayFireScript : MonoBehaviour
 {
     public float rayPower = 40f;
 
-    [SerializeField]
-    private Texture[] rayTextures;
-    [SerializeField]
-    private float animationFps = 30f;
+    [SerializeField] private Texture[] rayTextures;
+    [SerializeField] private float animationFps = 30f;
+    [SerializeField] private AudioClip rayFiresSound;
+    
     private int animationStep;
     private float fpsCounter;
 
@@ -20,6 +20,7 @@ public class RayFireScript : MonoBehaviour
     private bool isRayActive = false;
 
     private Transform rayPosGameObject;
+    private AudioSource audio;
 
     void Start()
     {
@@ -35,6 +36,7 @@ public class RayFireScript : MonoBehaviour
         lineRenderer.enabled = false;
 
         rayPosGameObject = transform.Find("Ray Position");
+        audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -79,6 +81,8 @@ public class RayFireScript : MonoBehaviour
 
     public void FireByRay()
     {
+        audio.PlayOneShot(rayFiresSound);
+
         thisCollider.enabled = true;
         thisCollider.size = new Vector2(thisCollider.size.x, unitProperties.attackRange);
         thisCollider.offset = new Vector2(thisCollider.offset.x, unitProperties.attackRange / 2);

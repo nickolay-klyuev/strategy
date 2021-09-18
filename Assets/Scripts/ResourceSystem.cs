@@ -29,4 +29,9 @@ public class ResourceSystem : MonoBehaviour
     {
         return resourceAmount;
     }
+
+    void OnDestroy()
+    {
+        resourceAmount = 1000;
+    }
 }
