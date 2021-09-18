@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7052071081715404199}
   - component: {fileID: 7052071081715404198}
   - component: {fileID: 7052071081715404196}
+  - component: {fileID: 5600234283134980759}
   m_Layer: 0
   m_Name: Tanks Factory New
   m_TagString: Untagged
@@ -203,6 +204,22 @@ MonoBehaviour:
   miniDescMenuPrefab: {fileID: 5359872250936902133, guid: 3775b6699eb3202c4a0dd8d098341713, type: 3}
   isBuildDesc: 0
   unitPrefab: {fileID: 0}
+--- !u!208 &5600234283134980759
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7052071081715404204}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 1, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &7052071083128688618
 PrefabInstance:
   m_ObjectHideFlags: 0

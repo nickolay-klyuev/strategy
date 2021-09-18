@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MoveController : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class MoveController : MonoBehaviour
     private UnitProperties unitProperties;
     private AttackController attackController;
     private MoveAttackLineDrawer moveLineDrawer;
+    private NavMeshAgent agent;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,12 @@ public class MoveController : MonoBehaviour
         }
 
         moveLineDrawer = GetComponent<MoveAttackLineDrawer>();
+
+        agent = GetComponent<NavMeshAgent>();
+        if (agent != null)
+        {
+            agent.speed = speed;
+        }
     }
 
     // Update is called once per frame
@@ -51,7 +59,14 @@ public class MoveController : MonoBehaviour
                 isMoving = false;
             }
 
-            transform.position = Vector3.MoveTowards(transform.position, pointToMove, speed * Time.deltaTime);
+            if (agent != null)
+            {
+                agent.SetDestination(pointToMove);
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, pointToMove, speed * Time.deltaTime);
+            }
         }
 
         // chase
@@ -62,7 +77,15 @@ public class MoveController : MonoBehaviour
             
             if (rangeToTarget > unitProperties.attackRange - unitProperties.attackRange * 0.1f)
             {
-                transform.position = Vector3.MoveTowards(transform.position, chasingTarget.transform.position, speed * Time.deltaTime);
+                if (agent != null)
+                {
+                    agent.SetDestination(chasingTarget.transform.position);
+                }
+                else
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, chasingTarget.transform.position, speed * Time.deltaTime);
+                }
+
                 if (rangeToTarget <= unitProperties.attackRange && !attackController.GetIsAttacking())
                 {
                     attackController.StartAttack(chasingTarget);
@@ -70,6 +93,13 @@ public class MoveController : MonoBehaviour
                 else if (rangeToTarget > unitProperties.attackRange && attackController.GetIsAttacking())
                 {
                     attackController.StopAttack();
+                }
+            }
+            else
+            {
+                if (agent != null)
+                {
+                    agent.ResetPath();
                 }
             }
         }
@@ -82,12 +112,26 @@ public class MoveController : MonoBehaviour
         // rotate
         if (GetChasingTarget() != null && GetIsChasing() && !attackController.GetIsAttacking())
         {
-            UnitRotateController.RotateToPoint(GetChasingTarget().transform.position, transform);
+            if (agent != null)
+            {
+                UnitRotateController.RotateToPoint(agent.path.corners[1], transform);
+            }
+            else
+            {
+                UnitRotateController.RotateToPoint(GetChasingTarget().transform.position, transform);
+            }
         }
 
         if (GetIsMoving())
         {
-            UnitRotateController.RotateToPoint(GetPointToMove(), transform);
+            if (agent != null)
+            {
+                UnitRotateController.RotateToPoint(agent.path.corners[1], transform);
+            }
+            else
+            {
+                UnitRotateController.RotateToPoint(GetPointToMove(), transform);
+            }
         }
     }
 

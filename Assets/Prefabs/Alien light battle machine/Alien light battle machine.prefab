@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 4230254651819392263}
   - component: {fileID: 68594116}
   - component: {fileID: 313493206}
+  - component: {fileID: 8360855557593444273}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -510,6 +511,18 @@ MonoBehaviour:
   miniDescMenuPrefab: {fileID: 5359872250936902133, guid: 3775b6699eb3202c4a0dd8d098341713, type: 3}
   isBuildDesc: 0
   unitPrefab: {fileID: 0}
+--- !u!114 &8360855557593444273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230254651819392261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6e8b90a909a6770a37295575054e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4230254651887142857
 GameObject:
   m_ObjectHideFlags: 0
