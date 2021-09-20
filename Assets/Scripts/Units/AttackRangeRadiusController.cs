@@ -15,10 +15,19 @@ public class AttackRangeRadiusController : MonoBehaviour
     void Start()
     {
         unitProperties = transform.parent.GetComponent<UnitProperties>();
+        if (unitProperties == null)
+        {
+            unitProperties = transform.parent.GetComponentInParent<UnitProperties>();
+        }
+
         attackController = transform.parent.GetComponent<AttackController>();
         circleCollider = GetComponent<CircleCollider2D>();
         lineRenderer = GetComponent<LineRenderer>();
         moveController = transform.parent.GetComponent<MoveController>();
+        if (moveController == null)
+        {
+            moveController = transform.parent.GetComponentInParent<MoveController>();
+        }
 
         //set attack range radius to collider 
         circleCollider.radius = unitProperties.attackRange;
@@ -58,10 +67,10 @@ public class AttackRangeRadiusController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!unitProperties.canFireWhileMoving && moveController.GetIsMoving())
+        /*if (!unitProperties.canFireWhileMoving && moveController.GetIsMoving())
         {
             StopAttack();
-        }
+        }*/
     }
 
     // used to change behave for enemies or friendly units

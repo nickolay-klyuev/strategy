@@ -6,14 +6,14 @@ public class AttackRadiusDrawer : MonoBehaviour
 {
     private LineRenderer lineRenderer;
     private UnitProperties unitProperties;
-    private FriendlyMoveController fMoveController;
+    private FriendlyUnitsSelectionController fMoveController;
 
     // Start is called before the first frame update
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
         unitProperties = transform.parent.GetComponentInChildren<UnitProperties>();
-        fMoveController = transform.parent.GetComponentInChildren<FriendlyMoveController>();
+        fMoveController = transform.parent.GetComponentInChildren<FriendlyUnitsSelectionController>();
 
         //draw attack range radius
         lineRenderer.positionCount = 51;
@@ -31,7 +31,7 @@ public class AttackRadiusDrawer : MonoBehaviour
     private void FixedUpdate()
     {
         // show radius if selected
-        if (fMoveController.GetIsSelected())
+        if (fMoveController != null && fMoveController.GetIsSelected())
         {
             lineRenderer.enabled = true;
         }

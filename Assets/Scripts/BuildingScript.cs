@@ -34,7 +34,7 @@ public class BuildingScript : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && activeBuildPlace.GetComponent<BuildPlaceScript>().GetCanBeBuild())
             {
-                if (GameObject.FindGameObjectWithTag("ResourceSystem").GetComponent<ResourceSystem>().SpendResource(objectToBuild.GetComponent<UnitProperties>().cost))
+                if (ResourceSystem.SpendResource(objectToBuild.GetComponent<UnitProperties>().cost))
                 {
                     // Build
                     isBuilding = false;

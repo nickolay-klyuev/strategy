@@ -7,9 +7,13 @@ public class MissileController : MonoBehaviour
     public float attackPower = 10f;
     public float flySpeed = 10f;
 
+    [SerializeField] private AudioClip explosionSound;
+
     private string parentUnitType;
     private Vector3 targetPosition;
+    private GameObject targetGameObject;
     private bool isFlying = false;
+    private bool triggeredExplosion = false;
 
     public void SetParentUnitType(string type)
     {
@@ -25,11 +29,24 @@ public class MissileController : MonoBehaviour
     {
         if (isFlying)
         {
+            if (targetGameObject != null) // if auto aim
+            {
+                targetPosition = targetGameObject.transform.position;
+            }
+
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, flySpeed * Time.deltaTime);
             if (transform.position == targetPosition)
             {
-                isFlying = false;
-                gameObject.SetActive(false);
+                if (!triggeredExplosion)
+                {
+                    DoExplosion();
+                }
+
+                if (triggeredExplosion)
+                {
+                    isFlying = false;
+                    //gameObject.SetActive(false);
+                }
             }
         }
     }
@@ -41,10 +58,44 @@ public class MissileController : MonoBehaviour
             if ((collider.GetComponent<UnitProperties>().unitType == "enemy" && parentUnitType == "friendly") || 
                 (collider.GetComponent<UnitProperties>().unitType == "friendly" && parentUnitType == "enemy"))
             {
-                collider.GetComponent<UnitProperties>().health -= attackPower;
-                isFlying = false;
-                gameObject.SetActive(false);
+                if (!triggeredExplosion)
+                {
+                    DoExplosion();
+                }
+
+                if (triggeredExplosion)
+                {
+                    collider.GetComponent<UnitProperties>().health -= attackPower;
+                    isFlying = false;
+                    //gameObject.SetActive(false);
+                }
             }
+        }
+    }
+
+    public void ExplosionIsOver()
+    {
+        triggeredExplosion = false;
+        gameObject.SetActive(false);
+    }
+
+    public void DoExplosion()
+    {
+        triggeredExplosion = true;
+        GetComponent<Animator>().SetTrigger("TriggerExplosion");
+    }
+
+    public void LunchMissile(GameObject target)
+    {
+        if (target != null)
+        {
+            targetGameObject = target;
+            targetPosition = target.transform.position;
+            isFlying = true;
+        }
+        else
+        {
+            gameObject.SetActive(false);
         }
     }
 
@@ -52,5 +103,10 @@ public class MissileController : MonoBehaviour
     {
         targetPosition = position;
         isFlying = true;
+    }
+
+    public void PlayExplosionSound()
+    {
+        GetComponent<AudioSource>().PlayOneShot(explosionSound);
     }
 }

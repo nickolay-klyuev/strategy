@@ -6,7 +6,7 @@ public class BackroundController : MonoBehaviour
 {
     public AudioClip rightBtnClickSound;
 
-    private FriendlyMoveController[] friendlyMoveControllers;
+    private FriendlyUnitsSelectionController[] friendlyMoveControllers;
     private SelectBoxController selectBoxController;
 
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class BackroundController : MonoBehaviour
 
     void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             if (Input.mousePosition.x > MiniMapController.miniMapWidth || 
                 Input.mousePosition.y < Screen.height - MiniMapController.miniMapHeight) // ignore selection if mouse is on minimap
@@ -35,7 +35,7 @@ public class BackroundController : MonoBehaviour
                 selectBoxController.StartSelecting();
             }
         }
-        else if (Input.GetMouseButtonDown(1))
+        else */if (Input.GetMouseButtonDown(1))
         {
             GetComponent<AudioSource>().PlayOneShot(rightBtnClickSound, 1f);
             foreach (GameObject unit in SelectedUnits.selectedUnits)

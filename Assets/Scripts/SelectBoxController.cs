@@ -22,6 +22,12 @@ public class SelectBoxController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0) && !MiniMapController.GetIsMiniMapPointerDown())
+        {
+            SelectedUnits.UnselectAll();
+            StartSelecting();
+        }
+
         if (isSelecting)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -42,7 +48,7 @@ public class SelectBoxController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        FriendlyMoveController friendlyMoveController = collider.transform.GetComponent<FriendlyMoveController>();
+        FriendlyUnitsSelectionController friendlyMoveController = collider.transform.GetComponent<FriendlyUnitsSelectionController>();
         if (friendlyMoveController != null)
         {
             // check if already contains to avoid a bug when you can move unselected units
@@ -56,7 +62,7 @@ public class SelectBoxController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        FriendlyMoveController friendlyMoveController = collider.transform.GetComponent<FriendlyMoveController>();
+        FriendlyUnitsSelectionController friendlyMoveController = collider.transform.GetComponent<FriendlyUnitsSelectionController>();
         if (friendlyMoveController != null && friendlyMoveController.GetIsSelected())
         {
             SelectedUnits.selectedUnits.Remove(collider.gameObject);
@@ -71,7 +77,9 @@ public class SelectBoxController : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         initialMousePosition = new Vector3(mousePosition.x, mousePosition.y, -1);
-
+        
+        lineRenderer.startWidth = 0.01f * Camera.main.orthographicSize;
+        lineRenderer.endWidth = 0.01f * Camera.main.orthographicSize;
         lineRenderer.SetPosition(0, initialMousePosition);
     }
 

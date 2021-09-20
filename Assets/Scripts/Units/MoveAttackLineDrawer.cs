@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MoveAttackLineDrawer : MonoBehaviour
 {
-    private FriendlyMoveController friendlyMoveController;
+    private FriendlyUnitsSelectionController friendlyMoveController;
     private LineRenderer attackMoveLine;
     private bool letDraw = false;
     private GameObject drawObject;
     private Vector3 drawPosition;
+    private NavMeshAgent agent;
 
     // Start is called before the first frame update
     void Start()
     {
-        friendlyMoveController = GetComponent<FriendlyMoveController>();
+        friendlyMoveController = GetComponent<FriendlyUnitsSelectionController>();
+        agent = GetComponent<NavMeshAgent>();
 
         attackMoveLine = GetComponent<LineRenderer>();
         attackMoveLine.positionCount = 2;
@@ -28,16 +31,36 @@ public class MoveAttackLineDrawer : MonoBehaviour
         if (letDraw && friendlyMoveController.GetIsSelected())
         {
             attackMoveLine.enabled = true;
-            attackMoveLine.SetPosition(0, transform.position);
-            if (drawObject != null)
-            {
-                drawObject.transform.GetComponentInChildren<IsSelectedObjectController>().EnableSelectBox(); // select box on enemies on
 
-                attackMoveLine.SetPosition(1, drawObject.transform.position);
+            if (agent != null)
+            {
+                attackMoveLine.positionCount = agent.path.corners.Length;
+                attackMoveLine.SetPositions(agent.path.corners);
+                if (drawObject != null)
+                {
+                    if (agent.path.corners.Length <= 1)
+                    {
+                        attackMoveLine.positionCount = 2;
+                        attackMoveLine.SetPosition(0, transform.position);
+                        attackMoveLine.SetPosition(1, drawObject.transform.position);
+                    }
+                    drawObject.transform.GetComponentInChildren<IsSelectedObjectController>().EnableSelectBox(); // select box on enemies on
+                }
             }
             else
             {
-                attackMoveLine.SetPosition(1, drawPosition);
+                attackMoveLine.positionCount = 2;
+                attackMoveLine.SetPosition(0, transform.position);
+                if (drawObject != null)
+                {
+                    drawObject.transform.GetComponentInChildren<IsSelectedObjectController>().EnableSelectBox(); // select box on enemies on
+
+                    attackMoveLine.SetPosition(1, drawObject.transform.position);
+                }
+                else
+                {
+                    attackMoveLine.SetPosition(1, drawPosition);
+                }
             }
         }
 

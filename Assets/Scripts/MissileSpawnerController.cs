@@ -8,6 +8,7 @@ public class MissileSpawnerController : MonoBehaviour
     public AudioClip launchSound;
     public float soundVolume = 0.3f;
 
+    private GameObject targetGameObject;
     private Vector3 targetPosition;
     private bool doSpawn = false;
     private List<GameObject> createdMissiles = new List<GameObject>();
@@ -15,6 +16,7 @@ public class MissileSpawnerController : MonoBehaviour
     private float parentAccuracy;
     private float parentAccuracyWhileMoving;
     private float parentAttackRange;
+    private bool parentAutoAim;
     private MoveController moveController;
     
     // Start is called before the first frame update
@@ -25,6 +27,7 @@ public class MissileSpawnerController : MonoBehaviour
         parentAccuracy = GetComponentInParent<UnitProperties>().accuracy;
         parentAccuracyWhileMoving = GetComponentInParent<UnitProperties>().accuracyWhileMoving;
         parentAttackRange = GetComponentInParent<UnitProperties>().attackRange;
+        parentAutoAim = GetComponentInParent<UnitProperties>().autoAim;
 
         // create 2 missiles, just in case
         for (int i = 0; i < 2; i++)
@@ -53,34 +56,31 @@ public class MissileSpawnerController : MonoBehaviour
                 MissileController missileController = createdMissiles[i].GetComponent<MissileController>();
                 if (!missileController.GetIsFlying())
                 {
-                    // change target possition by accuracy 
-                    if (moveController.GetIsMoving())
+                    if (parentAutoAim) // for units with auto aim
                     {
-                        targetPosition += new Vector3(Random.Range(-parentAccuracyWhileMoving, parentAccuracyWhileMoving), 
-                                                        Random.Range(-parentAccuracyWhileMoving, parentAccuracyWhileMoving), 0);
+                        missileController.LunchMissile(targetGameObject);
                     }
                     else
                     {
-                        targetPosition += new Vector3(Random.Range(-parentAccuracy, parentAccuracy), Random.Range(-parentAccuracy, parentAccuracy), 0);
+                        // change target possition by accuracy 
+                        if (moveController.GetIsMoving())
+                        {
+                            targetPosition += new Vector3(Random.Range(-parentAccuracyWhileMoving, parentAccuracyWhileMoving), 
+                                                            Random.Range(-parentAccuracyWhileMoving, parentAccuracyWhileMoving), 0);
+                        }
+                        else
+                        {
+                            targetPosition += new Vector3(Random.Range(-parentAccuracy, parentAccuracy), Random.Range(-parentAccuracy, parentAccuracy), 0);
+                        }
+
+                        if (GetComponent<AudioSource>() != null)
+                        {
+                            GetComponent<AudioSource>().PlayOneShot(launchSound, soundVolume);
+                        }
+
+                        // missiles are flying always to attack radius
+                        missileController.LunchMissile(StaticMethods.GetMaxAttackRangePosition(transform.parent.position, targetPosition, parentAttackRange));
                     }
-
-                    if (GetComponent<AudioSource>() != null)
-                    {
-                        GetComponent<AudioSource>().PlayOneShot(launchSound, soundVolume);
-                    }
-
-                    // missiles are flying always to attack radius
-                    Vector2 targetDistanceVector = (transform.parent.position - targetPosition);
-                    float targetDistance = Mathf.Sqrt(Mathf.Pow(targetDistanceVector.x, 2) + Mathf.Pow(targetDistanceVector.y, 2));
-                    float d = parentAttackRange - targetDistance;
-                    float x1 = transform.parent.position.x;
-                    float y1 = transform.parent.position.y;
-                    float x2 = targetPosition.x;
-                    float y2 = targetPosition.y;
-                    float x3 = x2 + d/Mathf.Sqrt(Mathf.Pow(x2 - x1, 2) + Mathf.Pow(y2 - y1, 2)) * (x2 - x1);
-                    float y3 = y2 + d/Mathf.Sqrt(Mathf.Pow(x2 - x1, 2) + Mathf.Pow(y2 - y1, 2)) * (y2 - y1);
-
-                    missileController.LunchMissile(new Vector2(x3, y3));
                 }
                 doSpawn = false;
                 break;
@@ -92,6 +92,7 @@ public class MissileSpawnerController : MonoBehaviour
     {
         if (target != null)
         {
+            targetGameObject = target;
             targetPosition = target.transform.position;
             doSpawn = true;
         }

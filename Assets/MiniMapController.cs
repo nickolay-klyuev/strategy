@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
@@ -17,10 +18,16 @@ public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpH
     private RectTransform rectTransform;
     private List<RectTransform> indicatorsRT = new List<RectTransform>();
     private RectTransform cameraIndicatorRT;
-    private bool isMiniMapPointerDown = false;
+    static private bool isMiniMapPointerDown = false;
+    static public bool GetIsMiniMapPointerDown()
+    {
+        return isMiniMapPointerDown;
+    }
+
     private PointerEventData onpointerDownEventDataGlobal;
 
-    private float scale = 10;
+    private float scale = 5;
+    private float mapMargin = 10f;
 
     public void OnPointerDown(PointerEventData pointerEventData) // move camera by clicking mini map
     {
@@ -46,7 +53,7 @@ public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpH
         miniMapWidth = rectTransform.sizeDelta.x;
         miniMapHeight = rectTransform.sizeDelta.y;
 
-        rectTransform.anchoredPosition = new Vector2(rectTransform.sizeDelta.x / 2, rectTransform.sizeDelta.y / -2);
+        rectTransform.anchoredPosition = new Vector2(rectTransform.sizeDelta.x / 2 + mapMargin, - Screen.height + mapMargin + rectTransform.sizeDelta.y / 2);
 
         cameraIndicatorRT.anchorMin = new Vector2(0, 0);
         cameraIndicatorRT.anchorMax = new Vector2(0, 0);
@@ -68,6 +75,10 @@ public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpH
 
         unitsWithIndicator.Add(unit);
         GameObject createdIndicator = Instantiate(unitProperties.miniMapIndicator);
+        if (unitProperties.unitType == "enemy")
+        {
+            createdIndicator.GetComponent<Image>().color = Color.red;
+        }
         createdIndicator.transform.SetParent(gameObject.transform);
         indicatorsRT.Add(createdIndicator.GetComponent<RectTransform>());
         indicatorsRT[indicatorsRT.Count - 1].anchorMin = new Vector2(0, 0);

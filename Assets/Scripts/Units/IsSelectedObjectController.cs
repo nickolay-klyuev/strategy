@@ -7,19 +7,27 @@ public class IsSelectedObjectController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Vector3 initialScale;
     private bool isExternal = false;
+    private HealthDisplayScript healthDisplayScript;
 
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        healthDisplayScript = transform.parent.GetComponentInChildren<HealthDisplayScript>();
         initialScale = transform.localScale;
+
+        if (GetComponentInParent<UnitProperties>().unitType == "enemy")
+        {
+            spriteRenderer.color = Color.red;
+        }
+
         DisableSelectBox();
     }
 
     // Update is called once per frame
     void Update()
     {
-        FriendlyMoveController friendlyMoveController = GetComponentInParent<FriendlyMoveController>();
+        FriendlyUnitsSelectionController friendlyMoveController = GetComponentInParent<FriendlyUnitsSelectionController>();
         if (friendlyMoveController != null)
         {
             // maybe remove from this controller later
@@ -57,6 +65,7 @@ public class IsSelectedObjectController : MonoBehaviour
         isExternal = external;
         spriteRenderer.transform.localScale = initialScale + extraScale;
         spriteRenderer.enabled = true;
+        healthDisplayScript.gameObject.SetActive(true);
     }
 
     public void DisableSelectBox(Vector3 extraScaleRemove = new Vector3(), bool external = false)
@@ -67,5 +76,6 @@ public class IsSelectedObjectController : MonoBehaviour
         }
         spriteRenderer.transform.localScale = initialScale - extraScaleRemove;
         spriteRenderer.enabled = false;
+        healthDisplayScript.gameObject.SetActive(false);
     }
 }
