@@ -20,7 +20,7 @@ public class RayFireScript : MonoBehaviour
     private bool isRayActive = false;
 
     private Transform rayPosGameObject;
-    private AudioSource audio;
+    private AudioSource audioSource;
 
     void Start()
     {
@@ -36,7 +36,7 @@ public class RayFireScript : MonoBehaviour
         lineRenderer.enabled = false;
 
         rayPosGameObject = transform.Find("Ray Position");
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -81,7 +81,7 @@ public class RayFireScript : MonoBehaviour
 
     public void FireByRay()
     {
-        audio.PlayOneShot(rayFiresSound);
+        audioSource.PlayOneShot(rayFiresSound);
 
         thisCollider.enabled = true;
         thisCollider.size = new Vector2(thisCollider.size.x, unitProperties.attackRange);

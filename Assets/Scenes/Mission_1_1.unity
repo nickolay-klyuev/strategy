@@ -1753,7 +1753,8 @@ PrefabInstance:
       propertyPath: unitType
       value: enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1381355254052875810, guid: 652dcfd6fb7551cb8a57c43dc0d49aee, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 652dcfd6fb7551cb8a57c43dc0d49aee, type: 3}
 --- !u!1 &985565921 stripped
 GameObject:
@@ -2605,7 +2606,8 @@ PrefabInstance:
       propertyPath: unitType
       value: enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1381355254052875810, guid: 652dcfd6fb7551cb8a57c43dc0d49aee, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 652dcfd6fb7551cb8a57c43dc0d49aee, type: 3}
 --- !u!1 &1314567966 stripped
 GameObject:
@@ -32786,6 +32788,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien medium battle machine (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1663084539441725514, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15d83df176476b7b7848c4324e2aeac3, type: 3}
 --- !u!1001 &1654170879
@@ -33314,7 +33320,8 @@ PrefabInstance:
       propertyPath: unitType
       value: enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1381355254052875810, guid: 652dcfd6fb7551cb8a57c43dc0d49aee, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 652dcfd6fb7551cb8a57c43dc0d49aee, type: 3}
 --- !u!1 &1888883630 stripped
 GameObject:
@@ -40436,7 +40443,8 @@ PrefabInstance:
       propertyPath: unitType
       value: enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1381355254052875810, guid: 652dcfd6fb7551cb8a57c43dc0d49aee, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 652dcfd6fb7551cb8a57c43dc0d49aee, type: 3}
 --- !u!1 &8332367536735031900 stripped
 GameObject:

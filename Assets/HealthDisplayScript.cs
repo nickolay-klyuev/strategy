@@ -41,5 +41,9 @@ public class HealthDisplayScript : MonoBehaviour
         {
             spriteRenderer.color = Color.yellow;
         }
+        else
+        {
+            spriteRenderer.color = Color.black;
+        }
     }
 }
