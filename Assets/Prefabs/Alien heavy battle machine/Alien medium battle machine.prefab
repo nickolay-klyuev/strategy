@@ -442,13 +442,13 @@ GameObject:
   - component: {fileID: 1663084539507931902}
   - component: {fileID: 1663084539507931777}
   - component: {fileID: 1663084539507931776}
-  - component: {fileID: 1663084539507931779}
   - component: {fileID: 1663084539507931778}
   - component: {fileID: 1663084539507931781}
   - component: {fileID: 1663084539507931780}
   - component: {fileID: 3287791154370031175}
   - component: {fileID: 3287791154663031125}
   - component: {fileID: 8508365965642052000}
+  - component: {fileID: 1327949022866190625}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -567,7 +567,7 @@ MonoBehaviour:
   cost: 80
   buildTime: 20
   limit: 1
-  unitType: friendly
+  unitType: enemy
   isBuilding: 0
   hasDeathAnimation: 0
   miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
@@ -694,18 +694,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
---- !u!114 &1663084539507931779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663084539507931782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 025fb5a5805156a04878cc898eb880fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1663084539507931778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,6 +773,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed6e8b90a909a6770a37295575054e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1327949022866190625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663084539507931782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b95d1306a0fc2e3b002f28885b755a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1663084539557101389

@@ -26,7 +26,7 @@ public class MiniMapController : MonoBehaviour, IPointerDownHandler, IPointerUpH
 
     private PointerEventData onpointerDownEventDataGlobal;
 
-    private float scale = 5;
+    private float scale = 2;
     private float mapMargin = 10f;
 
     public void OnPointerDown(PointerEventData pointerEventData) // move camera by clicking mini map

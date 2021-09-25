@@ -32,6 +32,7 @@ GameObject:
   - component: {fileID: 8992152573598496803}
   - component: {fileID: 466407976879360449}
   - component: {fileID: 2655522071685228189}
+  - component: {fileID: 1558738624957484982}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -150,7 +151,7 @@ MonoBehaviour:
   cost: 50
   buildTime: 3
   limit: 1
-  unitType: enemy
+  unitType: friendly
   isBuilding: 0
   hasDeathAnimation: 0
   miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
@@ -341,6 +342,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed6e8b90a909a6770a37295575054e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1558738624957484982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8992152573598498783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025fb5a5805156a04878cc898eb880fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8992152573657028916

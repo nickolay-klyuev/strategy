@@ -64,7 +64,7 @@ public class ProductionScript : MonoBehaviour
     IEnumerator BuildUnit(GameObject buildObject)
     {   
         Vector2 position = transform.position;
-        Vector2 colliderSize = GetComponent<CircleCollider2D>().bounds.size / 2;
+        Vector2 colliderSize = GetComponent<BoxCollider2D>().bounds.size / 2;
         
         Vector2 placeToBuild;
         if (Random.Range(0f, 1f) > 0.5f)

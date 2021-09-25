@@ -88,6 +88,14 @@ public class MissileSpawnerController : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+        foreach (GameObject missile in createdMissiles)
+        {
+            Destroy(missile);
+        }
+    }
+
     public void SpawnMissile(GameObject target)
     {
         if (target != null)
