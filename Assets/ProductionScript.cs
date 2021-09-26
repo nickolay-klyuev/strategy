@@ -49,7 +49,15 @@ public class ProductionScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isWorking && prodactionObjectsQueue.Count > 0)
+        for (int i = 0; i < unitsOnStage.Count; i++)
+        {
+            if (unitsOnStage[i] == null)
+            {
+                unitsOnStage.RemoveAt(i);
+            }
+        }
+
+        if (!isWorking && prodactionObjectsQueue.Count > 0 && unitsOnStage.Count < GetComponent<SpawnLimits>().unitsLimit)
         {
             isWorking = true;
             startBuildTime = Time.realtimeSinceStartup;

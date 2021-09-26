@@ -56,15 +56,6 @@ public class SpawningScript : MonoBehaviour
             prodPercentageText.text = $"{prodPerc}%";
         }
 
-        for (int i = 0; i < productionScript.unitsOnStage.Count; i++)
-        {
-
-            if (productionScript.unitsOnStage[i] == null)
-            {
-                productionScript.unitsOnStage.RemoveAt(i);
-            }
-        }
-
         // write limits near spawn button
         if (unitsLimit > 0)
         {
@@ -77,8 +68,8 @@ public class SpawningScript : MonoBehaviour
         // TODO: maybe improve and change this one
         unitsLimit = metaData.GetCallObject().GetComponent<SpawnLimits>().unitsLimit;
 
-        if (productionScript.unitsOnStage.Count < unitsLimit)
-        {
+        //if (productionScript.unitsOnStage.Count < unitsLimit)
+        //{
             if (ResourceSystem.SpendResource(cost))
             {
                 //StartCoroutine(BuildUnit());
@@ -88,11 +79,11 @@ public class SpawningScript : MonoBehaviour
             {
                 Debug.Log("Not enough resources");
             }
-        }
+        /*}
         else
         {
             Debug.Log("Units limit for this building");
-        }
+        }*/
     }
 
     /*IEnumerator BuildUnit()
