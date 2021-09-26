@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2735883093965421718}
   - component: {fileID: -1264764391680753223}
   - component: {fileID: 7626136411944431345}
+  - component: {fileID: -832717824997672432}
   m_Layer: 0
   m_Name: Generator
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_LocalPosition: {x: -1.7797121, y: -1.561943, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8366163365490864547}
+  - {fileID: 7761175984342468405}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -130,18 +131,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f71b7a553ab151dead8870dcb985e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: unknown
   health: 500
   attackRange: 0
   attackSpeed: 0
   accuracy: 0
   accuracyWhileMoving: 0
   canFireWhileMoving: 0
+  autoAim: 0
   cost: 100
+  buildTime: 3
   limit: 1
   unitType: friendly
   isBuilding: 1
   hasDeathAnimation: 0
   miniMapIndicator: {fileID: 5562261032259588495, guid: ad465ea980677436285b853f4625fba4, type: 3}
+  unitDescription: no description
 --- !u!114 &3183651122326625575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,6 +334,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!208 &-832717824997672432
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183651122326625570}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.32000002, y: 0.32000002, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &6384110058182512186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -398,8 +419,8 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: a607482240f884e37804a83bdbd27776, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
---- !u!4 &8366163365490864547 stripped
+--- !u!4 &7761175984342468405 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3207265553958813593, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3687839145544190223, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
   m_PrefabInstance: {fileID: 6384110058182512186}
   m_PrefabAsset: {fileID: 0}

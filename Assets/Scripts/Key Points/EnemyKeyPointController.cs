@@ -7,7 +7,7 @@ public class EnemyKeyPointController : MonoBehaviour
     [SerializeField] private GameObject[] spawnObjects;
 
     private int enemyResourses = 0;
-    private int enemyResoursesIncome = 250;
+    private int enemyResoursesIncome = 100;
     private int wavesCount = 0;
 
     private bool isInvadingStarted = false;
@@ -42,7 +42,7 @@ public class EnemyKeyPointController : MonoBehaviour
         wavesCount++;
         isInvadingStarted = true;
         enemyResourses += enemyResoursesIncome;
-        enemyResoursesIncome += 100;
+        enemyResoursesIncome += 50;
     }
 
     private void Spawn()

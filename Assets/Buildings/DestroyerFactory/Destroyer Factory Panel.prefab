@@ -13,6 +13,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitToSpawn: {fileID: 4210396979408387165, guid: c4049b8c29c7848bebdd9d2a069e36ba, type: 3}
+--- !u!114 &1486638745947824742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422371138786162342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de7d2e584066e0d5591c5a5f210b9d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniDescMenuPrefab: {fileID: 5359872250936902133, guid: a658b822f4db2accd8fad45f1c6aafa8, type: 3}
+  isBuildDesc: 1
+  unitPrefab: {fileID: 4210396979408387165, guid: c4049b8c29c7848bebdd9d2a069e36ba, type: 3}
 --- !u!1 &422371138867565383
 GameObject:
   m_ObjectHideFlags: 0
@@ -51,9 +66,9 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -184.1311, y: -182.38379}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -197, y: 195}
   m_SizeDelta: {x: 368.26233, y: 364.7682}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &422371138867565434

@@ -1164,6 +1164,7 @@ GameObject:
   - component: {fileID: -5023510317592293643}
   - component: {fileID: 1888656912100775461}
   - component: {fileID: 1196279824809928584}
+  - component: {fileID: 7350976248373335071}
   m_Layer: 0
   m_Name: Core
   m_TagString: Artillery Destroyer
@@ -1191,7 +1192,7 @@ Transform:
   - {fileID: 2017259367581665889}
   - {fileID: 1363372897245881674}
   - {fileID: 2223695942146645372}
-  - {fileID: 7266384769884854338}
+  - {fileID: 8897084667328802516}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1318,6 +1319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f71b7a553ab151dead8870dcb985e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: unknown
   health: 100
   attackRange: 10
   attackSpeed: 0.5
@@ -1326,11 +1328,13 @@ MonoBehaviour:
   canFireWhileMoving: 1
   autoAim: 1
   cost: 50
+  buildTime: 3
   limit: 1
   unitType: friendly
   isBuilding: 0
   hasDeathAnimation: 1
   miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
+  unitDescription: no description
 --- !u!114 &2372913605311998394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1487,6 +1491,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1834088a6ae8205bdae7d6ec682134be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7350976248373335071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9011085627555594377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6e8b90a909a6770a37295575054e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1927188213030803274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1604,10 +1620,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Is Selected
       objectReference: {fileID: 0}
+    - target: {fileID: 3687839145544190223, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
---- !u!4 &7266384769884854338 stripped
+--- !u!4 &8897084667328802516 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3207265553958813593, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3687839145544190223, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
   m_PrefabInstance: {fileID: 5212104529117718491}
   m_PrefabAsset: {fileID: 0}

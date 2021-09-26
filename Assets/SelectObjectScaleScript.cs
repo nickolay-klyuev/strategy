@@ -14,6 +14,6 @@ public class SelectObjectScaleScript : MonoBehaviour
         float spriteWidth = sprite.bounds.size.x;
         float spriteHeight = sprite.bounds.size.y;
 
-        transform.localScale = new Vector2(pSpriteWidth / spriteWidth, pSpriteHeight / spriteHeight);
+        transform.localScale = new Vector2(pSpriteWidth / spriteWidth, pSpriteHeight / spriteHeight) * 1.1f;
     }
 }

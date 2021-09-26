@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: -361837133526012623}
   - component: {fileID: 7942935125004033941}
   - component: {fileID: -5188506039347114796}
+  - component: {fileID: -8660171877349376418}
   m_Layer: 0
   m_Name: Core
   m_TagString: Attack Plane
@@ -39,8 +40,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5148737802183331538}
+  - {fileID: 4538075409316282574}
   - {fileID: 7654731550397221180}
-  - {fileID: 2402057579141609048}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -167,18 +168,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f71b7a553ab151dead8870dcb985e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: unknown
   health: 25
   attackRange: 2
   attackSpeed: 0.3
   accuracy: 0.1
   accuracyWhileMoving: 0.5
   canFireWhileMoving: 0
+  autoAim: 0
   cost: 10
+  buildTime: 3
   limit: 10
   unitType: friendly
   isBuilding: 0
   hasDeathAnimation: 0
   miniMapIndicator: {fileID: 5562261032259588495, guid: 5bbf6837e4204f456becd7381a94d46d, type: 3}
+  unitDescription: no description
 --- !u!114 &9032009577746403935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +340,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1834088a6ae8205bdae7d6ec682134be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8660171877349376418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358657104719674220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6e8b90a909a6770a37295575054e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2966379503399304021
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +382,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 2358657104719674218}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2749180194609962438
 MonoBehaviour:
@@ -533,11 +550,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Is Selected
       objectReference: {fileID: 0}
+    - target: {fileID: 3687839145544190223, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
---- !u!4 &2402057579141609048 stripped
+--- !u!4 &4538075409316282574 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3207265553958813593, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3687839145544190223, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
   m_PrefabInstance: {fileID: 997456760003004865}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2493524345251311901

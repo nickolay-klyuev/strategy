@@ -72,10 +72,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4210396979408387164}
     m_Modifications:
+    - target: {fileID: -8864887272613165159, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
+      propertyPath: autoAim
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8864887272613165159, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
+      propertyPath: canFireWhileMoving
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2251151872237492670, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
+      propertyPath: missile
+      value: 
+      objectReference: {fileID: 7756156510420186852, guid: ce24cf4290a2ec9eeb9d1fe818829e96, type: 3}
     - target: {fileID: 2345702152605157038, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2542078301266559188, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
+      propertyPath: missile
+      value: 
+      objectReference: {fileID: 7756156510420186852, guid: ce24cf4290a2ec9eeb9d1fe818829e96, type: 3}
+    - target: {fileID: 4497824477781225778, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
+      propertyPath: missile
+      value: 
+      objectReference: {fileID: 7756156510420186852, guid: ce24cf4290a2ec9eeb9d1fe818829e96, type: 3}
+    - target: {fileID: 5966371435095395301, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
+      propertyPath: missile
+      value: 
+      objectReference: {fileID: 7756156510420186852, guid: ce24cf4290a2ec9eeb9d1fe818829e96, type: 3}
+    - target: {fileID: 6746810551908913190, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
+      propertyPath: missile
+      value: 
+      objectReference: {fileID: 7756156510420186852, guid: ce24cf4290a2ec9eeb9d1fe818829e96, type: 3}
+    - target: {fileID: 6810825229835467414, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
+      propertyPath: missile
+      value: 
+      objectReference: {fileID: 7756156510420186852, guid: ce24cf4290a2ec9eeb9d1fe818829e96, type: 3}
     - target: {fileID: 9011085627555594377, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
       propertyPath: m_Name
       value: Core
@@ -124,6 +156,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9014979962014650304, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
+      propertyPath: missile
+      value: 
+      objectReference: {fileID: 7756156510420186852, guid: ce24cf4290a2ec9eeb9d1fe818829e96, type: 3}
+    - target: {fileID: 9200783048874483980, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
+      propertyPath: missile
+      value: 
+      objectReference: {fileID: 7756156510420186852, guid: ce24cf4290a2ec9eeb9d1fe818829e96, type: 3}
     m_RemovedComponents:
     - {fileID: 116014309977780182, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3b46c089e48c4303b8e719450ff4aeba, type: 3}

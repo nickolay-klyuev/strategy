@@ -8,9 +8,8 @@ public class SpawningScript : MonoBehaviour
     public GameObject unitToSpawn;
     private int cost;
     private float buildTime;
-    /*private List<GameObject> unitsOnStage = new List<GameObject>();
-    private int unitsLimit;*/
-    //private string buttonText;
+    private int unitsLimit;
+    private string buttonText;
 
     private PanelMetaData metaData;
     private ProductionScript productionScript;
@@ -26,8 +25,8 @@ public class SpawningScript : MonoBehaviour
         //miniMapController = GameObject.Find("Mini Map").GetComponent<MiniMapController>();
         cost = unitToSpawn.GetComponentInChildren<UnitProperties>().cost;
         buildTime = unitToSpawn.GetComponentInChildren<UnitProperties>().buildTime;
-        //GetComponentInChildren<Text>().text += $"({cost})";
-        //buttonText = GetComponentInChildren<Text>().text;
+        GetComponentInChildren<Text>().text += $"({cost})";
+        buttonText = GetComponentInChildren<Text>().text;
         queueLengthText = transform.Find("Queue number").GetComponent<Text>();
         prodPercentageText = transform.Find("Production percentage").GetComponent<Text>();
         queueLengthText.text = "";
@@ -57,42 +56,43 @@ public class SpawningScript : MonoBehaviour
             prodPercentageText.text = $"{prodPerc}%";
         }
 
-        /*for (int i = 0; i < unitsOnStage.Count; i++)
+        for (int i = 0; i < productionScript.unitsOnStage.Count; i++)
         {
-            if (unitsOnStage[i] == null)
+
+            if (productionScript.unitsOnStage[i] == null)
             {
-                unitsOnStage.RemoveAt(i);
+                productionScript.unitsOnStage.RemoveAt(i);
             }
-        }*/
+        }
 
         // write limits near spawn button
-        /*if (unitsLimit > 0)
+        if (unitsLimit > 0)
         {
-            GetComponentInChildren<Text>().text = buttonText + $"({unitsOnStage.Count}/{unitsLimit})";
-        }*/
+            GetComponentInChildren<Text>().text = buttonText + $"({productionScript.unitsOnStage.Count}/{unitsLimit})";
+        }
     }
 
     public void SpawnUnit()
     {
         // TODO: maybe improve and change this one
-        //unitsLimit = metaData.GetCallObject().GetComponent<SpawnLimits>().unitsLimit;
+        unitsLimit = metaData.GetCallObject().GetComponent<SpawnLimits>().unitsLimit;
 
-        //if (unitsOnStage.Count < unitsLimit)
-        //{
+        if (productionScript.unitsOnStage.Count < unitsLimit)
+        {
             if (ResourceSystem.SpendResource(cost))
             {
                 //StartCoroutine(BuildUnit());
-                metaData.GetCallObject().GetComponent<ProductionScript>().AddObjectInProdQueue(unitToSpawn);
+                productionScript.AddObjectInProdQueue(unitToSpawn);
             }
             else
             {
                 Debug.Log("Not enough resources");
             }
-        //}
-        //else
-        //{
-        //    Debug.Log("Units limit for this building");
-        //}
+        }
+        else
+        {
+            Debug.Log("Units limit for this building");
+        }
     }
 
     /*IEnumerator BuildUnit()

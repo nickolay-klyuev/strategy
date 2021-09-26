@@ -42,6 +42,11 @@ public class AttackRangeRadiusController : MonoBehaviour
             moveController.StartChasing(collider.gameObject);
         }
 
+        if (moveController.GetIsMoving() && !unitProperties.canFireWhileMoving)
+        {
+            attackController.StopAttack();
+        }
+
         if (ColliderResult(collider) && !attackController.GetIsAttacking() && 
             (unitProperties.canFireWhileMoving || !moveController.GetIsMoving()))
         {

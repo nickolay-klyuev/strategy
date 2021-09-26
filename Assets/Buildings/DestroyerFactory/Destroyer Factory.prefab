@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 508695048343973200}
   - component: {fileID: 4008211134227501879}
   - component: {fileID: -3043793462755773221}
+  - component: {fileID: -8920624585284379214}
+  - component: {fileID: -6020675686610937581}
   m_Layer: 0
   m_Name: Destroyer Factory
   m_TagString: Untagged
@@ -37,7 +39,7 @@ Transform:
   m_LocalPosition: {x: -1.7797121, y: -1.561943, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6607638721664593784}
+  - {fileID: 4907979414631979502}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -130,18 +132,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f71b7a553ab151dead8870dcb985e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: unknown
   health: 1000
   attackRange: 0
   attackSpeed: 0
   accuracy: 0
   accuracyWhileMoving: 0
   canFireWhileMoving: 0
+  autoAim: 0
   cost: 500
+  buildTime: 3
   limit: 1
   unitType: friendly
   isBuilding: 1
   hasDeathAnimation: 0
   miniMapIndicator: {fileID: 5562261032259588495, guid: 048962dbc2f4ebec78f0ea89fe2d20ab, type: 3}
+  unitDescription: no description
 --- !u!50 &5763126193625380554
 Rigidbody2D:
   serializedVersion: 4
@@ -328,6 +334,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-8920624585284379214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7951982193473794917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d01b4e1be0878187ca9881129638ec2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!208 &-6020675686610937581
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7951982193473794917}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.64000005, y: 0.64000005, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &8588772888522297569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -397,8 +431,8 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: cda41ddb9227bb205a7a21b21dabd259, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
---- !u!4 &6607638721664593784 stripped
+--- !u!4 &4907979414631979502 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3207265553958813593, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3687839145544190223, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
   m_PrefabInstance: {fileID: 8588772888522297569}
   m_PrefabAsset: {fileID: 0}

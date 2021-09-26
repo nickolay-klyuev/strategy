@@ -104,10 +104,11 @@ public class AttackController : MonoBehaviour
             if (isAttacking)
             {
                 // SpawnMissileInCoroutine() run this funtion in fire animation (TriggerFire)
-                if (animator != null) // fire animation
+                /*if (animator != null) // fire animation
                 {
                     animator.SetTrigger("TriggerFire");
-                }
+                }*/
+                SpawnMissileInCoroutine();
             }
         }
         isDoAttackCoroutine = false;
@@ -116,13 +117,14 @@ public class AttackController : MonoBehaviour
 
     public void SpawnMissileInCoroutine()
     {
-        foreach (MissileSpawnerController missileController in missileSpawnerControllers)
+        // spawn all missile at once
+        /*foreach (MissileSpawnerController missileController in missileSpawnerControllers)
         {
             missileController.SpawnMissile(targetGameobject);
-        }
+        }*/
         
         // spawn from random missile spawner (if a lot of missile spawners, but damage is the same as one missile spawner)
-        //missileSpawnerControllers[Random.Range(0, missileSpawnerControllers.Length - 1)].SpawnMissile(targetGameobject);
+        missileSpawnerControllers[Random.Range(0, missileSpawnerControllers.Length - 1)].SpawnMissile(targetGameobject);
     }
 
     public void StopAttack()

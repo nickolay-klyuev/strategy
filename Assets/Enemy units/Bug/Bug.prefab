@@ -101,7 +101,7 @@ Transform:
   m_Children:
   - {fileID: 3776460022745650140}
   - {fileID: 503910262130678740}
-  - {fileID: 2992266913906810585}
+  - {fileID: 3902654714762717263}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -189,18 +189,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f71b7a553ab151dead8870dcb985e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: unknown
   health: 50
   attackRange: 2
   attackSpeed: 0.7
   accuracy: 0.3
   accuracyWhileMoving: 1
   canFireWhileMoving: 0
+  autoAim: 0
   cost: 50
+  buildTime: 3
   limit: 10
   unitType: enemy
   isBuilding: 0
   hasDeathAnimation: 1
   miniMapIndicator: {fileID: 5562261032259588495, guid: bda65740e5517d79bbc62e630cace20c, type: 3}
+  unitDescription: no description
 --- !u!114 &6925777919709731091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd4f49e3c502d563a1136c41a552b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missile: {fileID: 968777925648777383, guid: 9c698a5ad9a118202aef0346da36f585, type: 3}
+  missile: {fileID: 968777925648777383, guid: c6e8cb6d583ef0ecca0b7c2bad9d369b, type: 3}
   launchSound: {fileID: 0}
   soundVolume: 0.3
 --- !u!1001 &361649031377477952
@@ -522,10 +526,14 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3687839145544190223, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
---- !u!4 &2992266913906810585 stripped
+--- !u!4 &3902654714762717263 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3207265553958813593, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3687839145544190223, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
   m_PrefabInstance: {fileID: 361649031377477952}
   m_PrefabAsset: {fileID: 0}

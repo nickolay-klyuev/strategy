@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4064062983099244301}
   - component: {fileID: 8731521149106570272}
   m_Layer: 0
-  m_Name: Attack Plane Missile
+  m_Name: Old Tank missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1097e68b2c85cca67acbcd54923ad2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPower: 2
-  flySpeed: 20
+  attackPower: 10
+  flySpeed: 15
   explosionSound: {fileID: 0}
 --- !u!61 &4064062983099244301
 BoxCollider2D:

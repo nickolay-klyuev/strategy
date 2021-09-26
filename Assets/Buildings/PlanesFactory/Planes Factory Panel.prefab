@@ -140,6 +140,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 36344869284977360}
     m_Modifications:
+    - target: {fileID: 1598128444204634608, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -325.1831
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598128444204634608, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -162.59155
+      objectReference: {fileID: 0}
     - target: {fileID: 3969303276770885958, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
       propertyPath: m_Text
       value: BuildAttackPlane

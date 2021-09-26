@@ -40,6 +40,8 @@ public class ProductionScript : MonoBehaviour
         return prodactionObjectsQueue[0];
     }
 
+    public List<GameObject> unitsOnStage = new List<GameObject>();
+
     void Start()
     {
         miniMapController = GameObject.Find("Mini Map").GetComponent<MiniMapController>();
@@ -81,7 +83,7 @@ public class ProductionScript : MonoBehaviour
         yield return new WaitForSeconds(currentBuildTime);
 
         GameObject currentUnit = Instantiate(buildObject, placeToBuild, Quaternion.identity);
-        //unitsOnStage.Add(currentUnit);
+        unitsOnStage.Add(currentUnit);
         miniMapController.AddIndicator(currentUnit);
         UnitsOnScene.AddUnit(currentUnit);
 
