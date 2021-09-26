@@ -21,7 +21,7 @@ public class BuildingScript : MonoBehaviour
     void Start()
     {
         miniMapController = GameObject.Find("Mini Map").GetComponent<MiniMapController>();
-        GetComponentInChildren<Text>().text += "(" + objectToBuild.GetComponent<UnitProperties>().cost + ")";
+        GetComponentInChildren<Text>().text += "(" + objectToBuild.GetComponent<UnitProperties>().GetCost() + ")";
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class BuildingScript : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && activeBuildPlace.GetComponent<BuildPlaceScript>().GetCanBeBuild())
             {
-                if (ResourceSystem.SpendResource(objectToBuild.GetComponent<UnitProperties>().cost))
+                if (ResourceSystem.SpendResource(objectToBuild.GetComponent<UnitProperties>().GetCost()))
                 {
                     // Build
                     isBuilding = false;

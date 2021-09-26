@@ -35,6 +35,19 @@ public class ProductionScript : MonoBehaviour
         prodactionObjectsQueue.Add(objectToProd);
     }
 
+    public bool RemoveObjectFromProdQueue()
+    {
+        if (prodactionObjectsQueue.Count > 0)
+        {
+            prodactionObjectsQueue.RemoveAt(prodactionObjectsQueue.Count - 1);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public GameObject GetCurrentBuildUnit()
     {
         return prodactionObjectsQueue[0];
@@ -46,6 +59,8 @@ public class ProductionScript : MonoBehaviour
     {
         miniMapController = GameObject.Find("Mini Map").GetComponent<MiniMapController>();
     }
+    
+    private Coroutine build;
 
     void FixedUpdate()
     {
@@ -57,12 +72,17 @@ public class ProductionScript : MonoBehaviour
             }
         }
 
-        if (!isWorking && prodactionObjectsQueue.Count > 0 && unitsOnStage.Count < GetComponent<SpawnLimits>().unitsLimit)
+        if (prodactionObjectsQueue.Count == 0 && isWorking)
+        {
+            isWorking = false;
+            StopCoroutine(build);
+        }
+        else if (!isWorking && prodactionObjectsQueue.Count > 0 && unitsOnStage.Count < GetComponent<SpawnLimits>().unitsLimit)
         {
             isWorking = true;
             startBuildTime = Time.realtimeSinceStartup;
             currentBuildTime = prodactionObjectsQueue[0].GetComponentInChildren<UnitProperties>().buildTime;
-            StartCoroutine(BuildUnit(prodactionObjectsQueue[0]));
+            build = StartCoroutine(BuildUnit(prodactionObjectsQueue[0]));
         }
     }
 

@@ -18,7 +18,12 @@ public class UnitProperties : MonoBehaviour
     public float accuracyWhileMoving = 10f;
     public bool canFireWhileMoving = false;
     public bool autoAim = false;
-    public int cost = 50;
+    [SerializeField] private int cost = 50;
+    public int GetCost()
+    {
+        return cost;
+    }
+
     public float buildTime = 3f;
     public int limit = 1;
     public string unitType; // enemy, friendly

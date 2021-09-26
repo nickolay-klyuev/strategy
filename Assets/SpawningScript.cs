@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class SpawningScript : MonoBehaviour
+public class SpawningScript : MonoBehaviour, IPointerClickHandler
 {
     public GameObject unitToSpawn;
     private int cost;
     private float buildTime;
     private int unitsLimit;
     private string buttonText;
+
+    private bool mouseOverButton = false;
 
     private PanelMetaData metaData;
     private ProductionScript productionScript;
@@ -23,7 +26,7 @@ public class SpawningScript : MonoBehaviour
         metaData = GetComponentInParent<PanelMetaData>();
         productionScript = metaData.GetCallObject().GetComponent<ProductionScript>();
         //miniMapController = GameObject.Find("Mini Map").GetComponent<MiniMapController>();
-        cost = unitToSpawn.GetComponentInChildren<UnitProperties>().cost;
+        cost = unitToSpawn.GetComponentInChildren<UnitProperties>().GetCost();
         buildTime = unitToSpawn.GetComponentInChildren<UnitProperties>().buildTime;
         GetComponentInChildren<Text>().text += $"({cost})";
         buttonText = GetComponentInChildren<Text>().text;
@@ -31,6 +34,17 @@ public class SpawningScript : MonoBehaviour
         prodPercentageText = transform.Find("Production percentage").GetComponent<Text>();
         queueLengthText.text = "";
         prodPercentageText.text = "";
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            if (productionScript.RemoveObjectFromProdQueue())
+            {
+                ResourceSystem.GatherResource(cost);
+            }
+        }
     }
 
     private void FixedUpdate()

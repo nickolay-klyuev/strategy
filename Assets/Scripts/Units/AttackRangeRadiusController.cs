@@ -42,11 +42,6 @@ public class AttackRangeRadiusController : MonoBehaviour
             moveController.StartChasing(collider.gameObject);
         }
 
-        if (moveController.GetIsMoving() && !unitProperties.canFireWhileMoving)
-        {
-            attackController.StopAttack();
-        }
-
         if (ColliderResult(collider) && !attackController.GetIsAttacking() && 
             (unitProperties.canFireWhileMoving || !moveController.GetIsMoving()))
         {
@@ -72,10 +67,10 @@ public class AttackRangeRadiusController : MonoBehaviour
 
     void FixedUpdate()
     {
-        /*if (!unitProperties.canFireWhileMoving && moveController.GetIsMoving())
+        if (!unitProperties.canFireWhileMoving && moveController.GetIsMoving())
         {
             StopAttack();
-        }*/
+        }
     }
 
     // used to change behave for enemies or friendly units

@@ -81,6 +81,8 @@ GameObject:
   - component: {fileID: 8656054060527809512}
   - component: {fileID: -2131661567117076599}
   - component: {fileID: 5802478075990134123}
+  - component: {fileID: 8481526829604321289}
+  - component: {fileID: 5612964072662231637}
   m_Layer: 0
   m_Name: Bug
   m_TagString: Worm
@@ -249,7 +251,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4456635579496693066}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 365ddd99ba7d989cc817d41295deb21a, type: 3}
   m_Name: 
@@ -409,6 +411,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8481526829604321289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4456635579496693066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b95d1306a0fc2e3b002f28885b755a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5612964072662231637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4456635579496693066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6e8b90a909a6770a37295575054e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6584469508222429516
 GameObject:
   m_ObjectHideFlags: 0

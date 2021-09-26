@@ -81,6 +81,8 @@ GameObject:
   - component: {fileID: 8656054060527809512}
   - component: {fileID: 9181680460792488648}
   - component: {fileID: -378231036682719862}
+  - component: {fileID: 1877777573334930532}
+  - component: {fileID: -6228367853126494589}
   m_Layer: 0
   m_Name: Worm
   m_TagString: Worm
@@ -101,7 +103,7 @@ Transform:
   m_Children:
   - {fileID: 3776460022745650140}
   - {fileID: 503910262130678740}
-  - {fileID: 2992266913906810585}
+  - {fileID: 3902654714762717263}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -189,18 +191,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f71b7a553ab151dead8870dcb985e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: unknown
   health: 20
   attackRange: 1.5
   attackSpeed: 0.5
   accuracy: 0.3
   accuracyWhileMoving: 1
   canFireWhileMoving: 0
+  autoAim: 0
   cost: 20
+  buildTime: 3
   limit: 30
   unitType: enemy
   isBuilding: 0
   hasDeathAnimation: 1
   miniMapIndicator: {fileID: 5562261032259588495, guid: 2b902d9cfa8ffd332a8cd3beeb1e90b4, type: 3}
+  unitDescription: no description
 --- !u!114 &6925777919709731091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +251,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4456635579496693066}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 365ddd99ba7d989cc817d41295deb21a, type: 3}
   m_Name: 
@@ -405,6 +411,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1877777573334930532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4456635579496693066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b95d1306a0fc2e3b002f28885b755a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6228367853126494589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4456635579496693066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6e8b90a909a6770a37295575054e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6584469508222429516
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,10 +552,14 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3687839145544190223, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
---- !u!4 &2992266913906810585 stripped
+--- !u!4 &3902654714762717263 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3207265553958813593, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3687839145544190223, guid: 80259954b325c763c961e76a3cd43cc0, type: 3}
   m_PrefabInstance: {fileID: 361649031377477952}
   m_PrefabAsset: {fileID: 0}

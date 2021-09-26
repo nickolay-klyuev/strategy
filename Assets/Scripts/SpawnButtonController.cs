@@ -11,7 +11,7 @@ public class SpawnButtonController : MonoBehaviour
     void Start()
     {
         GetComponentInChildren<Text>().text = spawnObject.name;
-        transform.Find("Cost").GetComponent<Text>().text = spawnObject.GetComponentInChildren<UnitProperties>().cost.ToString();
+        transform.Find("Cost").GetComponent<Text>().text = spawnObject.GetComponentInChildren<UnitProperties>().GetCost().ToString();
         transform.Find("Limit").GetComponent<Text>().text = $"/ {spawnObject.GetComponentInChildren<UnitProperties>().limit.ToString()}";
     }
 

@@ -46,7 +46,7 @@ public class MoveController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!isMoving && agent != null) // clear nav mesh moving
         {
@@ -180,6 +180,11 @@ public class MoveController : MonoBehaviour
 
     public bool StartChasing(GameObject target)
     {
+        if (agent != null)
+        {
+            agent.ResetPath();
+        }
+
         chasingTarget = target;
 
         if (moveLineDrawer != null)

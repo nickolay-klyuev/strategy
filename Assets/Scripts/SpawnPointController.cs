@@ -10,7 +10,7 @@ public class SpawnPointController : MonoBehaviour
 
         if (GameObject.FindGameObjectsWithTag(spawnObject.name).Length < spawnObjectLimit) // only if unit limit allows
         {
-            int cost = spawnObject.GetComponentInChildren<UnitProperties>().cost;
+            int cost = spawnObject.GetComponentInChildren<UnitProperties>().GetCost();
             if (ResourceSystem.SpendResource(cost))
             {
                 Instantiate(spawnObject, transform.position, Quaternion.identity);

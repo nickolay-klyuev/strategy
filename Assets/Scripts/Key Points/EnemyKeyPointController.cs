@@ -7,7 +7,7 @@ public class EnemyKeyPointController : MonoBehaviour
     [SerializeField] private GameObject[] spawnObjects;
 
     private int enemyResourses = 0;
-    private int enemyResoursesIncome = 100;
+    private int enemyResoursesIncome = 500;
     private int wavesCount = 0;
 
     private bool isInvadingStarted = false;
@@ -42,7 +42,7 @@ public class EnemyKeyPointController : MonoBehaviour
         wavesCount++;
         isInvadingStarted = true;
         enemyResourses += enemyResoursesIncome;
-        enemyResoursesIncome += 50;
+        enemyResoursesIncome += 100;
     }
 
     private void Spawn()
@@ -52,7 +52,7 @@ public class EnemyKeyPointController : MonoBehaviour
             while (isInvadingStarted)
             {
                 GameObject unit = spawnObjects[Random.Range(0, spawnObjects.Length)];
-                if (SpendResource(unit.GetComponentInChildren<UnitProperties>().cost))
+                if (SpendResource(unit.GetComponentInChildren<UnitProperties>().GetCost()))
                 {
                     GameObject newUnit = Instantiate(unit, transform.position, Quaternion.identity);
                     miniMapController.AddIndicator(newUnit);

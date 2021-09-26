@@ -49,7 +49,7 @@ public class MiniDescMenuScript : MonoBehaviour, IPointerEnterHandler, IPointerE
 
             if (isBuildDesc)
             {
-                descInfoShowScript.AddDescriptionText($"Costs: {unitProperties.cost}   Build time: {unitProperties.buildTime}\n");
+                descInfoShowScript.AddDescriptionText($"Costs: {unitProperties.GetCost()}   Build time: {unitProperties.buildTime}\n");
             }
 
             descInfoShowScript.AddDescriptionText($"{unitProperties.GetUnitName()} \nMaxHP: {unitProperties.health}");

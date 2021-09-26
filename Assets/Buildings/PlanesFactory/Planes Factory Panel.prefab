@@ -153,16 +153,44 @@ PrefabInstance:
       value: BuildAttackPlane
       objectReference: {fileID: 0}
     - target: {fileID: 3969303277133268278, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969303277133268278, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969303277133268278, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 265974531477884087}
+    - target: {fileID: 3969303277133268278, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969303277133268278, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3969303277133268278, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SpawnUnit
       objectReference: {fileID: 0}
     - target: {fileID: 3969303277133268278, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969303277133268278, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SpawningScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969303277133268278, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969303277133268278, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3969303277133268296, guid: 8deabd584a2d9be20b9f46ef36dd402d, type: 3}
       propertyPath: m_Pivot.x

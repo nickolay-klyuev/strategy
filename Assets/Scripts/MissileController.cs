@@ -25,7 +25,7 @@ public class MissileController : MonoBehaviour
         return isFlying;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (isFlying)
         {

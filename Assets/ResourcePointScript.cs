@@ -19,7 +19,7 @@ public class ResourcePointScript : MonoBehaviour
     {
         if (canBeBuild)
         {
-            if (ResourceSystem.SpendResource(showDescScript.GetUnitPrefab().GetComponent<UnitProperties>().cost))
+            if (ResourceSystem.SpendResource(showDescScript.GetUnitPrefab().GetComponent<UnitProperties>().GetCost()))
             {
                 Instantiate(showDescScript.GetUnitPrefab(), transform.position + new Vector3(0, 0, -1), Quaternion.identity);
             }
