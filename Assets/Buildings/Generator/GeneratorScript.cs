@@ -7,14 +7,25 @@ public class GeneratorScript : MonoBehaviour
     public int resourceAmount = 10;
     public float gatherTime = 10f;
 
+    private UnitProperties properties;
+
     // Start is called before the first frame update
     void Start()
     {
+        properties = GetComponent<UnitProperties>();
+
         InvokeRepeating("GatherResource", gatherTime, gatherTime);
     }
 
     private void GatherResource()
     {
-        ResourceSystem.GatherResource(resourceAmount);
+        if (properties.unitType == "enemy")
+        {
+            EnemyResourceScript.GatherResource(resourceAmount);
+        }
+        else
+        {
+            ResourceSystem.GatherResource(resourceAmount);
+        }
     }
 }

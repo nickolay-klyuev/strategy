@@ -11,6 +11,8 @@ TagManager:
   - Worm
   - Canvas
   - ResourceSystem
+  - Resources Point
+  - Resources Gatherer
   layers:
   - Default
   - TransparentFX

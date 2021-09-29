@@ -2,11 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceSystem : MonoBehaviour
+public class EnemyResourceScript : MonoBehaviour
 {
-    static private int unitsLimit = 10;
+    static private int unitsLimit = 15;
+
+    static public int GetUnitsLimit()
+    {
+        return unitsLimit;
+    }
 
     static private int resourceAmount = 1000;
+
+    void FixedUpdate()
+    {
+        Debug.Log(resourceAmount);
+    }
+
+    static public int GetResourceAmount()
+    {
+        return resourceAmount;
+    }
 
     static public void GatherResource(int amount)
     {
@@ -17,7 +32,6 @@ public class ResourceSystem : MonoBehaviour
     {
         if (amount > resourceAmount)
         {
-            Debug.Log("Not enough resources");
             return false;
         }
         else
@@ -25,15 +39,5 @@ public class ResourceSystem : MonoBehaviour
             resourceAmount -= amount;
             return true;
         }
-    }
-
-    static public int GetResourceAmount()
-    {
-        return resourceAmount;
-    }
-
-    void OnDestroy()
-    {
-        resourceAmount = 1000;
     }
 }

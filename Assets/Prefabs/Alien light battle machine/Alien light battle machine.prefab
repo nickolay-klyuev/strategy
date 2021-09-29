@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 313493206}
   - component: {fileID: 8360855557593444273}
   - component: {fileID: 6102914863895668198}
+  - component: {fileID: 374798173665866595}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -608,7 +609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miniDescMenuPrefab: {fileID: 5359872250936902133, guid: 3775b6699eb3202c4a0dd8d098341713, type: 3}
   isBuildDesc: 0
-  unitPrefab: {fileID: 0}
+  unitPrefab: {fileID: 4230254651887142857}
 --- !u!114 &8360855557593444273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,11 +629,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4230254651819392261}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3b95d1306a0fc2e3b002f28885b755a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &374798173665866595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230254651819392261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4589c65193f36ff96ae79e47ca625f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceBuildingPrefab: {fileID: 3390940722588831706, guid: 274c6afd51f965a88893172eac7caa58, type: 3}
 --- !u!1 &4230254651887142857
 GameObject:
   m_ObjectHideFlags: 0
