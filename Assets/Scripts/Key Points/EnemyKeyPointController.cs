@@ -23,12 +23,13 @@ public class EnemyKeyPointController : MonoBehaviour
         InvokeRepeating("StartInvade", 30f, 30f);
     }
 
+    private bool isSpawnCoroutineWorking = false;
+
     private void FixedUpdate()
     {
-        if (isInvadingStarted)
+        if (!isSpawnCoroutineWorking && isInvadingStarted)
         {
-
-            InvokeRepeating("Spawn", 0.5f, 1f);
+            StartCoroutine(Spawn());
         }
 
         if (wavesCount >= 10)
@@ -45,12 +46,15 @@ public class EnemyKeyPointController : MonoBehaviour
         enemyResoursesIncome += 100;
     }
 
-    private void Spawn()
+    IEnumerator Spawn()
     {
+        isSpawnCoroutineWorking = true;
         //if (GameObject.FindGameObjectsWithTag(spawnObject.name).Length < spawnObject.GetComponent<UnitProperties>().limit)
         //{
             while (isInvadingStarted)
             {
+                yield return new WaitForSeconds(1f);
+
                 GameObject unit = spawnObjects[Random.Range(0, spawnObjects.Length)];
                 if (SpendResource(unit.GetComponentInChildren<UnitProperties>().GetCost()))
                 {
@@ -64,6 +68,7 @@ public class EnemyKeyPointController : MonoBehaviour
                 }
             }
         //}
+        isSpawnCoroutineWorking = false;
     }
 
     private bool SpendResource(int amount)

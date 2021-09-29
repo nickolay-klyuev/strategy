@@ -15,6 +15,13 @@ public class MissileController : MonoBehaviour
     private bool isFlying = false;
     private bool triggeredExplosion = false;
 
+    private Transform thisTransform;
+
+    void Start()
+    {
+        thisTransform = transform;
+    }
+
     public void SetParentUnitType(string type)
     {
         parentUnitType = type;
@@ -34,8 +41,8 @@ public class MissileController : MonoBehaviour
                 targetPosition = targetGameObject.transform.position;
             }
 
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, flySpeed * Time.deltaTime);
-            if (transform.position == targetPosition)
+            thisTransform.position = Vector3.MoveTowards(thisTransform.position, targetPosition, flySpeed * Time.deltaTime);
+            if (thisTransform.position == targetPosition)
             {
                 if (!triggeredExplosion)
                 {
