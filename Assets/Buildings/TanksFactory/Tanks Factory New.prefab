@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 5600234283134980759}
   - component: {fileID: 1001335939}
   - component: {fileID: 1001335940}
+  - component: {fileID: 750382190557044926}
   m_Layer: 0
   m_Name: Tanks Factory New
   m_TagString: Untagged
@@ -247,6 +248,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01b4e1be0878187ca9881129638ec2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &750382190557044926
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7052071081715404204}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eca79b7d6fa6b5dffa787d7d07ff56a6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &7052071083128688618
 PrefabInstance:
   m_ObjectHideFlags: 0
