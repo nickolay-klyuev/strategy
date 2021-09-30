@@ -25,10 +25,13 @@ public class MoveController : MonoBehaviour
     private AttackController attackController;
     private MoveAttackLineDrawer moveLineDrawer;
     private NavMeshAgent agent;
+    private Transform thisTransform;
 
     // Start is called before the first frame update
     void Start()
     {
+        thisTransform = transform;
+
         unitProperties = GetComponent<UnitProperties>();
         attackController = GetComponent<AttackController>();
         if (attackController == null)
@@ -58,8 +61,8 @@ public class MoveController : MonoBehaviour
         {
             // stop after reach point to move
             float stopRange = .2f;
-            if (transform.position.x < pointToMove.x + stopRange && transform.position.x > pointToMove.x - stopRange &&
-                transform.position.y < pointToMove.y + stopRange && transform.position.y > pointToMove.y - stopRange)
+            if (thisTransform.position.x < pointToMove.x + stopRange && thisTransform.position.x > pointToMove.x - stopRange &&
+                thisTransform.position.y < pointToMove.y + stopRange && thisTransform.position.y > pointToMove.y - stopRange)
             {
                 isMoving = false;
             }
@@ -70,25 +73,27 @@ public class MoveController : MonoBehaviour
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, pointToMove, speed * Time.deltaTime);
+                thisTransform.position = Vector3.MoveTowards(thisTransform.position, pointToMove, speed * Time.deltaTime);
             }
         }
 
         // chase
         if (isChasing && chasingTarget != null)
         {
-            Vector3 vectorToTarget = transform.position - chasingTarget.transform.position;
+            Transform targetTransform = chasingTarget.transform;
+            Vector3 targetPosition = targetTransform.position;
+            Vector3 vectorToTarget = thisTransform.position - targetPosition;
             float rangeToTarget = CalculateVectorRange(vectorToTarget);
             
             if (rangeToTarget > unitProperties.attackRange - unitProperties.attackRange * 0.1f)
             {
                 if (agent != null)
                 {
-                    agent.SetDestination(chasingTarget.transform.position);
+                    agent.SetDestination(targetPosition);
                 }
                 else
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, chasingTarget.transform.position, speed * Time.deltaTime);
+                    thisTransform.position = Vector3.MoveTowards(thisTransform.position, targetPosition, speed * Time.deltaTime);
                 }
 
                 if (rangeToTarget <= unitProperties.attackRange && !attackController.GetIsAttacking())
@@ -114,28 +119,28 @@ public class MoveController : MonoBehaviour
             attackController.StopAttack();
         }
 
-        // rotate
-        if (GetChasingTarget() != null && GetIsChasing() && !attackController.GetIsAttacking())
+        // rotate FIXME: this part moved to NavMeshAgentScript because it doesn't work here, I have no fucking idea why.
+        /*if (GetChasingTarget() != null && GetIsChasing() && !attackController.GetIsAttacking())
         {
             if (agent != null)
             {
-                UnitRotateController.RotateToPoint(agent.path.corners[1], transform);
+                UnitRotateController.RotateToPoint(agent.path.corners[1], thisTransform);
             }
             else
             {
-                UnitRotateController.RotateToPoint(GetChasingTarget().transform.position, transform);
+                UnitRotateController.RotateToPoint(GetChasingTarget().transform.position, thisTransform);
             }
-        }
+        }*/
 
         if (GetIsMoving())
         {
             if (agent != null)
             {
-                UnitRotateController.RotateToPoint(agent.path.corners[1], transform);
+                UnitRotateController.RotateToPoint(agent.path.corners[1], thisTransform);
             }
             else
             {
-                UnitRotateController.RotateToPoint(GetPointToMove(), transform);
+                UnitRotateController.RotateToPoint(GetPointToMove(), thisTransform);
             }
         }
     }
@@ -157,7 +162,7 @@ public class MoveController : MonoBehaviour
 
     public void MoveToPoint(Vector3 point)
     {
-        pointToMove = new Vector3(point.x, point.y, transform.position.z);
+        pointToMove = new Vector3(point.x, point.y, thisTransform.position.z);
 
         if (moveLineDrawer != null)
         {
