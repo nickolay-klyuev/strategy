@@ -22,7 +22,7 @@ public class EnemyKeyPointController : MonoBehaviour
         List<GameObject> resBuildings = new List<GameObject>();
         foreach (GameObject building in buildings)
         {
-            if (building.tag == "Resource Gatherer")
+            if (building.tag == "Resources Gatherer")
             {
                 resBuildings.Add(building);
             }
@@ -30,9 +30,10 @@ public class EnemyKeyPointController : MonoBehaviour
 
         if (!isBuilding && (EnemyResourceScript.GetResourceAmount() > 250 || resBuildings.Count >= 3) && UnitsOnScene.GetUnits("enemy;unit").Count < EnemyResourceScript.GetUnitsLimit())
         {
-            if (EnemyResourceScript.SpendResource(spawnObjects[0].GetComponentInChildren<UnitProperties>().cost))
+            GameObject unitToBuild = spawnObjects[Random.Range(0, spawnObjects.Length)];
+            if (EnemyResourceScript.SpendResource(unitToBuild.GetComponentInChildren<UnitProperties>().cost))
             {
-                StartCoroutine(BuildUnit(spawnObjects[0]));
+                StartCoroutine(BuildUnit(unitToBuild));
             }
         }
     }

@@ -35,7 +35,6 @@ public class NavMeshAgentScript : MonoBehaviour
         {
             if (agent != null)
             {
-                Debug.Log("MoveController: " + agent.path.corners.Length);
                 UnitRotateController.RotateToPoint(agent.path.corners[1], transform);
             }
             else

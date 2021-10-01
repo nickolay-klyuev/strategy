@@ -51,7 +51,7 @@ public class MoveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isMoving && agent != null) // clear nav mesh moving
+        if (!isMoving && !isChasing && agent != null) // clear nav mesh moving
         {
             agent.ResetPath();
         }

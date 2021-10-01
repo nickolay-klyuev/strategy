@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 8992152573598498779}
   - component: {fileID: 8992152573598498776}
   - component: {fileID: 8992152573598496805}
-  - component: {fileID: 8992152573598496804}
   - component: {fileID: 8992152573598496807}
   - component: {fileID: 8992152573598496801}
   - component: {fileID: 8992152573598496800}
@@ -148,7 +147,7 @@ MonoBehaviour:
   accuracyWhileMoving: 0.7
   canFireWhileMoving: 1
   autoAim: 0
-  cost: 50
+  cost: 80
   buildTime: 15
   limit: 1
   unitType: friendly
@@ -252,18 +251,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &8992152573598496804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8992152573598498783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb16456d53fab465b9f2d97e68daa211, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8992152573598496807
 MonoBehaviour:
   m_ObjectHideFlags: 0

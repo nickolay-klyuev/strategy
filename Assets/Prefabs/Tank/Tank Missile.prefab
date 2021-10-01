@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1097e68b2c85cca67acbcd54923ad2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPower: 50
+  attackPower: 80
   flySpeed: 25
   explosionSound: {fileID: 8300000, guid: 31adfc2ab05a9144b94809e8d47710d1, type: 3}
 --- !u!95 &566938338

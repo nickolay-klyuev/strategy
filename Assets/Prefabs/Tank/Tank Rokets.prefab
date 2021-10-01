@@ -582,7 +582,7 @@ MonoBehaviour:
   accuracyWhileMoving: 2
   canFireWhileMoving: 1
   autoAim: 0
-  cost: 50
+  cost: 100
   buildTime: 25
   limit: 1
   unitType: friendly

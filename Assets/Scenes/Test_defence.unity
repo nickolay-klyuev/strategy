@@ -527,10 +527,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: aliens_building
       objectReference: {fileID: 0}
-    - target: {fileID: 2826115582044422843, guid: 580cf396dbc71a33d86c0b26d14c1d66, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 580cf396dbc71a33d86c0b26d14c1d66, type: 3}
 --- !u!1001 &524498699
@@ -1161,6 +1157,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7052071081715404204, guid: b0a2624067d547eff981f02516c785f7, type: 3}
   m_PrefabInstance: {fileID: 7052071082443710766}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1001335939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001335938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5e5402005e454e3a3ff6cabce4c2f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceAmount: 10
+  gatherTime: 10
 --- !u!1001 &1053054451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1669,7 +1679,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_UseGeometry: 1
+  m_UseGeometry: 0
   m_OverrideByGrid: 0
   m_UseMeshPrefab: {fileID: 0}
   m_CompressBounds: 0
@@ -134081,6 +134091,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2826115582044422821, guid: 580cf396dbc71a33d86c0b26d14c1d66, type: 3}
   m_PrefabInstance: {fileID: 507301043}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1809007910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809007909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5e5402005e454e3a3ff6cabce4c2f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceAmount: 10
+  gatherTime: 5
 --- !u!1001 &1823011850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -151212,17 +151236,13 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8992152573598498776, guid: bc5444fb90e4161b5bb6cd271ead2639, type: 3}
-      propertyPath: unitType
-      value: friendly
-      objectReference: {fileID: 0}
     - target: {fileID: 8992152575373080984, guid: bc5444fb90e4161b5bb6cd271ead2639, type: 3}
       propertyPath: m_Name
       value: Big tank
       objectReference: {fileID: 0}
     - target: {fileID: 8992152575373080984, guid: bc5444fb90e4161b5bb6cd271ead2639, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8992152575373080987, guid: bc5444fb90e4161b5bb6cd271ead2639, type: 3}
       propertyPath: m_RootOrder
@@ -151230,11 +151250,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8992152575373080987, guid: bc5444fb90e4161b5bb6cd271ead2639, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.48
+      value: 60.14
       objectReference: {fileID: 0}
     - target: {fileID: 8992152575373080987, guid: bc5444fb90e4161b5bb6cd271ead2639, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 32.83
+      value: 3.6
       objectReference: {fileID: 0}
     - target: {fileID: 8992152575373080987, guid: bc5444fb90e4161b5bb6cd271ead2639, type: 3}
       propertyPath: m_LocalPosition.z
