@@ -814,6 +814,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7052071081715404203, guid: 3948b8088846de5d09ef141f19452e1a, type: 3}
+      propertyPath: attackSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7052071081715404204, guid: 3948b8088846de5d09ef141f19452e1a, type: 3}
       propertyPath: m_Name
       value: Fortress

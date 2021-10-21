@@ -63,7 +63,7 @@ public class MissileSpawnerController : MonoBehaviour
                     else
                     {
                         // change target possition by accuracy 
-                        if (moveController.GetIsMoving())
+                        if (moveController != null && moveController.GetIsMoving())
                         {
                             targetPosition += new Vector3(Random.Range(-parentAccuracyWhileMoving, parentAccuracyWhileMoving), 
                                                             Random.Range(-parentAccuracyWhileMoving, parentAccuracyWhileMoving), 0);
