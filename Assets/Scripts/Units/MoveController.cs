@@ -49,7 +49,7 @@ public class MoveController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!isMoving && !isChasing && agent != null) // clear nav mesh moving
         {
@@ -100,10 +100,10 @@ public class MoveController : MonoBehaviour
                 {
                     attackController.StartAttack(chasingTarget);
                 }
-                else if (rangeToTarget > unitProperties.attackRange && attackController.GetIsAttacking())
+                /*else if (rangeToTarget > unitProperties.attackRange && attackController.GetIsAttacking())
                 {
                     attackController.StopAttack();
-                }
+                }*/
             }
             else
             {

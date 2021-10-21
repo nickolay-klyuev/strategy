@@ -42,14 +42,14 @@ public class AttackRangeRadiusController : MonoBehaviour
             moveController.StartChasing(collider.gameObject);
         }
 
-        if (ColliderResult(collider) && !attackController.GetIsAttacking() && 
-            (unitProperties.canFireWhileMoving || !moveController.GetIsMoving()))
+        if (ColliderResult(collider) && (unitProperties.canFireWhileMoving || !moveController.GetIsMoving()))
         {
-            if (moveController.GetIsChasing())
+            if (moveController.GetIsChasing() && GameObject.ReferenceEquals(moveController.GetChasingTarget(), collider.gameObject))
             {
+                // FIXME: This I need to fix. Fucking thing
                 StartAttack(moveController.GetChasingTarget());
             }
-            else
+            else if (!attackController.GetIsAttacking())
             {
                 StartAttack(collider.gameObject);
             }
