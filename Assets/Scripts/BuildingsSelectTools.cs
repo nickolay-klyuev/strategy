@@ -40,8 +40,7 @@ public class BuildingsSelectTools : MonoBehaviour
                 thisMenu.SetActive(true);
             }
             else if (!thisMenu.GetComponent<IsPanelActive>().GetIsActive() && 
-                (thisMenu.GetComponentInChildren<SpawningScript>() != null || 
-                thisMenu.GetComponentInChildren<OverloadScript>() != null ||
+                (thisMenu.GetComponentInChildren<SpawningScript>() != null ||
                 !thisMenu.GetComponentInChildren<BuildingScript>().GetIsBuilding()))
             {
                 bool isSomeBuildingActive = false;
