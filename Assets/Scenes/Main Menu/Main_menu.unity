@@ -449,6 +449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1057077015}
   - component: {fileID: 1057077016}
+  - component: {fileID: 1057077017}
   m_Layer: 0
   m_Name: Music background
   m_TagString: Untagged
@@ -480,7 +481,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fe9c8e599bb857ecfa75ebcebbcc9f99, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -566,6 +567,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1057077017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057077014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4626d2443890875b6666452d49a4ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuMusic: {fileID: 8300000, guid: acbac91df56a9e598a51dfabe193456b, type: 3}
+  missionMusic: {fileID: 8300000, guid: 5b5e9fc1aec1099988664c533e506f49, type: 3}
 --- !u!1001 &1074804246
 PrefabInstance:
   m_ObjectHideFlags: 0

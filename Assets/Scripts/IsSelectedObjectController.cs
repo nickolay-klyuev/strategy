@@ -65,7 +65,10 @@ public class IsSelectedObjectController : MonoBehaviour
         isExternal = external;
         spriteRenderer.transform.localScale = initialScale + extraScale;
         spriteRenderer.enabled = true;
-        healthDisplayScript.gameObject.SetActive(true);
+        if (healthDisplayScript != null)
+        {
+            healthDisplayScript.gameObject.SetActive(true);
+        }
     }
 
     public void DisableSelectBox(Vector3 extraScaleRemove = new Vector3(), bool external = false)
@@ -76,6 +79,9 @@ public class IsSelectedObjectController : MonoBehaviour
         }
         spriteRenderer.transform.localScale = initialScale - extraScaleRemove;
         spriteRenderer.enabled = false;
-        healthDisplayScript.gameObject.SetActive(false);
+        if (healthDisplayScript != null)
+        {
+            healthDisplayScript.gameObject.SetActive(false);
+        }
     }
 }

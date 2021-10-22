@@ -11,6 +11,12 @@ public class LevelsController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public static void LoadSceneByName(string sceneName)
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(sceneName);
+    }
+
     public static void RestartScene()
     {
         Time.timeScale = 1;
