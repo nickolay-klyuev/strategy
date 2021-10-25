@@ -15,7 +15,7 @@ public class EnemyResourceScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(resourceAmount);
+        //Debug.Log(resourceAmount);
     }
 
     static public int GetResourceAmount()

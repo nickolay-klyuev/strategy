@@ -16,7 +16,8 @@ public class IsSelectedObjectController : MonoBehaviour
         healthDisplayScript = transform.parent.GetComponentInChildren<HealthDisplayScript>();
         initialScale = transform.localScale;
 
-        if (GetComponentInParent<UnitProperties>().unitType == "enemy")
+        UnitProperties properties = GetComponentInParent<UnitProperties>();
+        if (properties != null && properties.unitType == "enemy")
         {
             spriteRenderer.color = Color.red;
         }

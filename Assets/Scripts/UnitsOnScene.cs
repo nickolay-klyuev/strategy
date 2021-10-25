@@ -96,6 +96,13 @@ public class UnitsOnScene : MonoBehaviour
         }
     }
 
+    public static void SpawnUnit(GameObject unit, Vector3 position)
+    {
+        Instantiate(unit, position, unit.transform.rotation);
+
+        AddUnit(unit);
+    }
+
     private void Awake() // need Awake to run before Start in MiniMapController
     {
         ClearAllUnits(); // clear static Lists after scene reload

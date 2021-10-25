@@ -19,7 +19,7 @@ public class OnHoverScript : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         defaultColor = sprite.color;
         isSelectedScript = GetComponentInChildren<IsSelectedObjectController>();
-        isSelectedScript.DisableSelectBox(extraScale, true);
+        //isSelectedScript.DisableSelectBox(extraScale, true);
     }
 
     // Update is called once per frame

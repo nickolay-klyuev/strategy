@@ -174,7 +174,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Capture all points
+  m_Text: Build 8 generators and protect them.
 --- !u!1 &7740243592411375561
 GameObject:
   m_ObjectHideFlags: 0

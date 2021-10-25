@@ -120,9 +120,9 @@ public class MoveController : MonoBehaviour
         }
 
         // rotate FIXME: this part moved to NavMeshAgentScript because it doesn't work here, I have no fucking idea why.
-        /*if (GetChasingTarget() != null && GetIsChasing() && !attackController.GetIsAttacking())
+        if (GetChasingTarget() != null && GetIsChasing() && !attackController.GetIsAttacking())
         {
-            if (agent != null)
+            if (agent != null && agent.path.corners.Length > 1)
             {
                 UnitRotateController.RotateToPoint(agent.path.corners[1], thisTransform);
             }
@@ -130,11 +130,11 @@ public class MoveController : MonoBehaviour
             {
                 UnitRotateController.RotateToPoint(GetChasingTarget().transform.position, thisTransform);
             }
-        }*/
+        }
 
         if (GetIsMoving())
         {
-            if (agent != null)
+            if (agent != null && agent.path.corners.Length > 1)
             {
                 UnitRotateController.RotateToPoint(agent.path.corners[1], thisTransform);
             }

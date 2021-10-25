@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MapScene/Map.unity
     guid: 6800263e17da6054a899335209818102
   - enabled: 1
-    path: Assets/Scenes/Mission_1_1.unity
+    path: Assets/Scenes/Mission_1_1/Mission_1_1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Test_defence.unity
     guid: 00bd3257617f23b21a7ceb1104e9fcb6
   - enabled: 1

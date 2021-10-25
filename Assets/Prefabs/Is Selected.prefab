@@ -425,7 +425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6401092985538113032}
   - component: {fileID: 6002637109866578818}
-  - component: {fileID: 7490279584363823164}
+  - component: {fileID: 9072033733618997354}
   m_Layer: 0
   m_Name: Health Display
   m_TagString: Untagged
@@ -499,7 +499,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7490279584363823164
+--- !u!114 &9072033733618997354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

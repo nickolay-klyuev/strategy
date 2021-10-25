@@ -31,7 +31,7 @@ public class NavMeshAgentScript : MonoBehaviour
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         // FIXME: This part should be in MoveController, but fucking agent returs only 1 corner if it runs from MoveController
         // rotate
-        if (move.GetChasingTarget() != null && move.GetIsChasing() && !attack.GetIsAttacking())
+        /*if (move.GetChasingTarget() != null && move.GetIsChasing() && !attack.GetIsAttacking())
         {
             if (agent != null)
             {
@@ -41,7 +41,7 @@ public class NavMeshAgentScript : MonoBehaviour
             {
                 UnitRotateController.RotateToPoint(move.GetChasingTarget().transform.position, transform);
             }
-        }
+        }*/
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
 }

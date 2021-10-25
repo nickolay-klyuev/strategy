@@ -6,40 +6,37 @@ using UnityEngine.SceneManagement;
 
 public class Mission_1_TriggerScript : MonoBehaviour
 {
-    public GameObject[] targets = new GameObject[4];
-    public GameObject goalDisplay;
+    [SerializeField] private GameObject target;
+    [SerializeField] private int targetQuantity;
+    [SerializeField] private GameObject goalDisplay;
+
+    [SerializeField] private bool doDestroy = true;
+    [SerializeField] private string goalText = "Worm holes left: ";
+
     private bool isComplete = false;
-    private int targetsLeft;
-    private string goalText = "Worm holes left: ";
+    private Text goalTextDisplay;
     private PostEffectsScript postEffects;
 
     private void Start()
     {
         postEffects = GameObject.Find("Post processing volume").GetComponent<PostEffectsScript>();
-        goalDisplay.GetComponent<Text>().text = $"{goalText}{targets.Length};";
+        goalTextDisplay = goalDisplay.GetComponent<Text>();
     }
 
     private void FixedUpdate()
     {
         if (!isComplete)
         {
-            targetsLeft = 0;
-            bool areAllDestroyed = true;
-            foreach(GameObject target in targets)
-            {
-                if (target != null)
-                {
-                    targetsLeft++;
-                    areAllDestroyed = false;
-                }
-            }
-            if (areAllDestroyed)
+            int generatorsCount = GameObject.FindGameObjectsWithTag("Resources Gatherer Friendly").Length;
+
+            goalTextDisplay.text = $"{goalText}{generatorsCount}/{targetQuantity}";
+
+            if (generatorsCount >= targetQuantity)
             {
                 isComplete = true;
                 postEffects.StartWinAnimation();
                 // next level load from PostEffectsScript after animation
             }
         }
-        goalDisplay.GetComponent<Text>().text = $"{goalText}{targetsLeft};";
     }
 }
