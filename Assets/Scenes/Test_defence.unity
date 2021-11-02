@@ -637,13 +637,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df072784d356d576a769f150344a19f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1001335938}
+  target: {fileID: 0}
+  targetQuantity: 0
   goalDisplay: {fileID: 1908184805}
+  doDestroy: 1
+  goalText: 'Worm holes left: '
 --- !u!1 &777538012 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8992152575373080984, guid: bc5444fb90e4161b5bb6cd271ead2639, type: 3}
@@ -770,6 +768,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 171882816, guid: 3948b8088846de5d09ef141f19452e1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 321574348, guid: 3948b8088846de5d09ef141f19452e1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429666382, guid: 3948b8088846de5d09ef141f19452e1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446708092, guid: 3948b8088846de5d09ef141f19452e1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7052071081715404202, guid: 3948b8088846de5d09ef141f19452e1a, type: 3}
       propertyPath: m_RootOrder
       value: 1
