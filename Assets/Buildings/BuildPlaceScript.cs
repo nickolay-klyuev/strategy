@@ -22,6 +22,6 @@ public class BuildPlaceScript : MonoBehaviour
     private void OnTriggerExit2D()
     {
         canBeBuild = true;
-        GetComponent<SpriteRenderer>().color = Color.white;
+        GetComponent<SpriteRenderer>().color = Color.green;
     }
 }

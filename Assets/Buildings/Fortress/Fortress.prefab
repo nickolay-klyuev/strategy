@@ -1581,7 +1581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f71b7a553ab151dead8870dcb985e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Tank factory
+  unitName: Fortress
   health: 5000
   attackRange: 15
   attackSpeed: 5
@@ -1589,14 +1589,14 @@ MonoBehaviour:
   accuracyWhileMoving: 10
   canFireWhileMoving: 0
   autoAim: 0
-  cost: 50
+  cost: 500
   buildTime: 3
   limit: 1
   unitType: friendly
   isBuilding: 1
   hasDeathAnimation: 0
   miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
-  unitDescription: Main humans' building
+  unitDescription: Protective building with a lot of health and fire power
 --- !u!61 &7052071081715404201
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1706,12 +1706,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7052071081715404204}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d615b9bd730b093309c0840e42590a0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildMenuUI: {fileID: 422371138867565383, guid: 6132d0fd4bf9db47bba84d3965d653b2, type: 3}
+  buildMenuUI: {fileID: 0}
 --- !u!114 &1001335940
 MonoBehaviour:
   m_ObjectHideFlags: 0

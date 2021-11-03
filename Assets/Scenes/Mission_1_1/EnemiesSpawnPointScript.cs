@@ -22,7 +22,7 @@ public class EnemiesSpawnPointScript : MonoBehaviour
     {
         yield return new WaitForSeconds(initialSpawnTime);
 
-        while (true)
+        while (UnitsOnScene.GetUnits("enemy;unit").Count <= 5)
         {
             foreach (GameObject enemy in enemiesToSpawn)
             {

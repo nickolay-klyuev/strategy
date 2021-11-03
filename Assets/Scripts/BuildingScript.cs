@@ -69,6 +69,11 @@ public class BuildingScript : MonoBehaviour
 
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+            SpriteRenderer buildObjectSprite = objectToBuild.GetComponent<SpriteRenderer>();
+
+            buildPlace.GetComponent<SpriteRenderer>().sprite = buildObjectSprite.sprite;
+            buildPlace.GetComponent<BoxCollider2D>().size = buildObjectSprite.bounds.size;
+
             activeBuildPlace = Instantiate(buildPlace, new Vector3(mousePosition.x, mousePosition.y, 0), Quaternion.identity);
         }
     }

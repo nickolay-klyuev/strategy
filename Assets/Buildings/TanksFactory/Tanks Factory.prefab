@@ -113,14 +113,14 @@ MonoBehaviour:
   accuracyWhileMoving: 10
   canFireWhileMoving: 0
   autoAim: 0
-  cost: 50
+  cost: 250
   buildTime: 3
   limit: 1
   unitType: friendly
   isBuilding: 1
   hasDeathAnimation: 0
   miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
-  unitDescription: Destroy all factories.
+  unitDescription: Factory that can produce tanks
 --- !u!61 &7052071081715404201
 BoxCollider2D:
   m_ObjectHideFlags: 0

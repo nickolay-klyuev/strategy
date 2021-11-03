@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f71b7a553ab151dead8870dcb985e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Tank factory
-  health: 2000
+  unitName: Factory
+  health: 1500
   attackRange: 10
   attackSpeed: 10
   accuracy: 10
@@ -120,7 +120,7 @@ MonoBehaviour:
   isBuilding: 1
   hasDeathAnimation: 0
   miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
-  unitDescription: Destroy all factories.
+  unitDescription: Factory can build all humans' buildings
 --- !u!61 &7052071081715404201
 BoxCollider2D:
   m_ObjectHideFlags: 0
