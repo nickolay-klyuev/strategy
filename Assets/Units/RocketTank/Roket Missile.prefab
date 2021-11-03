@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 566938338}
   - component: {fileID: 566938339}
   - component: {fileID: 7369218118021174128}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roket Missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

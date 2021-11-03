@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 2826115582044422843}
   - component: {fileID: 2826115582044422842}
   - component: {fileID: 2826115582044422841}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: aliens_building
   m_TagString: Untagged
   m_Icon: {fileID: 0}

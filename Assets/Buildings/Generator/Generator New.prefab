@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 8830746989856988115}
   - component: {fileID: 6069784572140304266}
   - component: {fileID: 1851985161}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Generator New
   m_TagString: Resources Gatherer Friendly
   m_Icon: {fileID: 0}

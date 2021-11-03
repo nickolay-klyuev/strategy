@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6073953836705028966}
   - component: {fileID: 3252067996788247071}
   - component: {fileID: 1768377195}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Invisible missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPower: 20
   flySpeed: 40
+  explosionSound: {fileID: 0}
 --- !u!70 &3252067996788247071
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
