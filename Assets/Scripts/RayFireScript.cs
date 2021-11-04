@@ -94,8 +94,15 @@ public class RayFireScript : MonoBehaviour
 
     public void FireIsOver()
     {
-        thisCollider.enabled = false;
-        lineRenderer.enabled = false;
+        if (thisCollider != null)
+        {
+            thisCollider.enabled = false;
+        }
+
+        if (lineRenderer != null)
+        {
+            lineRenderer.enabled = false;
+        }
         isRayActive = false;
     }
 }

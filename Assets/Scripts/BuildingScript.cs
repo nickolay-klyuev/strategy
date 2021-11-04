@@ -21,7 +21,7 @@ public class BuildingScript : MonoBehaviour
     void Start()
     {
         miniMapController = GameObject.Find("Mini Map").GetComponent<MiniMapController>();
-        GetComponentInChildren<Text>().text += "(" + objectToBuild.GetComponent<UnitProperties>().cost + ")";
+        //GetComponentInChildren<Text>().text += "(" + objectToBuild.GetComponent<UnitProperties>().cost + ")";
     }
 
     // Update is called once per frame
