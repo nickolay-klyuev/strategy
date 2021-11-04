@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5312695411748842969}
   m_Layer: 0
   m_Name: Resources Point
-  m_TagString: Untagged
+  m_TagString: Resources Point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miniDescMenuPrefab: {fileID: 5359872250936902133, guid: a658b822f4db2accd8fad45f1c6aafa8, type: 3}
   isBuildDesc: 1
-  unitPrefab: {fileID: 3390940722588831706, guid: 274c6afd51f965a88893172eac7caa58, type: 3}
+  unitPrefab: {fileID: 3390940722588831706, guid: e9a29d5aef027f2d498f223af93cb506, type: 3}
 --- !u!50 &5312695411748842967
 Rigidbody2D:
   serializedVersion: 4

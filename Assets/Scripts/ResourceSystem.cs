@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ResourceSystem : MonoBehaviour
 {
+    static private int unitsLimit = 10;
+
     static private int resourceAmount = 1000;
 
     static public void GatherResource(int amount)

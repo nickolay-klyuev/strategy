@@ -25,7 +25,7 @@ public class MissileController : MonoBehaviour
         return isFlying;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (isFlying)
         {
@@ -35,7 +35,8 @@ public class MissileController : MonoBehaviour
             }
 
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, flySpeed * Time.deltaTime);
-            if (transform.position == targetPosition)
+
+            if (Vector3Int.RoundToInt(transform.position) == Vector3Int.RoundToInt(targetPosition))
             {
                 if (!triggeredExplosion)
                 {

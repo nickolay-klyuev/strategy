@@ -11,6 +11,9 @@ TagManager:
   - Worm
   - Canvas
   - ResourceSystem
+  - Resources Point
+  - Resources Gatherer
+  - Resources Gatherer Friendly
   layers:
   - Default
   - TransparentFX
@@ -19,10 +22,10 @@ TagManager:
   - Water
   - UI
   - Post processing
-  - 
-  - 
-  - 
-  - 
+  - Missile
+  - Unit
+  - Building
+  - Attack Range
   - 
   - 
   - 
@@ -50,4 +53,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Build Indicator
+    uniqueID: 3509809949
     locked: 0
