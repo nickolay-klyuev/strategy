@@ -4,16 +4,40 @@ using UnityEngine;
 
 public class AttackRadiusDrawer : MonoBehaviour
 {
+    [SerializeField] private bool isBuilding = false;
+    [SerializeField] private bool isRotating = true;
+
+    private float actualRadius;
+
     private LineRenderer lineRenderer;
     private UnitProperties unitProperties;
     private FriendlyUnitsSelectionController fMoveController;
+    private BuildingsSelectTools bSelectTools;
 
     // Start is called before the first frame update
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        unitProperties = transform.parent.GetComponentInChildren<UnitProperties>();
-        fMoveController = transform.parent.GetComponentInChildren<FriendlyUnitsSelectionController>();
+
+        if (isBuilding)
+        {
+            unitProperties = transform.parent.GetComponent<UnitProperties>();
+            bSelectTools = transform.parent.GetComponent<BuildingsSelectTools>();
+        }
+        else
+        {
+            unitProperties = transform.parent.GetComponentInChildren<UnitProperties>();
+            fMoveController = transform.parent.GetComponentInChildren<FriendlyUnitsSelectionController>();
+        }
+
+        if (isBuilding)
+        {
+            actualRadius = transform.parent.GetComponentInChildren<CircleCollider2D>().radius;
+        }
+        else
+        {
+            actualRadius = unitProperties.attackRange;
+        }
 
         //draw attack range radius
         lineRenderer.positionCount = 51;
@@ -23,15 +47,13 @@ public class AttackRadiusDrawer : MonoBehaviour
         lineRenderer.enabled = false;
     }
 
-    private void Update()
-    {
-        transform.position = unitProperties.transform.position;
-    }
-
     private void FixedUpdate()
     {
+        transform.position = unitProperties.transform.position;
+
         // show radius if selected
-        if (fMoveController != null && fMoveController.GetIsSelected())
+        if ((fMoveController != null && fMoveController.GetIsSelected()) ||
+            (bSelectTools != null && bSelectTools.GetIsSelected()))
         {
             lineRenderer.enabled = true;
         }
@@ -41,7 +63,10 @@ public class AttackRadiusDrawer : MonoBehaviour
         }
 
         // little rotate attack range drawed radius
-        transform.Rotate(new Vector3(0,0,1), Time.deltaTime * 10);
+        if (isRotating)
+        {
+            transform.Rotate(new Vector3(0,0,1), Time.deltaTime * 10);
+        }
     }
 
     private void CreatePoints ()
@@ -54,8 +79,8 @@ public class AttackRadiusDrawer : MonoBehaviour
 
         for (int i = 0; i < (50 + 1); i++)
         {
-            x = Mathf.Sin(Mathf.Deg2Rad * angle) * unitProperties.attackRange;
-            y = Mathf.Cos(Mathf.Deg2Rad * angle) * unitProperties.attackRange;
+            x = Mathf.Sin(Mathf.Deg2Rad * angle) * actualRadius;
+            y = Mathf.Cos(Mathf.Deg2Rad * angle) * actualRadius;
 
             lineRenderer.SetPosition(i, new Vector3(x,y,0) );
 

@@ -7,6 +7,7 @@ public class BuildingScript : MonoBehaviour
 {
     public GameObject buildPlace;
     public GameObject objectToBuild;
+    [SerializeField] private GameObject buildBase;
     public AudioClip buildSound;
 
     private GameObject activeBuildPlace;
@@ -42,9 +43,7 @@ public class BuildingScript : MonoBehaviour
                     
                     Destroy(activeBuildPlace);
 
-                    GameObject building = Instantiate(objectToBuild, buildingPosition, Quaternion.identity);
-                    miniMapController.AddIndicator(building);
-                    UnitsOnScene.AddUnit(building);
+                    GameObject building = Instantiate(buildBase, buildingPosition, Quaternion.identity);
                 }
 
             }
