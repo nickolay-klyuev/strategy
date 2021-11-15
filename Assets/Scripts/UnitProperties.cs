@@ -26,10 +26,15 @@ public class UnitProperties : MonoBehaviour
     public bool hasDeathAnimation = false;
     public GameObject miniMapIndicator;
 
-    [SerializeField]
-    private string unitDescription = "no description";
+    [SerializeField] private string unitDescription = "no description";
     public string GetUnitDesc()
     {
         return unitDescription;
+    }
+
+    [SerializeField] private int exp = 0;
+    public int GetExp()
+    {
+        return exp;
     }
 }

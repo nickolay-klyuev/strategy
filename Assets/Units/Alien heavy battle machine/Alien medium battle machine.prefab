@@ -572,6 +572,7 @@ MonoBehaviour:
   miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
   unitDescription: Machine with strong ray weapon that can spear several enemies.
     Has light renegeration effect.
+  exp: 150
 --- !u!120 &1663084539507931902
 LineRenderer:
   m_ObjectHideFlags: 0

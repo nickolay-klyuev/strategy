@@ -52,7 +52,9 @@ public class UnitsOnScene : MonoBehaviour
     {
         allUnits.Remove(unit);
 
-        switch (GetUnitType(unit))
+        string unitType = GetUnitType(unit);
+
+        switch (unitType)
         {
             case "friendly;building":
                 friendlyBuildings.Remove(unit);
@@ -64,6 +66,7 @@ public class UnitsOnScene : MonoBehaviour
                 enemyBuildings.Remove(unit);
                 break;
             case "enemy;unit":
+                GlobalExpSystem.AddExp(unit.GetComponentInChildren<UnitProperties>().GetExp());
                 enemyUnits.Remove(unit);
                 break;
             default:

@@ -406,6 +406,7 @@ MonoBehaviour:
   miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
   unitDescription: Fast moving machine with low range of attack. Has strong regeneration
     effect.
+  exp: 100
 --- !u!120 &4230254651819392381
 LineRenderer:
   m_ObjectHideFlags: 0
