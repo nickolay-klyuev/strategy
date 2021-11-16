@@ -21,9 +21,30 @@ public class GlobalExpSystem : MonoBehaviour
         return currentLvl;
     }
 
+    static private int skillPoints = 0;
+    static public int GetSkillPoints()
+    {
+        return skillPoints;
+    }
+    static public bool SpendSkillPoint()
+    {
+        if (skillPoints > 0)
+        {
+            skillPoints--;
+            return true;
+        }
+        else
+        {
+            Debug.Log("You don't have any skill points!");
+            return false;
+        }
+    }
+
+    static private float rateCoeff = (float)globalExp;
+
     static public float GetRateToNextLvl() // 1 = 100%
     {
-        return (float)globalExp / (float)expForNextLvl;
+        return ((float)globalExp - rateCoeff) / ((float)expForNextLvl - rateCoeff);
     }
 
     void FixedUpdate()
@@ -31,7 +52,9 @@ public class GlobalExpSystem : MonoBehaviour
         if (globalExp >= expForNextLvl)
         {
             currentLvl++;
+            skillPoints++;
             expForNextLvl *= 2;
+            rateCoeff = (float)globalExp;
         }
     }
 }

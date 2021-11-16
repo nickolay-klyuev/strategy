@@ -63,6 +63,7 @@ public class UnitsOnScene : MonoBehaviour
                 friendlyUnits.Remove(unit);
                 break;
             case "enemy;building":
+                GlobalExpSystem.AddExp(unit.GetComponent<UnitProperties>().GetExp());
                 enemyBuildings.Remove(unit);
                 break;
             case "enemy;unit":

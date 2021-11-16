@@ -119,6 +119,7 @@ MonoBehaviour:
   hasDeathAnimation: 0
   miniMapIndicator: {fileID: 5562261032259588495, guid: bedfae4605989af59bc2d4ed0ec11034, type: 3}
   unitDescription: Gives you resources over time.
+  exp: 100
 --- !u!61 &3390940722588831703
 BoxCollider2D:
   m_ObjectHideFlags: 0
