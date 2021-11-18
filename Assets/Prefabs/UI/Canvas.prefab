@@ -612,11 +612,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2476992718787821818, guid: f4d58ad1a59607b1c83928ca776d87af, type: 3}
       propertyPath: m_Name
-      value: Choose skill
-      objectReference: {fileID: 0}
-    - target: {fileID: 6992097066758821334, guid: f4d58ad1a59607b1c83928ca776d87af, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
+      value: Choose skill block
       objectReference: {fileID: 0}
     - target: {fileID: 7778815574704821435, guid: f4d58ad1a59607b1c83928ca776d87af, type: 3}
       propertyPath: m_Pivot.x
@@ -652,7 +648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7778815574704821435, guid: f4d58ad1a59607b1c83928ca776d87af, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -310.8776
+      value: -218.773
       objectReference: {fileID: 0}
     - target: {fileID: 7778815574704821435, guid: f4d58ad1a59607b1c83928ca776d87af, type: 3}
       propertyPath: m_LocalPosition.x
@@ -688,7 +684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7778815574704821435, guid: f4d58ad1a59607b1c83928ca776d87af, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7778815574704821435, guid: f4d58ad1a59607b1c83928ca776d87af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -909,30 +905,6 @@ PrefabInstance:
     - target: {fileID: 8261660304670963180, guid: cf5fef7111dd11aeba4cf2f95e093e98, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8497444874505943736, guid: cf5fef7111dd11aeba4cf2f95e093e98, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8497444874505943736, guid: cf5fef7111dd11aeba4cf2f95e093e98, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8497444874505943736, guid: cf5fef7111dd11aeba4cf2f95e093e98, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8497444874505943736, guid: cf5fef7111dd11aeba4cf2f95e093e98, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChooseSkill
-      objectReference: {fileID: 0}
-    - target: {fileID: 8497444874505943736, guid: cf5fef7111dd11aeba4cf2f95e093e98, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SkillsSystem, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8497444874505943736, guid: cf5fef7111dd11aeba4cf2f95e093e98, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf5fef7111dd11aeba4cf2f95e093e98, type: 3}

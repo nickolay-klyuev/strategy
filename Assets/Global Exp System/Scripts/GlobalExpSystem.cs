@@ -21,7 +21,7 @@ public class GlobalExpSystem : MonoBehaviour
         return currentLvl;
     }
 
-    static private int skillPoints = 0;
+    static private int skillPoints = 10;
     static public int GetSkillPoints()
     {
         return skillPoints;
