@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class DestroyScript : MonoBehaviour
 {
+    static public float givingResourcesBack = 0f; // skill OldMaterialGathering
+    static public float gatherFromDeadEnemies = 0f; // skill Vultures
+    static public bool isDieHard = false; // skill DieHard
+
     private UnitProperties unitProperties;
     private MoveController moveController;
     private AttackController attackController;
@@ -11,8 +15,36 @@ public class DestroyScript : MonoBehaviour
 
     public void DestroyThisGameObject()
     {
+        if (isDieHard && unitProperties.unitType == "friendly" && unitProperties.isBuilding == false)
+        {
+            StartCoroutine(DieHard());
+        }
+        else
+        {
+            Destroy();
+        }
+
+        if (givingResourcesBack > 0 && unitProperties.unitType == "friendly" && unitProperties.isBuilding == false)
+        {
+            ResourceSystem.GatherResource((int)((float)unitProperties.cost * givingResourcesBack));
+        }
+
+        if (gatherFromDeadEnemies > 0 && unitProperties.unitType == "enemy" && unitProperties.isBuilding == false)
+        {
+            ResourceSystem.GatherResource((int)((float)unitProperties.cost * gatherFromDeadEnemies));
+        }
+    }
+
+    private void Destroy()
+    {
         Destroy(gameObject);
         UnitsOnScene.RemoveUnit(gameObject);
+    }
+
+    IEnumerator DieHard()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy();
     }
 
     public void LeaveOnlySprite()

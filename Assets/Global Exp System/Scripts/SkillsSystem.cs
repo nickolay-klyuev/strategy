@@ -27,8 +27,11 @@ public class SkillsSystem : MonoBehaviour
         chooseSkillBlock.SetActive(false);
 
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! skills !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        skills.Add(new Skill("Improved Learning", "You will get more experience points. (+5%)", "ImprovedLearning"));
-        // TODO: figure out and add new skills, similar with that one above
+        skills.Add(new Skill("Battle Experience", "You will get more experience points for killing enemies. (+5%)", "BattleExperience"));
+        skills.Add(new Skill("Old Material Gathering", "You will get back resources after your units destroyed. (25% of an unit cost)", "OldMaterialGathering"));
+        skills.Add(new Skill("Die Hard", "Brave soldiers and machines don't want to die easily. Before die, your units will stay in battle for a bit longer. (3 sec extra live after loosing all health)", "DieHard"));
+        skills.Add(new Skill("Vultures", "Gather resources from dead enemies. (5% of an unit cost)", "Vultures"));
+        // TODO: figure out and add new skills, similar with those above
 
         skillBlocks.Add(new SkillBlock(chooseSkillBlock.transform.GetChild(1).gameObject));
         skillBlocks.Add(new SkillBlock(chooseSkillBlock.transform.GetChild(2).gameObject));
@@ -51,8 +54,20 @@ public class SkillsSystem : MonoBehaviour
             // TODO: make choosing skills to affect on game 
             switch (activeSkill.GetMetaName())
             {
+                case "BattleExperience":
+                    GlobalExpSystem.extraExpPerc += .05f;
+                    break;
+                case "OldMaterialGathering":
+                    DestroyScript.givingResourcesBack = .25f;
+                    break;
+                case "DieHard":
+                    DestroyScript.isDieHard = true;
+                    break;
+                case "Vultures":
+                    DestroyScript.gatherFromDeadEnemies = .05f;
+                    break;
                 default:
-                    Debug.Log("Choose a skill");
+                    Debug.LogWarning("There are no such skill!!!!!!!!!!!!!!!");
                 break;
             }
         }

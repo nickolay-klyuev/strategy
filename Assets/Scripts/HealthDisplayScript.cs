@@ -15,7 +15,7 @@ public class HealthDisplayScript : MonoBehaviour
     void Start()
     {
         unitProperties = transform.parent.GetComponentInParent<UnitProperties>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         hpBar = transform.GetChild(0);
         maxHp = unitProperties.health;
         initHpBarXScale = hpBar.localScale.x;
@@ -24,14 +24,12 @@ public class HealthDisplayScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    void FixedUpdate()
-    {
         float hpPercentage = unitProperties.health * 100 / maxHp;
         float currentHpBarXScale = hpPercentage * initHpBarXScale / 100;
-        hpBar.localScale = new Vector2(currentHpBarXScale, hpBar.localScale.y);
+        if (currentHpBarXScale >= 0) // if less than zero then hpBar will grow up
+        {
+            hpBar.localScale = new Vector2(currentHpBarXScale, hpBar.localScale.y);
+        }
         
         if (hpPercentage < 20f)
         {
@@ -43,7 +41,7 @@ public class HealthDisplayScript : MonoBehaviour
         }
         else
         {
-            spriteRenderer.color = Color.black;
+            spriteRenderer.color = Color.green;
         }
     }
 }

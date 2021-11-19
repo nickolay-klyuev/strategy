@@ -5,9 +5,10 @@ using UnityEngine;
 public class GlobalExpSystem : MonoBehaviour
 {
     static private int globalExp = 0;
+    static public float extraExpPerc = 0f;
     static public void AddExp(int amount)
     {
-        globalExp += amount;
+        globalExp += (amount + (int)((float)amount * extraExpPerc));
     }
     static public int GetExp()
     {
@@ -21,7 +22,7 @@ public class GlobalExpSystem : MonoBehaviour
         return currentLvl;
     }
 
-    static private int skillPoints = 10;
+    static private int skillPoints = 0;
     static public int GetSkillPoints()
     {
         return skillPoints;
