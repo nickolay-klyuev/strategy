@@ -13,15 +13,19 @@ public class DestroyScript : MonoBehaviour
     private AttackController attackController;
     private AudioSource audioSource;
 
+    private bool destroyTriggered = false;
+
     public void DestroyThisGameObject()
     {
+        destroyTriggered = true;
+
         if (isDieHard && unitProperties.unitType == "friendly" && unitProperties.isBuilding == false)
         {
             StartCoroutine(DieHard());
         }
         else
         {
-            Destroy();
+            ThisDestroy();
         }
 
         if (givingResourcesBack > 0 && unitProperties.unitType == "friendly" && unitProperties.isBuilding == false)
@@ -35,7 +39,7 @@ public class DestroyScript : MonoBehaviour
         }
     }
 
-    private void Destroy()
+    private void ThisDestroy()
     {
         Destroy(gameObject);
         UnitsOnScene.RemoveUnit(gameObject);
@@ -44,7 +48,7 @@ public class DestroyScript : MonoBehaviour
     IEnumerator DieHard()
     {
         yield return new WaitForSeconds(3f);
-        Destroy();
+        ThisDestroy();
     }
 
     public void LeaveOnlySprite()
@@ -84,31 +88,34 @@ public class DestroyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (unitProperties.health <= 0 && unitProperties.hasDeathAnimation) // trigger death animation and stop moving during it
-        {   
-            if (audioSource != null && !deathSoundPlayed)
-            {
-                deathSoundPlayed = true;
-                audioSource.Play();
-            }
-
-            if (!unitProperties.isBuilding)
-            {
-                moveController.StopChasing();
-                moveController.StopMoving();
-                attackController.StopAttack();
-            }
-
-            GetComponent<Animator>().SetTrigger("DeathTrigger");
-        }
-        else if (unitProperties.health <= 0 && GetComponent<BuildingsSelectTools>() != null)
+        if (!destroyTriggered)
         {
-            Destroy(GetComponent<BuildingsSelectTools>().GetMenuUI());
-            DestroyThisGameObject();
-        }
-        else if (unitProperties.health <= 0)
-        {
-            DestroyThisGameObject();
+            if (unitProperties.health <= 0 && unitProperties.hasDeathAnimation) // trigger death animation and stop moving during it
+            {   
+                if (audioSource != null && !deathSoundPlayed)
+                {
+                    deathSoundPlayed = true;
+                    audioSource.Play();
+                }
+
+                if (!unitProperties.isBuilding)
+                {
+                    moveController.StopChasing();
+                    moveController.StopMoving();
+                    attackController.StopAttack();
+                }
+
+                GetComponent<Animator>().SetTrigger("DeathTrigger");
+            }
+            else if (unitProperties.health <= 0 && GetComponent<BuildingsSelectTools>() != null)
+            {
+                Destroy(GetComponent<BuildingsSelectTools>().GetMenuUI());
+                DestroyThisGameObject();
+            }
+            else if (unitProperties.health <= 0)
+            {
+                DestroyThisGameObject();
+            }
         }
     }
 }
