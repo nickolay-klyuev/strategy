@@ -270,7 +270,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: My attempt of making a strategy game
+  m_Text: System d20wgm
 --- !u!222 &504299722
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -580,7 +580,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuMusic: {fileID: 8300000, guid: acbac91df56a9e598a51dfabe193456b, type: 3}
-  missionMusic: {fileID: 8300000, guid: 5b5e9fc1aec1099988664c533e506f49, type: 3}
 --- !u!1001 &1074804246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -658,7 +657,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7940132209415933251, guid: 7afe9e906166e8f5db2db135b3e7893b, type: 3}
       propertyPath: m_Text
-      value: Play demo
+      value: Survive mode
       objectReference: {fileID: 0}
     - target: {fileID: 7940132210957638080, guid: 7afe9e906166e8f5db2db135b3e7893b, type: 3}
       propertyPath: m_Colors.m_PressedColor.b

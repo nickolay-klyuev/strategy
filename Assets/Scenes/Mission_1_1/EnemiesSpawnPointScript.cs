@@ -9,6 +9,7 @@ public class EnemiesSpawnPointScript : MonoBehaviour
     [SerializeField] float spawnInterval;
 
     private MiniMapController miniMap;
+    private int maxEnemies = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -16,19 +17,32 @@ public class EnemiesSpawnPointScript : MonoBehaviour
         miniMap = GameObject.Find("Mini Map").GetComponent<MiniMapController>();
 
         StartCoroutine(SpawnEnemies());
+        StartCoroutine(DoMoreEnemies());
+    }
+
+    IEnumerator DoMoreEnemies()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(60f);
+            maxEnemies++;
+        }
     }
 
     IEnumerator SpawnEnemies()
     {
         yield return new WaitForSeconds(initialSpawnTime);
 
-        while (UnitsOnScene.GetUnits("enemy;unit").Count <= 5)
+        while (true)
         {
-            foreach (GameObject enemy in enemiesToSpawn)
+            if (UnitsOnScene.GetUnits("enemy;unit").Count <= maxEnemies)
             {
-                GameObject enemyCreated = Instantiate(enemy, transform.position, Quaternion.identity);
-                UnitsOnScene.AddUnit(enemyCreated);
-                miniMap.AddIndicator(enemyCreated);
+                foreach (GameObject enemy in enemiesToSpawn)
+                {
+                    GameObject enemyCreated = Instantiate(enemy, transform.position, Quaternion.identity);
+                    UnitsOnScene.AddUnit(enemyCreated);
+                    miniMap.AddIndicator(enemyCreated);
+                }
             }
 
             yield return new WaitForSeconds(spawnInterval);
