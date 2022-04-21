@@ -12,18 +12,8 @@ public class MusicBackgroundMainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
-
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = mainMenuMusic;
         audioSource.Play();
-    }
-
-    void Update()
-    {
-        if (SceneManager.GetActiveScene().name.Contains("Mission"))
-        {
-            Destroy(gameObject);
-        }
     }
 }

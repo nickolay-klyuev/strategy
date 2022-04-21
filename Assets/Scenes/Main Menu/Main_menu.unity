@@ -270,7 +270,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: System d20wgm
+  m_Text: Chros battle
 --- !u!222 &504299722
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -693,7 +693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7940132210957638086, guid: 7afe9e906166e8f5db2db135b3e7893b, type: 3}
       propertyPath: m_Name
-      value: Start game button
+      value: Survive mod start button
       objectReference: {fileID: 0}
     - target: {fileID: 7940132210957638087, guid: 7afe9e906166e8f5db2db135b3e7893b, type: 3}
       propertyPath: m_Pivot.x
