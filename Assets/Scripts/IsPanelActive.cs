@@ -20,7 +20,7 @@ public class IsPanelActive : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(GetIsActive());
     }
 
     public void OnPointerEnter(PointerEventData data)

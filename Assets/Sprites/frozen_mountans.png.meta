@@ -87,6 +87,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -704,6 +705,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      frozen_mountans_12: -8452628377756841854
+      frozen_mountans_19: -4498614747945339571
+      frozen_mountans_7: -821549518797887731
+      frozen_mountans_15: -4917958316402911368
+      frozen_mountans_8: 5084303682815771844
+      frozen_mountans_10: -7391541582598224306
+      frozen_mountans_16: 3167512014280472719
+      frozen_mountans_5: -2194230591467385
+      frozen_mountans_1: 5235120079100338591
+      frozen_mountans_4: -8196133460013604237
+      frozen_mountans_11: 3750953951256684965
+      frozen_mountans_20: 5798472873513535691
+      frozen_mountans_9: 2973778909476602775
+      frozen_mountans_3: 3824024415885853176
+      frozen_mountans_13: -406401629472083127
+      frozen_mountans_6: 1845941796385120893
+      frozen_mountans_2: 6649961873835783342
+      frozen_mountans_14: -4007277111663100424
+      frozen_mountans_17: 2908887391396118287
+      frozen_mountans_0: -120698793362199495
+      frozen_mountans_18: 3516144421278316839
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -87,6 +87,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -604,6 +605,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      frozen_ground_sprites_64x64_6: -2541614636427583019
+      frozen_ground_sprites_64x64_4: -1874740576240908708
+      frozen_ground_sprites_64x64_1: 5395253075255168377
+      frozen_ground_sprites_64x64_13: 985636126948280378
+      frozen_ground_sprites_64x64_8: -2714162745625936415
+      frozen_ground_sprites_64x64_10: -7853562264016741535
+      frozen_ground_sprites_64x64_14: -6613735578124868522
+      frozen_ground_sprites_64x64_3: -3064768678527269134
+      frozen_ground_sprites_64x64_9: -815806567999551788
+      frozen_ground_sprites_64x64_2: -5914920918111583021
+      frozen_ground_sprites_64x64_7: -4682636384389068546
+      frozen_ground_sprites_64x64_0: 5000209348511781569
+      frozen_ground_sprites_64x64_5: -7441655799863596471
+      frozen_ground_sprites_64x64_20: 1436147880199981411
+      frozen_ground_sprites_64x64_15: 5713164407965712881
+      frozen_ground_sprites_64x64_18: 7510785432150314889
+      frozen_ground_sprites_64x64_19: 7586733674985844584
+      frozen_ground_sprites_64x64_11: 4676174212311132224
+      frozen_ground_sprites_64x64_12: -8036164095661147194
+      frozen_ground_sprites_64x64_16: -4513512098807117671
+      frozen_ground_sprites_64x64_17: -1634796161041705317
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

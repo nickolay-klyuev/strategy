@@ -87,6 +87,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -604,6 +605,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      snow_64x64_full_20: 4088911986848270407
+      snow_64x64_full_0: -1584042084041080732
+      snow_64x64_full_13: -5441387636968598137
+      snow_64x64_full_17: 1102989019359693034
+      snow_64x64_full_16: -4819783603646438403
+      snow_64x64_full_6: -2343654438444207244
+      snow_64x64_full_1: 2804125235394256380
+      snow_64x64_full_4: -4278433158488963333
+      snow_64x64_full_14: -3101227929704187368
+      snow_64x64_full_3: -2175579013770909525
+      snow_64x64_full_9: 4602394126249480123
+      snow_64x64_full_10: -7949407629005432876
+      snow_64x64_full_11: 7478581396681297085
+      snow_64x64_full_18: -8392363712887966000
+      snow_64x64_full_15: 6129924119561477459
+      snow_64x64_full_2: 1248308316316774216
+      snow_64x64_full_5: -3498528423867294413
+      snow_64x64_full_8: -3531800257672743056
+      snow_64x64_full_12: 388266473780826876
+      snow_64x64_full_7: 918112668291839614
+      snow_64x64_full_19: -3915998918813934033
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
