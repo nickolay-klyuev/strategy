@@ -28,6 +28,23 @@ public class SelectBoxController : MonoBehaviour
             StartSelecting();
         }
 
+        if (Input.GetMouseButtonUp(0))
+        {
+            StopSelecting();
+        }
+
+        if (Input.GetMouseButtonDown(1)) // move selected units to mouse position
+        {
+            UnitProperties target = StaticMethods.GetGameObjectByRaycast().gameObject.GetComponent<UnitProperties>();
+            if (target == null || target.unitType != "enemy")
+            {
+                foreach (GameObject unit in SelectedUnits.selectedUnits)
+                {
+                    unit.GetComponent<MoveController>().MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                }
+            }
+        }
+
         if (isSelecting)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
