@@ -9,9 +9,13 @@ public class CameraController : MonoBehaviour
     public float maxCameraSize = 7f;
     public float minCameraSize = 3f;
     public GameObject background;
+
     private Vector2 bgSize;
 
     private Camera mainCamera;
+
+    private Vector2 _initialTouchPosition;
+    private Vector3 _initialCameraPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +28,35 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // camera move by WASD
+        // chage camera size by mouse wheel (zoom)
+        if (Input.GetAxisRaw("Mouse ScrollWheel") < 0 && mainCamera.orthographicSize < maxCameraSize)
+        {
+            mainCamera.orthographicSize += cameraSizeStep;
+            FixCameraPosition(2);
+        }
+        if (Input.GetAxisRaw("Mouse ScrollWheel") > 0 && mainCamera.orthographicSize > minCameraSize)
+        {
+            mainCamera.orthographicSize -= cameraSizeStep;
+        }
+    }
+
+    void LateUpdate()
+    {
+        switch (SettingsScript.GetCurrentControlType())
+        {
+            case SettingsScript.ControlType.Touch:
+                MoveCameraByTouch();
+            break;
+
+            case SettingsScript.ControlType.KeyboardMouse:
+                MoveCameraByWASD();
+            break;
+        }        
+    }
+
+    private void MoveCameraByWASD()
+    {
+        // camera move by WASD 
         Vector3 pos = transform.position;
         float camHorizontalSize = mainCamera.orthographicSize * mainCamera.aspect;
         
@@ -46,15 +78,69 @@ public class CameraController : MonoBehaviour
         }
 
         transform.position = pos;
+    }
 
-        // chage camera size by mouse wheel (zoom)
-        if (Input.GetAxisRaw("Mouse ScrollWheel") < 0 && mainCamera.orthographicSize < maxCameraSize)
+    private bool _movingByTouch = false;
+    private void MoveCameraByTouch()
+    {
+        // camera move by touch and drag
+        if (Input.GetMouseButtonDown(0) && !_movingByTouch)
         {
-            mainCamera.orthographicSize += cameraSizeStep;
+            _movingByTouch = true;
+            _initialTouchPosition = Input.mousePosition;
+            _initialCameraPosition = mainCamera.transform.position;
         }
-        if (Input.GetAxisRaw("Mouse ScrollWheel") > 0 && mainCamera.orthographicSize > minCameraSize)
+
+        if (_movingByTouch)
         {
-            mainCamera.orthographicSize -= cameraSizeStep;
+            MoveCamera();
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            _movingByTouch = false;
+        }
+    }
+
+    private void MoveCamera()
+    {
+        Vector3 cameraPos = mainCamera.transform.position;
+        Vector3 newCameraPos = _initialCameraPosition + ((Vector3)_initialTouchPosition - Input.mousePosition) * 0.01f;
+        float camHorizontalSize = mainCamera.orthographicSize * mainCamera.aspect;
+        
+        mainCamera.transform.position = newCameraPos;
+
+        FixCameraPosition(2);
+    }
+
+    private void FixCameraPosition(int times = 1)
+    {
+        Vector3 cameraPos = mainCamera.transform.position;
+        float camHorizontalSize = mainCamera.orthographicSize * mainCamera.aspect;
+
+        if (bgSize.x - camHorizontalSize < cameraPos.x)
+        {
+            mainCamera.transform.position = new Vector3(bgSize.x - camHorizontalSize, cameraPos.y, cameraPos.z);
+        }
+
+        if (cameraPos.x < camHorizontalSize)
+        {
+            mainCamera.transform.position = new Vector3(camHorizontalSize, cameraPos.y, cameraPos.z);
+        }
+
+        if (cameraPos.y > bgSize.y - mainCamera.orthographicSize)
+        {
+            mainCamera.transform.position = new Vector3(cameraPos.x, bgSize.y - mainCamera.orthographicSize, cameraPos.z);
+        }
+
+        if (cameraPos.y < mainCamera.orthographicSize)
+        {
+            mainCamera.transform.position = new Vector3(cameraPos.x, mainCamera.orthographicSize, cameraPos.z);
+        }
+
+        if (times > 0)
+        {
+            FixCameraPosition(--times);
         }
     }
 }

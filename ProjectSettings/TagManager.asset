@@ -15,6 +15,7 @@ TagManager:
   - Resources Gatherer
   - Resources Gatherer Friendly
   - Build Radius
+  - Settings
   layers:
   - Default
   - TransparentFX

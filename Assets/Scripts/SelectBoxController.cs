@@ -22,16 +22,7 @@ public class SelectBoxController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !MiniMapController.GetIsMiniMapPointerDown())
-        {
-            SelectedUnits.UnselectAll();
-            StartSelecting();
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            StopSelecting();
-        }
+        SelectUnits();
 
         if (Input.GetMouseButtonDown(1)) // move selected units to mouse position
         {
@@ -87,7 +78,34 @@ public class SelectBoxController : MonoBehaviour
         }
     }
 
-    public void StartSelecting()
+    private void SelectUnits()
+    {
+        bool selectInput = false;
+
+        switch (SettingsScript.GetCurrentControlType())
+        {
+            case SettingsScript.ControlType.Touch:
+                selectInput = DoubleClick();
+            break;
+
+            case SettingsScript.ControlType.KeyboardMouse:
+                selectInput = Input.GetMouseButtonDown(0);
+            break;
+        }
+        
+        if (selectInput && !MiniMapController.GetIsMiniMapPointerDown())
+        {
+            SelectedUnits.UnselectAll();
+            StartSelecting();
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            StopSelecting();
+        }
+    }
+
+    private void StartSelecting()
     {
         isSelecting = true;
 
@@ -100,12 +118,36 @@ public class SelectBoxController : MonoBehaviour
         lineRenderer.SetPosition(0, initialMousePosition);
     }
 
-    public void StopSelecting()
+    private void StopSelecting()
     {
         isSelecting = false;
         Vector3 iPos3 = new Vector3(0, 0, -1);
         Vector2 iPos2 = new Vector2(0, 0);
         lineRenderer.SetPositions(new Vector3[4]{iPos3, iPos3, iPos3, iPos3});
         polygonCollider.SetPath(0, new Vector2[4]{iPos2, iPos2, iPos2, iPos2});
+    }
+
+    private bool _isFistClick = true;
+    private bool DoubleClick()
+    {
+        if (_isFistClick && Input.GetMouseButtonDown(0))
+        {
+            _isFistClick = false;
+            StartCoroutine(FirstClickTimeOut(0.2f));
+        }
+        else if (!_isFistClick && Input.GetMouseButtonDown(0))
+        {
+            _isFistClick = true;
+            return true;
+        }
+
+        return false;
+    }
+
+    IEnumerator FirstClickTimeOut(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        _isFistClick = true;
     }
 }
