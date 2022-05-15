@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    [SerializeField] SelectBoxController _selectBox;
+
     public float cameraSpeed = 1f;
     public float cameraSizeStep = .5f;
     public float maxCameraSize = 7f;
@@ -83,9 +85,18 @@ public class CameraController : MonoBehaviour
     private bool _movingByTouch = false;
     private void MoveCameraByTouch()
     {
+        UnitProperties possibleUnit = StaticMethods.GetGameObjectByRaycast().GetComponent<UnitProperties>();
+
+        if (_selectBox.IsSelecting() || possibleUnit != null) // skip if selecting units
+        {
+            return;
+        }
+
         // camera move by touch and drag
         if (Input.GetMouseButtonDown(0) && !_movingByTouch)
         {
+            StartCoroutine(ForbidUnitsMove(0.1f));
+
             _movingByTouch = true;
             _initialTouchPosition = Input.mousePosition;
             _initialCameraPosition = mainCamera.transform.position;
@@ -100,6 +111,13 @@ public class CameraController : MonoBehaviour
         {
             _movingByTouch = false;
         }
+    }
+
+    IEnumerator ForbidUnitsMove(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        _selectBox.ForbidNextClickUp();
     }
 
     private void MoveCamera()

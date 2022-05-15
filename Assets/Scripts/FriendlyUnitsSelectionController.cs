@@ -6,9 +6,13 @@ public class FriendlyUnitsSelectionController : MonoBehaviour
 {
     private bool isSelected = false;
 
-    void OnMouseUp()
+    void OnMouseDown()
     {
         SelectedUnits.UnselectAll();
+    }
+
+    void OnMouseUp()
+    {
         isSelected = true;
         SelectedUnits.selectedUnits.Add(gameObject);
     }

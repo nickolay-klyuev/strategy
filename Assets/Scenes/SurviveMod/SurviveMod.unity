@@ -29980,6 +29980,10 @@ PrefabInstance:
       value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 3563282123565282375, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
+      propertyPath: _selectBox
+      value: 
+      objectReference: {fileID: 1310722154}
+    - target: {fileID: 3563282123565282375, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
       propertyPath: background
       value: 
       objectReference: {fileID: 418958016}

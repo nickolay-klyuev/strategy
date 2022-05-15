@@ -6,6 +6,13 @@ public class SelectedUnits : MonoBehaviour
 {
     public static List<GameObject> selectedUnits = new List<GameObject>();
 
+    public static void UnselectUnit(GameObject core)
+    {
+        core.GetComponent<FriendlyUnitsSelectionController>().SetIsSelected(false);
+
+        selectedUnits.Remove(core);
+    }
+
     public static void UnselectAll()
     {
         if (!Input.GetKey(KeyCode.LeftShift))

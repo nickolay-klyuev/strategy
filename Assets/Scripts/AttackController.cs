@@ -58,7 +58,20 @@ public class AttackController : MonoBehaviour
         // mark target to attack
         if (friendlyMoveController != null && friendlyMoveController.GetIsSelected())
         {
-            if (Input.GetMouseButtonDown(1)) {
+            bool attackInput = false;
+
+            switch (SettingsScript.GetCurrentControlType())
+            {
+                case SettingsScript.ControlType.KeyboardMouse:
+                    attackInput = Input.GetMouseButtonDown(1);
+                break;
+
+                case SettingsScript.ControlType.Touch:
+                    attackInput = Input.GetMouseButtonDown(0);
+                break;
+            }
+
+            if (attackInput) {
                 GameObject hitGameobject = StaticMethods.GetGameObjectByRaycast();
                 UnitProperties raycastHitunitProperties = hitGameobject.GetComponent<UnitProperties>();
                 if (raycastHitunitProperties != null) {
@@ -66,6 +79,11 @@ public class AttackController : MonoBehaviour
                     {
                         StopAttack();
                         moveController.StartChasing(hitGameobject);
+
+                        if (SettingsScript.GetCurrentControlType() == SettingsScript.ControlType.Touch)
+                        {
+                            SelectedUnits.UnselectUnit(transform.parent.gameObject);
+                        }
                     }
                 }
             }

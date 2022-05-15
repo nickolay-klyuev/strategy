@@ -7,7 +7,18 @@ public class SelectBoxController : MonoBehaviour
     private LineRenderer lineRenderer;
     private PolygonCollider2D polygonCollider;
     private bool isSelecting = false;
+    public bool IsSelecting()
+    {
+        return isSelecting;
+    }
+
     private Vector3 initialMousePosition;
+
+    private bool _isNextClickUpForbidden = false;
+    public void ForbidNextClickUp()
+    {
+        _isNextClickUpForbidden = true;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -23,17 +34,12 @@ public class SelectBoxController : MonoBehaviour
     void Update()
     {
         SelectUnits();
+        
+        MoveSelectedUnits();
 
-        if (Input.GetMouseButtonDown(1)) // move selected units to mouse position
+        if (Input.GetMouseButtonUp(0)) // stop selecting
         {
-            UnitProperties target = StaticMethods.GetGameObjectByRaycast().gameObject.GetComponent<UnitProperties>();
-            if (target == null || target.unitType != "enemy")
-            {
-                foreach (GameObject unit in SelectedUnits.selectedUnits)
-                {
-                    unit.GetComponent<MoveController>().MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-                }
-            }
+            StopSelecting();
         }
 
         if (isSelecting)
@@ -98,11 +104,6 @@ public class SelectBoxController : MonoBehaviour
             SelectedUnits.UnselectAll();
             StartSelecting();
         }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            StopSelecting();
-        }
     }
 
     private void StartSelecting()
@@ -125,6 +126,44 @@ public class SelectBoxController : MonoBehaviour
         Vector2 iPos2 = new Vector2(0, 0);
         lineRenderer.SetPositions(new Vector3[4]{iPos3, iPos3, iPos3, iPos3});
         polygonCollider.SetPath(0, new Vector2[4]{iPos2, iPos2, iPos2, iPos2});
+    }
+
+    private void MoveSelectedUnits()
+    {
+        bool moveInput = false;
+
+        switch (SettingsScript.GetCurrentControlType())
+        {
+            case SettingsScript.ControlType.Touch:
+                moveInput = Input.GetMouseButtonUp(0);
+                if (moveInput)
+                {
+                    moveInput = !_isNextClickUpForbidden && !isSelecting;
+                    _isNextClickUpForbidden = false;
+                }
+            break;
+
+            case SettingsScript.ControlType.KeyboardMouse:
+                moveInput = Input.GetMouseButtonDown(1);
+            break;
+        }
+
+        if (moveInput) // move selected units to mouse position
+        {
+            UnitProperties target = StaticMethods.GetGameObjectByRaycast().GetComponent<UnitProperties>();
+            if (target == null)
+            {
+                foreach (GameObject unit in SelectedUnits.selectedUnits)
+                {
+                    unit.GetComponent<MoveController>().MoveToPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+
+                    if (SettingsScript.GetCurrentControlType() == SettingsScript.ControlType.Touch)
+                    {
+                        SelectedUnits.UnselectAll();
+                    }
+                }
+            }
+        }
     }
 
     private bool _isFistClick = true;
