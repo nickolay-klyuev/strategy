@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     public float cameraSizeStep = .5f;
     public float maxCameraSize = 7f;
     public float minCameraSize = 3f;
+    [SerializeField] float _touchCameraZoomIndex = 0.1f;
     public GameObject background;
 
     private Vector2 bgSize;
@@ -18,6 +19,10 @@ public class CameraController : MonoBehaviour
 
     private Vector2 _initialTouchPosition;
     private Vector3 _initialCameraPosition;
+
+    private bool _changingCameraByTouches = false;
+    private float _initialDistanceBetweenTouches;
+    private float _initialCameraSize;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +44,26 @@ public class CameraController : MonoBehaviour
         if (Input.GetAxisRaw("Mouse ScrollWheel") > 0 && mainCamera.orthographicSize > minCameraSize)
         {
             mainCamera.orthographicSize -= cameraSizeStep;
+        }
+
+        // change camera by touch
+        if (Input.touchCount == 2)
+        {
+            if (!_changingCameraByTouches)
+            {
+                _initialDistanceBetweenTouches = Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
+                _initialCameraSize = mainCamera.orthographicSize;
+                _changingCameraByTouches = true;
+            }
+            
+            float currentDistanceBetweenTouches = Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
+            float cameraZoomAmount = currentDistanceBetweenTouches - _initialDistanceBetweenTouches;
+            mainCamera.orthographicSize = _initialCameraSize - cameraZoomAmount * _touchCameraZoomIndex;
+            FixCameraPosition(2);
+        }
+        else if (_changingCameraByTouches)
+        {
+            _changingCameraByTouches = false;
         }
     }
 
@@ -83,6 +108,7 @@ public class CameraController : MonoBehaviour
     }
 
     private bool _movingByTouch = false;
+    private bool _allowCameraMoving = true;
     private void MoveCameraByTouch()
     {
         UnitProperties possibleUnit = StaticMethods.GetGameObjectByRaycast().GetComponent<UnitProperties>();
@@ -92,8 +118,14 @@ public class CameraController : MonoBehaviour
             return;
         }
 
+        if (_changingCameraByTouches) // skip if camera zooming
+        {
+            _allowCameraMoving = false;
+            return;
+        }
+
         // camera move by touch and drag
-        if (Input.GetMouseButtonDown(0) && !_movingByTouch)
+        if (Input.GetMouseButtonDown(0) && !_movingByTouch && _allowCameraMoving)
         {
             StartCoroutine(ForbidUnitsMove(0.1f));
 
@@ -102,7 +134,7 @@ public class CameraController : MonoBehaviour
             _initialCameraPosition = mainCamera.transform.position;
         }
 
-        if (_movingByTouch)
+        if (_movingByTouch && _allowCameraMoving)
         {
             MoveCamera();
         }
@@ -110,6 +142,11 @@ public class CameraController : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             _movingByTouch = false;
+        }
+
+        if (Input.touchCount < 2)
+        {
+            _allowCameraMoving = true;
         }
     }
 

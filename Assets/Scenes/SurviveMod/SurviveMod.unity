@@ -29987,6 +29987,10 @@ PrefabInstance:
       propertyPath: background
       value: 
       objectReference: {fileID: 418958016}
+    - target: {fileID: 3563282123565282375, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
+      propertyPath: _touchCameraZoomIndex
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 3563282123565282488, guid: 82e5d2a6280aeab7f970f5939e5c9b68, type: 3}
       propertyPath: m_Enabled
       value: 1

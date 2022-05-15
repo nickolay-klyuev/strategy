@@ -131,7 +131,7 @@ public class SelectBoxController : MonoBehaviour
     private void MoveSelectedUnits()
     {
         bool moveInput = false;
-
+        Debug.Log(_isNextClickUpForbidden);
         switch (SettingsScript.GetCurrentControlType())
         {
             case SettingsScript.ControlType.Touch:
