@@ -22,15 +22,14 @@ public class OnHoverScript : MonoBehaviour
         //isSelectedScript.DisableSelectBox(extraScale, true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private Vector3 extraScale = new Vector3(0.1f, 0.1f, 0);
     private void OnMouseOver()
     {
+        if (SettingsScript.IsTouch())
+        {
+            return;
+        }
+
         isOnHover = true;
         sprite.color = Color.white;
         isSelectedScript.EnableSelectBox(extraScale, true);
@@ -38,6 +37,11 @@ public class OnHoverScript : MonoBehaviour
 
     private void OnMouseExit()
     {
+        if (SettingsScript.IsTouch())
+        {
+            return;
+        }
+
         isOnHover = false;
         sprite.color = defaultColor;
         isSelectedScript.DisableSelectBox(extraScale, true);

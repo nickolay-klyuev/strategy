@@ -11,4 +11,14 @@ public class SettingsScript
     {
         return s_controlType;
     }
+
+    public static bool IsTouch()
+    {
+        return s_controlType == ControlType.Touch;
+    }
+
+    public static bool IsKeyboardMouse()
+    {
+        return s_controlType == ControlType.KeyboardMouse;
+    }
 }

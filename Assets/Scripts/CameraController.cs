@@ -21,6 +21,7 @@ public class CameraController : MonoBehaviour
     private Vector3 _initialCameraPosition;
 
     private bool _changingCameraByTouches = false;
+    private bool _allowCameraMovingByTouch = true;
     private float _initialDistanceBetweenTouches;
     private float _initialCameraSize;
 
@@ -35,35 +36,13 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // chage camera size by mouse wheel (zoom)
-        if (Input.GetAxisRaw("Mouse ScrollWheel") < 0 && mainCamera.orthographicSize < maxCameraSize)
+        if (SettingsScript.IsKeyboardMouse())
         {
-            mainCamera.orthographicSize += cameraSizeStep;
-            FixCameraPosition(2);
+            ZoomCameraByMouseWheel();
         }
-        if (Input.GetAxisRaw("Mouse ScrollWheel") > 0 && mainCamera.orthographicSize > minCameraSize)
+        else if (SettingsScript.IsTouch())
         {
-            mainCamera.orthographicSize -= cameraSizeStep;
-        }
-
-        // change camera by touch
-        if (Input.touchCount == 2)
-        {
-            if (!_changingCameraByTouches)
-            {
-                _initialDistanceBetweenTouches = Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
-                _initialCameraSize = mainCamera.orthographicSize;
-                _changingCameraByTouches = true;
-            }
-            
-            float currentDistanceBetweenTouches = Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
-            float cameraZoomAmount = currentDistanceBetweenTouches - _initialDistanceBetweenTouches;
-            mainCamera.orthographicSize = _initialCameraSize - cameraZoomAmount * _touchCameraZoomIndex;
-            FixCameraPosition(2);
-        }
-        else if (_changingCameraByTouches)
-        {
-            _changingCameraByTouches = false;
+            ZoomCameraByTouch();
         }
     }
 
@@ -79,6 +58,52 @@ public class CameraController : MonoBehaviour
                 MoveCameraByWASD();
             break;
         }        
+    }
+
+    private void ZoomCameraByMouseWheel()
+    {
+        // chage camera size by mouse wheel (zoom)
+        if (Input.GetAxisRaw("Mouse ScrollWheel") < 0 && mainCamera.orthographicSize < maxCameraSize)
+        {
+            mainCamera.orthographicSize += cameraSizeStep;
+            FixCameraPosition(2);
+        }
+        if (Input.GetAxisRaw("Mouse ScrollWheel") > 0 && mainCamera.orthographicSize > minCameraSize)
+        {
+            mainCamera.orthographicSize -= cameraSizeStep;
+        }
+    }
+
+    private void ZoomCameraByTouch()
+    {
+        // change camera by touch
+        if (Input.touchCount == 2)
+        {
+            if (!_changingCameraByTouches)
+            {
+                _initialDistanceBetweenTouches = Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
+                _initialCameraSize = mainCamera.orthographicSize;
+                _changingCameraByTouches = true;
+                _allowCameraMovingByTouch = false;
+
+                _selectBox.ForbidNextClickUp();
+            }
+            
+            float currentDistanceBetweenTouches = Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
+            float cameraZoomAmount = currentDistanceBetweenTouches - _initialDistanceBetweenTouches;
+
+            float newCameraSize = _initialCameraSize - cameraZoomAmount * _touchCameraZoomIndex;
+
+            if (newCameraSize > minCameraSize && newCameraSize < maxCameraSize)
+            {
+                mainCamera.orthographicSize = newCameraSize;
+                FixCameraPosition(2);
+            }
+        }
+        else if (_changingCameraByTouches)
+        {
+            _changingCameraByTouches = false;
+        }
     }
 
     private void MoveCameraByWASD()
@@ -108,9 +133,19 @@ public class CameraController : MonoBehaviour
     }
 
     private bool _movingByTouch = false;
-    private bool _allowCameraMoving = true;
     private void MoveCameraByTouch()
     {
+        if (!_allowCameraMovingByTouch)
+        {
+            if (Input.touchCount == 0)
+            {
+                _allowCameraMovingByTouch = true;
+                _movingByTouch = false;
+            }
+
+            return;
+        }
+
         UnitProperties possibleUnit = StaticMethods.GetGameObjectByRaycast().GetComponent<UnitProperties>();
 
         if (_selectBox.IsSelecting() || possibleUnit != null) // skip if selecting units
@@ -118,14 +153,8 @@ public class CameraController : MonoBehaviour
             return;
         }
 
-        if (_changingCameraByTouches) // skip if camera zooming
-        {
-            _allowCameraMoving = false;
-            return;
-        }
-
         // camera move by touch and drag
-        if (Input.GetMouseButtonDown(0) && !_movingByTouch && _allowCameraMoving)
+        if (Input.GetMouseButtonDown(0) && !_movingByTouch)
         {
             StartCoroutine(ForbidUnitsMove(0.1f));
 
@@ -134,7 +163,7 @@ public class CameraController : MonoBehaviour
             _initialCameraPosition = mainCamera.transform.position;
         }
 
-        if (_movingByTouch && _allowCameraMoving)
+        if (_movingByTouch)
         {
             MoveCamera();
         }
@@ -142,11 +171,6 @@ public class CameraController : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             _movingByTouch = false;
-        }
-
-        if (Input.touchCount < 2)
-        {
-            _allowCameraMoving = true;
         }
     }
 
@@ -159,8 +183,9 @@ public class CameraController : MonoBehaviour
 
     private void MoveCamera()
     {
+        Debug.Log("dvigaet cameru bladskaya suka");
         Vector3 cameraPos = mainCamera.transform.position;
-        Vector3 newCameraPos = _initialCameraPosition + ((Vector3)_initialTouchPosition - Input.mousePosition) * 0.01f;
+        Vector3 newCameraPos = _initialCameraPosition + ((Vector3)_initialTouchPosition - Input.mousePosition) * 0.0035f * mainCamera.orthographicSize;
         float camHorizontalSize = mainCamera.orthographicSize * mainCamera.aspect;
         
         mainCamera.transform.position = newCameraPos;

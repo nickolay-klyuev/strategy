@@ -76,7 +76,7 @@ public class MiniDescMenuScript : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     private void OnMouseOver()
     {
-        if (canBeShowed)
+        if (canBeShowed && !SettingsScript.IsTouch())
         {
             menuOnStage.SetActive(true);
         }
@@ -84,13 +84,16 @@ public class MiniDescMenuScript : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     private void OnMouseExit()
     {
-        menuOnStage.SetActive(false);
+        if (!SettingsScript.IsTouch())
+        {
+            menuOnStage.SetActive(false);
+        }
     }
 
     // for UI elements
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (canBeShowed)
+        if (canBeShowed && !SettingsScript.IsTouch())
         {
             menuOnStage.transform.SetAsLastSibling();
             menuOnStage.SetActive(true);
@@ -99,7 +102,10 @@ public class MiniDescMenuScript : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        menuOnStage.SetActive(false);
+        if (!SettingsScript.IsTouch())
+        {
+            menuOnStage.SetActive(false);
+        }
     }
 
     void OnDestroy()

@@ -20,6 +20,12 @@ public class SelectBoxController : MonoBehaviour
         _isNextClickUpForbidden = true;
     }
 
+    private bool _isSelectByTouchForbidden = false;
+    public void ForbidSelectByTouch()
+    {
+        _isSelectByTouchForbidden = true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -131,11 +137,25 @@ public class SelectBoxController : MonoBehaviour
     private void MoveSelectedUnits()
     {
         bool moveInput = false;
-        Debug.Log(_isNextClickUpForbidden);
+
         switch (SettingsScript.GetCurrentControlType())
         {
             case SettingsScript.ControlType.Touch:
                 moveInput = Input.GetMouseButtonUp(0);
+
+                if (_isSelectByTouchForbidden)
+                {
+                    if (Input.touchCount == 0)
+                    {
+                        _isSelectByTouchForbidden = false;
+                    }
+                    else
+                    {
+                        moveInput = false;
+                        break;
+                    }
+                }
+
                 if (moveInput)
                 {
                     moveInput = !_isNextClickUpForbidden && !isSelecting;
