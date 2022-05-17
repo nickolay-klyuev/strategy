@@ -22,6 +22,10 @@ public class UnitDescroptionUI : MonoBehaviour
     void Start()
     {
         _unitProperties = _unit.transform.GetChild(0).GetComponent<UnitProperties>();
+        if (_unitProperties == null)
+        {
+            _unitProperties = _unit.GetComponent<UnitProperties>();
+        }
 
         _description = GetComponent<Text>();
 

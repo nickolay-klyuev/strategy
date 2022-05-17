@@ -8,6 +8,7 @@ public class BuildingScript : MonoBehaviour
     public GameObject buildPlace;
     public GameObject objectToBuild;
     [SerializeField] private GameObject buildBase;
+    [SerializeField] private GameObject _buildMenu;
     public AudioClip buildSound;
 
     private GameObject activeBuildPlace;
@@ -18,11 +19,17 @@ public class BuildingScript : MonoBehaviour
         return isBuilding;
     }
 
+    private RectTransform _menuTransform;
+    private Vector2 _initialMenuPosition;
+
     // Start is called before the first frame update
     void Start()
     {
         miniMapController = GameObject.Find("Mini Map").GetComponent<MiniMapController>();
         //GetComponentInChildren<Text>().text += "(" + objectToBuild.GetComponent<UnitProperties>().cost + ")";
+
+        _menuTransform = _buildMenu.GetComponent<RectTransform>();
+        _initialMenuPosition = _menuTransform.position;
     }
 
     // Update is called once per frame
@@ -35,34 +42,33 @@ public class BuildingScript : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && activeBuildPlace.GetComponent<BuildPlaceScript>().GetCanBeBuild())
             {
-                if (ResourceSystem.SpendResource(objectToBuild.GetComponent<UnitProperties>().cost))
-                {
-                    // Build
-                    isBuilding = false;
-                    Vector3 buildingPosition = activeBuildPlace.transform.position;
-                    
-                    Destroy(activeBuildPlace);
+                // Build
+                isBuilding = false;
+                Vector3 buildingPosition = activeBuildPlace.transform.position;
+                
+                Destroy(activeBuildPlace);
 
-                    GameObject building = Instantiate(buildBase, buildingPosition, Quaternion.identity);
-                }
+                GameObject building = Instantiate(buildBase, buildingPosition, Quaternion.identity);
 
+                _menuTransform.position = _initialMenuPosition;
+                _buildMenu.GetComponent<PanelMetaData>().CloseMenu();
             }
             else if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("Can't be build here");
             }
-            else if (Input.GetMouseButtonDown(1))
-            {
-                // Cancel
-                isBuilding = false;
-                Destroy(activeBuildPlace);
-            }
+            // else if (Input.GetMouseButtonDown(1))
+            // {
+            //     // Cancel
+            //     isBuilding = false;
+            //     Destroy(activeBuildPlace);
+            // }
         }
     }
 
     public void StartBuild()
     {
-        if (!isBuilding)
+        if (!isBuilding && ResourceSystem.SpendResource(objectToBuild.GetComponent<UnitProperties>().cost))
         {
             isBuilding = true;
 
@@ -74,6 +80,9 @@ public class BuildingScript : MonoBehaviour
             buildPlace.GetComponent<BoxCollider2D>().size = buildObjectSprite.bounds.size;
 
             activeBuildPlace = Instantiate(buildPlace, new Vector3(mousePosition.x, mousePosition.y, 0), Quaternion.identity);
+
+            // hide menu
+            _menuTransform.position = new Vector3(0f, 1000f, 0f);
         }
     }
 }
