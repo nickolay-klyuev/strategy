@@ -11,16 +11,14 @@ public class IsPanelActive : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         return isActive;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        
+        //Time.timeScale = 0f;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDisable()
     {
-        Debug.Log(GetIsActive());
+        //Time.timeScale = 1f;
     }
 
     public void OnPointerEnter(PointerEventData data)

@@ -15,4 +15,9 @@ public class PanelMetaData : MonoBehaviour
     {
         return callObject;
     }
+
+    public void CloseMenu()
+    {
+        callObject.GetComponent<BuildingsSelectTools>().CloseMenu();
+    }
 }

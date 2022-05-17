@@ -33,32 +33,39 @@ public class BuildingsSelectTools : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log(StaticMethods.GetGameObjectByRaycast().name);
             if (!isSelected && GameObject.ReferenceEquals(gameObject, StaticMethods.GetGameObjectByRaycast()))
             {
                 GetComponentInChildren<AudioSource>().Play();
                 isSelected = true;
                 thisMenu.SetActive(true);
             }
-            else if (!thisMenu.GetComponent<IsPanelActive>().GetIsActive() && 
-                (thisMenu.GetComponentInChildren<SpawningScript>() != null ||
-                !thisMenu.GetComponentInChildren<BuildingScript>().GetIsBuilding()))
-            {
-                bool isSomeBuildingActive = false;
-                foreach (BuildingScript buildingScript in thisMenu.GetComponentsInChildren<BuildingScript>())
-                {
-                    if (buildingScript.GetIsBuilding())
-                    {
-                        isSomeBuildingActive = true;
-                        break;
-                    }
-                }
 
-                if (!isSomeBuildingActive)
-                {
-                    isSelected = false;
-                    thisMenu.SetActive(false);
-                }
-            }
+            // else if (!thisMenu.GetComponent<IsPanelActive>().GetIsActive() && 
+            //     (thisMenu.GetComponentInChildren<SpawningScript>() != null ||
+            //     !thisMenu.GetComponentInChildren<BuildingScript>().GetIsBuilding()))
+            // {
+            //     bool isSomeBuildingActive = false;
+            //     foreach (BuildingScript buildingScript in thisMenu.GetComponentsInChildren<BuildingScript>())
+            //     {
+            //         if (buildingScript.GetIsBuilding())
+            //         {
+            //             isSomeBuildingActive = true;
+            //             break;
+            //         }
+            //     }
+
+            //     if (!isSomeBuildingActive)
+            //     {
+            //         CloseMenu();
+            //     }
+            // }
         }
+    }
+
+    public void CloseMenu()
+    {
+        isSelected = false;
+        thisMenu.SetActive(false);
     }
 }
